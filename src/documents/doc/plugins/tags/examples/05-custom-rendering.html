@@ -1,0 +1,25 @@
+---
+layout: page
+title: Custom Rendering
+example: tag
+---
+<textarea id="textarea" class="example" rows="1"></textarea>
+
+<script type="text/javascript">
+	$('#textarea').textext({
+		plugins: 'tags',
+		items: [ 'PHP', 'Closure', 'Java' ],
+
+		html: {
+		},
+
+		ext: {
+			tags: {
+				renderTag1: function(tag)
+				{
+				}
+			}
+		}
+	});
+</script>
+

@@ -1,0 +1,14 @@
+---
+layout: 'page'
+title: 'Tags'
+mainnav: true
+---
+
+<h2>Examples</h2>
+<ul>
+	<% for doc in @Documents: %>
+		<% if doc.example == 'tag': %>
+			<li><a id="example-<%= doc.slug %>" href="<%= doc.url %>"><%= doc.title %></a></li>
+		<% end %>
+	<% end %>
+</ul>

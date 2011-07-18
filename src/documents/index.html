@@ -1,0 +1,27 @@
+---
+layout: 'page'
+title: 'TextExt'
+---
+<section>
+	<nav>
+		<ul>
+			<li><a id="nav-core" href="/doc/core/index.html">Core</a></li>
+			<li>
+				<a id="nav-plugins" href="/doc/plugins/index.html">Plugins</a>
+				<ul>
+					<li><a id="nav-plugins-autocomplete" href="/doc/plugins/autocomplete/index.html">Auto Complete</a></li>
+					<li><a id="nav-plugins-tags" href="/doc/plugins/tags/index.html">Tags</a></li>
+				</ul>
+			</li>
+		</ul>
+
+		<% @Documents.sort (a, b) -> a.url > b.url ? 1 : (a.url < b.url ? -1 : 0) %>
+		<ul>
+		<% for doc in @Documents: %>
+			<% if doc.example: %>
+				<li>Example: <a id="example-<%= doc.slug %>" href="<%= doc.url %>"><%= doc.title %></a></li>
+			<% end %>
+		<% end %>
+		</ul>
+	</nav>
+</section>

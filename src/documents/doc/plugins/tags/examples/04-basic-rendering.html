@@ -1,0 +1,47 @@
+---
+layout: page
+title: Basic Rendering
+example: tag
+---
+<textarea id="textarea" class="example" rows="1"></textarea>
+
+<style>
+	.text-core .text-tag .text-button {
+		padding-left: 22px !important;
+	}
+
+	.text-core .text-tag .custom-edit {
+		display: block;
+		width: 16px;
+		height: 16px;
+		background: url(/images/tag_blue.png);
+		position: absolute;
+		left: 2px;
+		top: 0px;
+	}
+
+	.text-core .text-tag .custom-edit:hover {
+		background: url(/images/tag_blue_edit.png);
+	}
+</style>
+
+<script type="text/javascript">
+	$('#textarea')
+		.textext({
+			plugins: 'tags',
+			items: [ 'PHP', 'Closure', 'Java' ],
+
+			html: {
+				tag: '<div class="text-tag"><div class="text-button"><span class="text-label"/><a class="custom-edit"/><a class="text-remove"/></div></div>'
+			}
+		})
+		.click(function(e, source)
+		{
+			var tag = $(source).parents('.text-tag').data('text-tag');
+
+			if(tag)
+				alert('Clicked on: ' + tag);
+		})
+		;
+</script>
+

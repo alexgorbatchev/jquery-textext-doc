@@ -1,0 +1,44 @@
+---
+layout  : example
+title   : Custom Rendering
+example : tags
+id      : custom-rendering
+---
+
+{% capture example_textarea %}
+NOT COMPLETE
+<textarea id="textarea" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#textarea')
+		.textext({
+			plugins: 'tags',
+			items: [ 'PHP', 'Closure', 'Java' ],
+
+			html: {
+				tag: '<div class="text-tag"><div class="text-button"><span class="text-label"/><a class="custom-edit"/><a class="text-remove"/></div></div>'
+			}
+		});
+</script>
+{% endcapture %}
+
+
+
+
+<h2>Source</h2>
+
+<pre class="brush: html">
+{{ example_textarea | escape}}
+</pre>
+
+<pre class="brush: js; html-script: true">
+{{ example_script | escape }}
+</pre>
+
+<h2>Live Demo</h2>
+
+{{ example_textarea }}
+{{ example_script }}
+

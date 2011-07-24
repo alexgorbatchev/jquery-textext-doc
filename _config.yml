@@ -1,0 +1,9 @@
+source      : ./source
+destination : ./output
+plugins     : ./source/_plugins
+textext     : ../src
+
+markdown    : maruku
+permalink   : /:year/:month/:title
+auto        : true
+

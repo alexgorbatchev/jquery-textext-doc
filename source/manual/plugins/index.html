@@ -1,0 +1,13 @@
+---
+layout : plugin
+title  : Plugins
+---
+
+<ul>
+	{% for item in site.pages %}
+		{% if item.plugin %}
+			<li><a id="plugin-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
+		{% endif %}
+	{% endfor %}
+</ul>
+

@@ -1,0 +1,18 @@
+---
+layout : plugin
+title  : Suggestions
+plugin : true
+id     : suggestions
+---
+
+<h3>Examples</h3>
+
+<ul>
+	{% for item in site.pages %}
+		{% if item.example == 'suggestions' %}
+			<li><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
+		{% endif %}
+	{% endfor %}
+</ul>
+
+

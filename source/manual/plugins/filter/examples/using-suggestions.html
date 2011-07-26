@@ -1,10 +1,10 @@
 ---
 layout  : example
-title   : Using Static List Of Items
+title   : Filter Using Suggestions
 example : filter
-id      : using-static-list-of-items
+order   : 2
+id      : using-suggestions
 ---
-
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
 {% endcapture %}
@@ -12,9 +12,12 @@ id      : using-static-list-of-items
 {% capture example_script %}
 <script type="text/javascript">
 	$('#textarea').textext({
-		plugins : [ 'tags', 'filter' ],
+		plugins : 'autocomplete suggestions tags filter',
 
-		filterItems : [
+		// must be set to true for the filter plugin to use suggestions' plugin items
+		useSuggestionsToFilter : true,
+
+		suggestions: [
 			'JavaScript',
 			'Java',
 			'PHP',
@@ -36,6 +39,7 @@ id      : using-static-list-of-items
 	});
 </script>
 {% endcapture %}
+
 
 
 

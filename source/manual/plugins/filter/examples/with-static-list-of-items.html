@@ -1,29 +1,42 @@
 ---
 layout  : example
-title   : Custom Rendering
-example : tags
-id      : custom-rendering
+title   : Filter With Static List Of Items
+example : filter
+order   : 1
+id      : with-static-list-of-items
 ---
 
 {% capture example_textarea %}
-NOT COMPLETE
 <textarea id="textarea" class="example" rows="1"></textarea>
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea')
-		.textext({
-			plugins: 'tags',
-			items: [ 'PHP', 'Closure', 'Java' ],
+	$('#textarea').textext({
+		plugins : 'tags filter',
 
-			html: {
-				tag: '<div class="text-tag"><div class="text-button"><span class="text-label"/><a class="custom-edit"/><a class="text-remove"/></div></div>'
-			}
-		});
+		filterItems : [
+			'JavaScript',
+			'Java',
+			'PHP',
+			'Ruby',
+			'Python',
+			'Closure',
+			'Delphi',
+			'Perl',
+			'OCAML',
+			'Erlang',
+			'Scala',
+			'Haskel',
+			'Groovy',
+			'Fortran',
+			'Basic',
+			'Cobol',
+			'Go'
+		]
+	});
 </script>
 {% endcapture %}
-
 
 
 

@@ -1,8 +1,9 @@
 ---
 layout  : example
-title   : Dropdown
-example : suggestions
-id      : dropdown
+title   : With Filter
+example : autocomplete
+order   : 3
+id      : with-filter
 ---
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
@@ -10,10 +11,12 @@ id      : dropdown
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea').textext({
-		plugins : 'autocomplete',
-
-		getSuggestions : function(val, callback)
+	$('#textarea')
+		.textext({
+			plugins : 'autocomplete filter',
+			useSuggestionsToFilter : true
+		})
+		.bind('getSuggestions', function(e, data)
 		{
 			var list = [
 					'JavaScript',
@@ -34,22 +37,22 @@ id      : dropdown
 					'Cobol',
 					'Go'
 				],
-				result = []
+				result = [],
+				query = data.query.toLowerCase()
 			;
 
 			list.sort();
-			val = val.toLowerCase();
 
-			if(val == '')
-				return callback(list);
+			if(query == '')
+				result = list.slice();
+			else
+				for(var i = 0; i < list.length; i++)
+					if(list[i].toLowerCase().indexOf(query) == 0)
+						result.push(list[i]);
 
-			for(var i = 0; i < list.length; i++)
-				if(list[i].toLowerCase().indexOf(val) == 0)
-					result.push(list[i]);
-
-			callback(result.length == 0 ? null : result);
-		}
-	});
+			$(this).trigger('setSuggestions', { result : result });
+		})
+	;
 </script>
 {% endcapture %}
 
@@ -70,3 +73,4 @@ id      : dropdown
 <pre class="brush: js; html-script: true">
 {{ example_script | escape }}
 </pre>
+

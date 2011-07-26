@@ -1,0 +1,75 @@
+---
+layout  : example
+title   : With Tags
+example : autocomplete
+order   : 2
+id      : with-tags
+---
+{% capture example_textarea %}
+<textarea id="textarea" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#textarea')
+		.textext({
+			plugins : 'autocomplete tags'
+		})
+		.bind('getSuggestions', function(e, data)
+		{
+			var list = [
+					'JavaScript',
+					'Java',
+					'PHP',
+					'Ruby',
+					'Python',
+					'Closure',
+					'Delphi',
+					'Perl',
+					'OCAML',
+					'Erlang',
+					'Scala',
+					'Haskel',
+					'Groovy',
+					'Fortran',
+					'Basic',
+					'Cobol',
+					'Go'
+				],
+				result = [],
+				query = data.query.toLowerCase()
+			;
+
+			list.sort();
+
+			if(query == '')
+				result = list.slice();
+			else
+				for(var i = 0; i < list.length; i++)
+					if(list[i].toLowerCase().indexOf(query) == 0)
+						result.push(list[i]);
+
+			$(this).trigger('setSuggestions', { result : result });
+		})
+	;
+</script>
+{% endcapture %}
+
+
+
+
+<h2>Live Demo</h2>
+
+{{ example_textarea }}
+{{ example_script }}
+
+<h2>Source</h2>
+
+<pre class="brush: html">
+{{ example_textarea | escape}}
+</pre>
+
+<pre class="brush: js; html-script: true">
+{{ example_script | escape }}
+</pre>
+

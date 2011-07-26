@@ -1,8 +1,9 @@
 ---
 layout  : example
-title   : Plain Tags
+title   : Pre-populating
 example : tags
-id      : plain
+order   : 2
+id      : pre-populating
 ---
 
 {% capture example_textarea %}
@@ -11,7 +12,10 @@ id      : plain
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea').textext({ plugins : 'tags' });
+	$('#textarea').textext({
+		plugins: 'tags',
+		items: [ 'PHP', 'Closure', 'Java' ]
+	});
 </script>
 {% endcapture %}
 

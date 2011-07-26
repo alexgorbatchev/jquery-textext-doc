@@ -1,9 +1,11 @@
 ---
 layout  : example
-title   : Using Suggestions
-example : filter
-id      : using-suggestions
+title   : Using Custom Objects
+example : tags
+order   : 3
+id      : using-custom-object
 ---
+
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
 {% endcapture %}
@@ -11,30 +13,31 @@ id      : using-suggestions
 {% capture example_script %}
 <script type="text/javascript">
 	$('#textarea').textext({
-		plugins : [ 'autocomplete', 'suggestions', 'tags', 'filter' ],
+		plugins: 'tags',
+		items: [
+			{ name: 'PHP' },
+			{ name: 'Closure' },
+			{ name: 'Java' }
+		],
 
-		// must be set to true for the filter plugin to use suggestions' plugin items
-		useSuggestionsToFilter : true,
+		ext: {
+			tags: {
+				stringToItem: function(str)
+				{
+					return { name: str };
+				},
 
-		suggestions: [
-			'JavaScript',
-			'Java',
-			'PHP',
-			'Ruby',
-			'Python',
-			'Closure',
-			'Delphi',
-			'Perl',
-			'OCAML',
-			'Erlang',
-			'Scala',
-			'Haskel',
-			'Groovy',
-			'Fortran',
-			'Basic',
-			'Cobol',
-			'Go'
-		]
+				itemToString: function(item)
+				{
+					return '[ ' + item.name + ' ]';
+				},
+
+				compareItems: function(item1, item2)
+				{
+					return item1.name == item2.name;
+				}
+			}
+		}
 	});
 </script>
 {% endcapture %}

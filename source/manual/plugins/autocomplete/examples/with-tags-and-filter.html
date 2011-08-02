@@ -1,9 +1,9 @@
 ---
 layout  : example
-title   : Basics
+title   : With Tags And Filter
 example : autocomplete
-order   : 1
-id      : basics
+order   : 4
+id      : with-tags-and-filter
 ---
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
@@ -13,7 +13,8 @@ id      : basics
 <script type="text/javascript">
 	$('#textarea')
 		.textext({
-			plugins : 'autocomplete'
+			plugins : 'autocomplete tags filter',
+			useSuggestionsToFilter : true
 		})
 		.bind('getSuggestions', function(e, data)
 		{

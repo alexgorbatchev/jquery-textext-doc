@@ -3,7 +3,7 @@ layout  : example
 title   : Using Custom Objects
 example : tags
 order   : 3
-id      : using-custom-object
+id      : custom-data-objects
 ---
 
 {% capture example_textarea %}
@@ -29,7 +29,7 @@ id      : using-custom-object
 
 				itemToString: function(item)
 				{
-					return '[ ' + item.name + ' ]';
+					return item.name;
 				},
 
 				compareItems: function(item1, item2)

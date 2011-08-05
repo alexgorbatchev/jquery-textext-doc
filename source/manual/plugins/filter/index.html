@@ -4,6 +4,13 @@ title  : Filter
 plugin : true
 id     : filter
 ---
+{% include common.html %}
+
+{% capture intro %}
+The {{ Filter }} introduces ability to limit tags that the {{ Tags }} plugin will accept. The list of allowed tags can be either hardcoded or can come from the {{ Suggestions }} plugin.
+{% endcapture %}
+
+{{ intro | markdownify }}
 
 <h3>Examples</h3>
 

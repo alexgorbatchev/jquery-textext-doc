@@ -5,6 +5,13 @@ example : filter
 order   : 2
 id      : using-suggestions
 ---
+{% capture intro %}
+The [Filter](/manual/plugins/filter/) plugin will automatically use items from the [Suggestions](/manual/plugins/suggestions/) plugin if both are present
+at the same time. [Suggestions](/manual/plugins/suggestions/) plugin dispatches `setSuggestions` event which is processed by the [Filter](/manual/plugins/filter/) plugin and passed 
+items are used to filter the input. That is *unless* `filterItems` options is explicitly set as shown in [the example](/manual/plugins/filter/examples/with-static-list-of-items.html).
+In this case specified options take precedence.
+{% endcapture %}
+
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
 {% endcapture %}
@@ -13,9 +20,6 @@ id      : using-suggestions
 <script type="text/javascript">
 	$('#textarea').textext({
 		plugins : 'autocomplete suggestions tags filter',
-
-		// must be set to true for the filter plugin to use suggestions' plugin items
-		useSuggestionsToFilter : true,
 
 		suggestions: [
 			'JavaScript',
@@ -40,8 +44,7 @@ id      : using-suggestions
 </script>
 {% endcapture %}
 
-
-
+{{ intro | markdownify }}
 
 <h2>Live Demo</h2>
 

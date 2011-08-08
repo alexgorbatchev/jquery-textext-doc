@@ -1,3 +1,3 @@
 #!/bin/bash
-gem install jekyll
+gem install jekyll --no-ri --no-rdoc
 

@@ -1,0 +1,39 @@
+---
+layout  : example
+title   : Basic Example
+example : focus
+order   : 1
+id      : focus
+---
+{% include common.html %}
+
+{% capture intro %}
+To see the effect of the {{ Focus }} plugin, click in and out of the text input field. You should be seeing a pleasant effect.
+{% endcapture %}
+
+{% capture example_textarea %}
+<textarea id="textarea" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#textarea').textext({ plugins : 'focus tags' });
+</script>
+{% endcapture %}
+
+{{ intro | markdownify }}
+
+<h2>Live Demo</h2>
+
+{{ example_textarea }}
+{{ example_script }}
+
+<h2>Source</h2>
+
+<pre class="brush: html">
+{{ example_textarea | escape}}
+</pre>
+
+<pre class="brush: js; html-script: true">
+{{ example_script | escape }}
+</pre>

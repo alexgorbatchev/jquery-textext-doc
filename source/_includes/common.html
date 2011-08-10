@@ -1,6 +1,25 @@
 {% capture Filter %}[Filter](/manual/plugins/filter/){% endcapture %}
 {% capture Focus %}[Focus](/manual/plugins/focus/){% endcapture %}
+{% capture Prompt %}[Prompt](/manual/plugins/prompt/){% endcapture %}
 {% capture Suggestions %}[Suggestions](/manual/plugins/suggestions/){% endcapture %}
 {% capture Autocomplete %}[Autocomplete](/manual/plugins/autocomplete/){% endcapture %}
 {% capture Tags %}[Tags](/manual/plugins/tags/){% endcapture %}
 
+{% capture live_demo %}
+	{{ intro | markdownify }}
+
+	<h2>Live Demo</h2>
+
+	{{ example_textarea }}
+	{{ example_script }}
+
+	<h2>Source</h2>
+
+	<pre class="brush: html">
+	{{ example_textarea | escape}}
+	</pre>
+
+	<pre class="brush: js; html-script: true">
+	{{ example_script | escape }}
+	</pre>
+{% endcapture %}

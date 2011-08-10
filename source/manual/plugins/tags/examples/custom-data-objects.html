@@ -5,6 +5,7 @@ example : tags
 order   : 3
 id      : custom-data-objects
 ---
+{% include common.html %}
 
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
@@ -42,20 +43,5 @@ id      : custom-data-objects
 </script>
 {% endcapture %}
 
+{% include live_demo.html %}
 
-
-
-<h2>Live Demo</h2>
-
-{{ example_textarea }}
-{{ example_script }}
-
-<h2>Source</h2>
-
-<pre class="brush: html">
-{{ example_textarea | escape}}
-</pre>
-
-<pre class="brush: js; html-script: true">
-{{ example_script | escape }}
-</pre>

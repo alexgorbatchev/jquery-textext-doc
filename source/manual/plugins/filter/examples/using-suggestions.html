@@ -43,19 +43,4 @@ The {{ Filter }} plugin will automatically use items from the {{ Suggestions }} 
 </script>
 {% endcapture %}
 
-{{ intro | markdownify }}
-
-<h2>Live Demo</h2>
-
-{{ example_textarea }}
-{{ example_script }}
-
-<h2>Source</h2>
-
-<pre class="brush: html">
-{{ example_textarea | escape}}
-</pre>
-
-<pre class="brush: js; html-script: true">
-{{ example_script | escape }}
-</pre>
+{% include live_demo.html %}

@@ -5,6 +5,8 @@ example : autocomplete
 order   : 2
 id      : with-tags
 ---
+{% include common.html %}
+
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
 {% endcapture %}
@@ -55,21 +57,4 @@ id      : with-tags
 </script>
 {% endcapture %}
 
-
-
-
-<h2>Live Demo</h2>
-
-{{ example_textarea }}
-{{ example_script }}
-
-<h2>Source</h2>
-
-<pre class="brush: html">
-{{ example_textarea | escape}}
-</pre>
-
-<pre class="brush: js; html-script: true">
-{{ example_script | escape }}
-</pre>
-
+{% include live_demo.html %}

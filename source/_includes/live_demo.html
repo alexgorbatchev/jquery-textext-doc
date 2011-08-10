@@ -1,0 +1,33 @@
+{{ intro | markdownify }}
+
+<h2>Live Demo</h2>
+
+{{ example_textarea }}
+{{ example_script }}
+
+<h3>Textarea Content</h3>
+<textarea id="output"></textarea>
+
+<script>
+var textarea = $('#textarea'),
+	output   = $('#output')
+	;
+
+output.val('');
+
+textarea.textext().bind('setData', function(e)
+{
+	$('#output').val(textarea.val());
+});
+</script>
+
+<h2>Source</h2>
+
+<pre class="brush: html">
+{{ example_textarea | escape}}
+</pre>
+
+<pre class="brush: js; html-script: true">
+{{ example_script | escape }}
+</pre>
+

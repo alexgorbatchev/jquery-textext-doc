@@ -1,9 +1,9 @@
 ---
 layout  : example
-title   : Basic Example
+title   : With Autocomplete
 example : prompt
 order   : 1
-id      : prompt
+id      : with-autocomplete
 ---
 {% include common.html %}
 
@@ -16,7 +16,12 @@ id      : prompt
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea').textext({ plugins : 'prompt tags' });
+	$('#textarea')
+		.textext({
+			plugins : 'prompt autocomplete'
+		})
+		{{ getSuggestions }}
+		;
 </script>
 {% endcapture %}
 

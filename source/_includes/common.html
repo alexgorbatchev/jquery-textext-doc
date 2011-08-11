@@ -5,21 +5,39 @@
 {% capture Autocomplete %}[Autocomplete](/manual/plugins/autocomplete/){% endcapture %}
 {% capture Tags %}[Tags](/manual/plugins/tags/){% endcapture %}
 
-{% capture live_demo %}
-	{{ intro | markdownify }}
+{% capture getSuggestions %}.bind('getSuggestions', function(e, data)
+		{
+			var list = [
+					'JavaScript',
+					'Java',
+					'PHP',
+					'Ruby',
+					'Python',
+					'Closure',
+					'Delphi',
+					'Perl',
+					'OCAML',
+					'Erlang',
+					'Scala',
+					'Haskel',
+					'Groovy',
+					'Fortran',
+					'Basic',
+					'Cobol',
+					'Go'
+				],
+				result = [],
+				query = data.query.toLowerCase()
+			;
 
-	<h2>Live Demo</h2>
+			list.sort();
 
-	{{ example_textarea }}
-	{{ example_script }}
+			if(query == '')
+				result = list.slice();
+			else
+				for(var i = 0; i < list.length; i++)
+					if(list[i].toLowerCase().indexOf(query) == 0)
+						result.push(list[i]);
 
-	<h2>Source</h2>
-
-	<pre class="brush: html">
-	{{ example_textarea | escape}}
-	</pre>
-
-	<pre class="brush: js; html-script: true">
-	{{ example_script | escape }}
-	</pre>
-{% endcapture %}
+			$(this).trigger('setSuggestions', { result : result });
+		}){% endcapture %}

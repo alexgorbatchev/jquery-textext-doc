@@ -1,11 +1,14 @@
 ---
 layout  : example
-title   : Basics
-example : autocomplete
+title   : With Tags
+example : prompt
 order   : 1
-id      : basics
+id      : with-tags
 ---
 {% include common.html %}
+
+{% capture intro %}
+{% endcapture %}
 
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
@@ -13,12 +16,7 @@ id      : basics
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea')
-		.textext({
-			plugins : 'autocomplete'
-		})
-		{{ getSuggestions }}
-		;
+	$('#textarea').textext({ plugins : 'prompt tags' });
 </script>
 {% endcapture %}
 

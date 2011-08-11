@@ -17,43 +17,8 @@ id      : with-tags-and-filter
 		.textext({
 			plugins : 'autocomplete tags filter'
 		})
-		.bind('getSuggestions', function(e, data)
-		{
-			var list = [
-					'JavaScript',
-					'Java',
-					'PHP',
-					'Ruby',
-					'Python',
-					'Closure',
-					'Delphi',
-					'Perl',
-					'OCAML',
-					'Erlang',
-					'Scala',
-					'Haskel',
-					'Groovy',
-					'Fortran',
-					'Basic',
-					'Cobol',
-					'Go'
-				],
-				result = [],
-				query = data.query.toLowerCase()
-			;
-
-			list.sort();
-
-			if(query == '')
-				result = list.slice();
-			else
-				for(var i = 0; i < list.length; i++)
-					if(list[i].toLowerCase().indexOf(query) == 0)
-						result.push(list[i]);
-
-			$(this).trigger('setSuggestions', { result : result });
-		})
-	;
+		{{ getSuggestions }}
+		;
 </script>
 {% endcapture %}
 

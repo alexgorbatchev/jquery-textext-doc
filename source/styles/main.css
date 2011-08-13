@@ -2,3 +2,6 @@ textarea.example {
 	width: 300px;
 }
 
+textarea#output {
+	width: 400px;
+}

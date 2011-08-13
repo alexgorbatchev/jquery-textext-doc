@@ -6,6 +6,8 @@
 {{ example_script }}
 
 <h3>Textarea Content</h3>
+<p class="hint">This is the data that the original text input is populates with
+and which will be submitted with the form.</p>
 <textarea id="output"></textarea>
 
 <script>
@@ -23,10 +25,13 @@ textarea.textext().bind('setData', function(e)
 
 <h2>Source</h2>
 
+<p class="hint">This is the original input HTML.</p>
 <pre class="brush: html">
 {{ example_textarea | escape}}
 </pre>
 
+<p class="hint">This is the JavaScript source that was used to initialize this demo
+instance of TextExt.</p>
 <pre class="brush: js; html-script: true">
 {{ example_script | escape }}
 </pre>

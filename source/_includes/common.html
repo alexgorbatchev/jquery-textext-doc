@@ -8,36 +8,29 @@
 {% capture getSuggestions %}.bind('getSuggestions', function(e, data)
 		{
 			var list = [
-					'JavaScript',
-					'Java',
-					'PHP',
-					'Ruby',
-					'Python',
-					'Closure',
-					'Delphi',
-					'Perl',
-					'OCAML',
-					'Erlang',
-					'Scala',
-					'Haskel',
-					'Groovy',
-					'Fortran',
 					'Basic',
+					'Closure',
 					'Cobol',
-					'Go'
+					'Delphi',
+					'Erlang',
+					'Fortran',
+					'Go',
+					'Groovy',
+					'Haskel',
+					'Java',
+					'JavaScript',
+					'OCAML',
+					'PHP',
+					'Perl',
+					'Python',
+					'Ruby',
+					'Scala'
 				],
-				result = [],
-				query = data.query.toLowerCase()
-			;
+				textext = $(e.target).textext()[0]
+				;
 
-			list.sort();
-
-			if(query == '')
-				result = list.slice();
-			else
-				for(var i = 0; i < list.length; i++)
-					if(list[i].toLowerCase().indexOf(query) == 0)
-						result.push(list[i]);
-
-			$(this).trigger('setSuggestions', { result : result });
+			$(this).trigger(
+				'setSuggestions',
+				{ result : textext.itemManager().filter(list, data.query) }
+			);
 		}){% endcapture %}

@@ -36,7 +36,7 @@ module Jekyll
       source = File.read(full_path)
       match = source.match(@selector_regex)
 
-      return "`#{@selector}` not found in #{full_path}" unless match
+      return "<p>`#{@selector}` not found in `#{full_path}`</p>" unless match
 
       pos       = match.pre_match.length
       left_pos  = pos - match.pre_match.reverse.index('**/')
@@ -46,7 +46,7 @@ module Jekyll
       # clean up indents and `*` at the begining of each line
       lines = comments.lines.entries
       lines.reject! { |line| line == '/**' or line == '*/' }
-      lines.map! { |line| line.sub(/^\s*\*\s*/, '') }
+      lines.map! { |line| line.sub(/^\s*\*\s/, '') }
 
       comments = ''
       line_index = 0

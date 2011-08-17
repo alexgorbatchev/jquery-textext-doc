@@ -63,7 +63,8 @@ module Jekyll
       tags.each do |tag|
         name = tag[:name].to_sym
 
-        tag[:value] = kramdown(tag[:value].strip) if name == 'param'
+        tag[:value] = kramdown(tag[:value].strip) if name == :param
+        tag[:value] = tag[:value].gsub(/</, '&lt;') if name == :default
 
         current = hash[name]
         if current

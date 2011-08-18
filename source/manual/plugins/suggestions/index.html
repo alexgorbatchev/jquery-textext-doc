@@ -4,8 +4,14 @@ title  : Suggestions
 plugin : true
 id     : suggestions
 ---
+{% doc_file textext.plugin.suggestions.js %}
+{% include common.html %}
 
-<h3>Examples</h3>
+{% capture about %}
+	{% doc_desc TextExtSuggestions %}
+{% endcapture %}
+
+{% capture examples %}
 
 <ul>
 	{% for item in site.pages %}
@@ -14,5 +20,26 @@ id     : suggestions
 		{% endif %}
 	{% endfor %}
 </ul>
+{% endcapture %}
 
+{% capture options %}
+	{% doc_desc TextExtSuggestions.options %}
+	{% doc_opt TextExtSuggestions.options.suggestions %}
+{% endcapture %}
+
+{% capture events %}
+	{% doc_desc TextExtSuggestions.events %}
+	{% doc_event TextExtSuggestions.events.getSuggestions %}
+	{% doc_event TextExtSuggestions.events.postInit %}
+	{% doc_event TextExtSuggestions.events.setSuggestions %}
+{% endcapture %}
+
+{% capture methods %}
+	{% doc_method TextExtSuggestions.init %}
+	{% doc_method TextExtSuggestions.onGetSuggestions %}
+	{% doc_method TextExtSuggestions.onPostInit %}
+	{% doc_method TextExtSuggestions.setSuggestions %}
+{% endcapture %}
+
+{% include api_doc.html %}
 

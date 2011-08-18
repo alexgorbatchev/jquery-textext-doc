@@ -6,12 +6,11 @@ id     : ajax
 ---
 {% doc_file textext.plugin.ajax.js %}
 
-<h3>About</h3>
+{% capture about %}
+	{% doc_desc TextExtAjax %}
+{% endcapture %}
 
-{% doc_desc TextExtAjax %}
-
-<h3>Examples</h3>
-
+{% capture examples %}
 <ul>
 	{% for item in site.pages %}
 		{% if item.example == 'ajax' %}
@@ -19,29 +18,32 @@ id     : ajax
 		{% endif %}
 	{% endfor %}
 </ul>
+{% endcapture %}
 
-<h3>Options</h3>
+{% capture options %}
+	{% doc_desc TextExtAjax.options %}
+	{% doc_opt TextExtAjax.options.cache.results %}
+	{% doc_opt TextExtAjax.options.data.callback %}
+	{% doc_opt TextExtAjax.options.loading.delay %}
+	{% doc_opt TextExtAjax.options.loading.message %}
+	{% doc_opt TextExtAjax.options.type.delay %}
+{% endcapture %}
 
-{% doc_desc TextExtAjax.options %}
-{% doc_opt TextExtAjax.options.cache.results %}
-{% doc_opt TextExtAjax.options.data.callback %}
-{% doc_opt TextExtAjax.options.loading.delay %}
-{% doc_opt TextExtAjax.options.loading.message %}
-{% doc_opt TextExtAjax.options.type.delay %}
+{% capture events %}
+	{% doc_desc TextExtAjax.events %}
+	{% doc_event TextExtAjax.events.getSuggestions %}
+	{% doc_event TextExtAjax.events.setSuggestions %}
+	{% doc_event TextExtAjax.events.showDropdown %}
+{% endcapture %}
 
-<h3>Events</h3>
+{% capture methods %}
+	{% doc_method TextExtAjax.load %}
+	{% doc_method TextExtAjax.dontShowLoading %}
+	{% doc_method TextExtAjax.init %}
+	{% doc_method TextExtAjax.onComplete %}
+	{% doc_method TextExtAjax.onGetSuggestions %}
+	{% doc_method TextExtAjax.showLoading %}
+{% endcapture %}
 
-{% doc_desc TextExtAjax.events %}
-{% doc_event TextExtAjax.events.getSuggestions %}
-{% doc_event TextExtAjax.events.setSuggestions %}
-{% doc_event TextExtAjax.events.showDropdown %}
-
-<h3>Methods</h3>
-
-{% doc_method TextExtAjax.load %}
-{% doc_method TextExtAjax.dontShowLoading %}
-{% doc_method TextExtAjax.init %}
-{% doc_method TextExtAjax.onComplete %}
-{% doc_method TextExtAjax.onGetSuggestions %}
-{% doc_method TextExtAjax.showLoading %}
+{% include api_doc.html %}
 

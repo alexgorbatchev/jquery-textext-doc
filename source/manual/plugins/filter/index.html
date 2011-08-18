@@ -4,16 +4,14 @@ title  : Filter
 plugin : true
 id     : filter
 ---
+{% doc_file textext.plugin.filter.js %}
 {% include common.html %}
 
-{% capture intro %}
-The {{ Filter }} introduces ability to limit tags that the {{ Tags }} plugin will accept. The list of allowed tags can be either hardcoded or can come from the {{ Suggestions }} plugin.
+{% capture about %}
+	{% doc_desc TextExtFilter %}
 {% endcapture %}
 
-{{ intro | markdownify }}
-
-<h3>Examples</h3>
-
+{% capture examples %}
 <ul>
 	{% for item in site.pages %}
 		{% if item.example == 'filter' %}
@@ -21,5 +19,27 @@ The {{ Filter }} introduces ability to limit tags that the {{ Tags }} plugin wil
 		{% endif %}
 	{% endfor %}
 </ul>
+{% endcapture %}
 
+<h3>Options</h3>
 
+{% capture options %}
+	{% doc_desc TextExtFilter.options %}
+	{% doc_opt TextExtFilter.options.enabled %}
+	{% doc_opt TextExtFilter.options.items %}
+{% endcapture %}
+
+{% capture events %}
+	{% doc_desc TextExtFilter.events %}
+	{% doc_event TextExtFilter.events.isTagAllowed %}
+	{% doc_event TextExtFilter.events.setSuggestions %}
+{% endcapture %}
+
+{% capture methods %}
+	{% doc_method TextExtFilter.init %}
+	{% doc_method TextExtFilter.onIsTagAllowed %}
+	{% doc_method TextExtFilter.onSetSuggestions %}
+	{% doc_method TextExtFilter.suggestions %}
+{% endcapture %}
+
+{% include api_doc.html %}

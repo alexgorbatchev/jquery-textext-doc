@@ -75,6 +75,10 @@ module Jekyll
         end
       end
 
+      # special case for the :param so that it's always an array for easier
+      # and more consistent handling
+      hash[:param] = [ hash[:param] ] if hash[:param] and hash[:param].is_a?(String)
+
       hash
     end
 
@@ -146,9 +150,19 @@ module Jekyll
   class DocMethodTag < DocBaseTag
     def render(context)
       comments = get_comments_block
+      params = comments[:tags][:param]
+
+      if params
+        params.map! do |item|
+          "<li>#{item}</li>"
+        end
+
+        params = "<ul class=\"params\">#{params.join}</ul>"
+      end
 
       "<div class=\"method\">" +
         "<h4>#{comments[:tags][:signature]}</h4>" +
+        (params || '') + 
         comments[:description] +
       "</div>"
     end

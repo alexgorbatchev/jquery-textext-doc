@@ -4,12 +4,14 @@ title  : Prompt
 plugin : true
 id     : prompt
 ---
+{% doc_file textext.plugin.prompt.js %}
 {% include common.html %}
 
-{% capture intro %}
+{% capture about %}
+	{% doc_desc TextExtPrompt %}
 {% endcapture %}
 
-{{ intro | markdownify }}
+{% capture examples %}
 
 <h3>Examples</h3>
 
@@ -20,5 +22,27 @@ id     : prompt
 		{% endif %}
 	{% endfor %}
 </ul>
+{% endcapture %}
 
+{% capture options %}
+	{% doc_desc TextExtPrompt.options %}
+	{% doc_opt TextExtPrompt.options.prompt %}
+	{% doc_opt TextExtPrompt.options.html.prompt %}
+{% endcapture %}
+
+{% capture events %}
+	{% doc_desc TextExtPrompt.events %}
+	{% doc_event TextExtPrompt.events.blur %}
+	{% doc_event TextExtPrompt.events.focus %}
+{% endcapture %}
+
+{% capture methods %}
+	{% doc_method TextExtPrompt.getPrompt %}
+	{% doc_method TextExtPrompt.init %}
+	{% doc_method TextExtPrompt.onBlur %}
+	{% doc_method TextExtPrompt.onFocus %}
+	{% doc_method TextExtPrompt.setPrompt %}
+{% endcapture %}
+
+{% include api_doc.html %}
 

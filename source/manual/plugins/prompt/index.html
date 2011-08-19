@@ -12,13 +12,10 @@ id     : prompt
 {% endcapture %}
 
 {% capture examples %}
-
-<h3>Examples</h3>
-
 <ul>
 	{% for item in site.pages %}
-		{% if item.example == 'prompt' %}
-			<li data-order="{{ item.order }}"><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
+		{% if item.example contains 'prompt' %}
+			<li><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
 		{% endif %}
 	{% endfor %}
 </ul>

@@ -14,8 +14,8 @@ id     : focus
 {% capture examples %}
 <ul>
 	{% for item in site.pages %}
-		{% if item.example == 'focus' %}
-			<li data-order="{{ item.order }}"><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
+		{% if item.example contains 'focus' %}
+			<li><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
 		{% endif %}
 	{% endfor %}
 </ul>

@@ -13,8 +13,8 @@ id     : autocomplete
 {% capture examples %}
 <ul>
 	{% for item in site.pages %}
-		{% if item.example == 'autocomplete' %}
-			<li data-order="{{ item.order }}"><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
+		{% if item.example contains 'autocomplete' %}
+			<li><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
 		{% endif %}
 	{% endfor %}
 </ul>

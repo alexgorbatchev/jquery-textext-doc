@@ -1,9 +1,8 @@
 ---
 layout  : example
-title   : Pre-populating
-example : tags
-order   : 2
-id      : pre-populating
+title   : Autocomplete
+example : autocomplete
+id      : autocomplete
 ---
 {% include common.html %}
 
@@ -13,10 +12,12 @@ id      : pre-populating
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea').textext({
-		plugins: 'tags',
-		tagsItems: [ 'PHP', 'Closure', 'Java' ]
-	});
+	$('#textarea')
+		.textext({
+			plugins : 'autocomplete'
+		})
+		{{ getSuggestions }}
+		;
 </script>
 {% endcapture %}
 

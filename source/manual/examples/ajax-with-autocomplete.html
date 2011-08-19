@@ -1,14 +1,10 @@
 ---
 layout  : example
-title   : With Tags
-example : prompt
-order   : 3
-id      : with-tags
+title   : Ajax With Autocomplete
+example : ajax autocomplete
+id      : ajax-with-autocomplete
 ---
 {% include common.html %}
-
-{% capture intro %}
-{% endcapture %}
 
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
@@ -16,7 +12,16 @@ id      : with-tags
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea').textext({ plugins : 'prompt tags' });
+	$('#textarea')
+		.textext({
+			plugins : 'autocomplete ajax',
+			ajax : {
+				url : '/manual/examples/data.json',
+				dataType : 'json',
+				cacheResults : true
+			}
+		})
+	;
 </script>
 {% endcapture %}
 

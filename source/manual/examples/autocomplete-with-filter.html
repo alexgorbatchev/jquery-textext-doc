@@ -1,14 +1,10 @@
 ---
 layout  : example
-title   : With Autocomplete
-example : prompt
-order   : 2
-id      : with-autocomplete
+title   : Autocomplete With Filter
+example : autocomplete filter
+id      : autocomplete-with-filter
 ---
 {% include common.html %}
-
-{% capture intro %}
-{% endcapture %}
 
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
@@ -18,7 +14,8 @@ id      : with-autocomplete
 <script type="text/javascript">
 	$('#textarea')
 		.textext({
-			plugins : 'prompt autocomplete'
+			plugins : 'autocomplete filter',
+			useSuggestionsToFilter : true
 		})
 		{{ getSuggestions }}
 		;

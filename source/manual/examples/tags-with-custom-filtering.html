@@ -1,9 +1,8 @@
 ---
 layout  : example
-title   : Basics
-example : autocomplete
-order   : 1
-id      : basics
+title   : Tags with Custom Filtering
+example : tags
+id      : tags-with-custom-filtering
 ---
 {% include common.html %}
 
@@ -13,13 +12,16 @@ id      : basics
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea')
-		.textext({
-			plugins : 'autocomplete'
-		})
-		{{ getSuggestions }}
-		;
+	$('#textarea').textext({ plugins: 'tags' }).bind('isTagAllowed', function(e, data)
+	{
+		if(data.tag === 'foo')
+		{
+			alert('Foo is not allowed!');
+			data.result = false;
+		}
+	})
 </script>
 {% endcapture %}
 
 {% include live_demo.html %}
+

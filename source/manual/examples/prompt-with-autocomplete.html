@@ -1,11 +1,13 @@
 ---
 layout  : example
-title   : With Custom Labels
-example : tags
-order   : 4
-id      : custom-labels
+title   : Prompt with Autocomplete
+example : prompt autocomplete
+id      : prompt-with-autocomplete
 ---
 {% include common.html %}
+
+{% capture intro %}
+{% endcapture %}
 
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
@@ -15,21 +17,11 @@ id      : custom-labels
 <script type="text/javascript">
 	$('#textarea')
 		.textext({
-			plugins: 'tags',
-			items: [ 'PHP', 'Closure', 'Java' ],
-
-			ext : {
-				itemManager: {
-					itemToString: function(item)
-					{
-						return '[ ' + item + ' ]';
-					}
-				}
-			}
+			plugins : 'prompt autocomplete'
 		})
+		{{ getSuggestions }}
 		;
 </script>
 {% endcapture %}
 
 {% include live_demo.html %}
-

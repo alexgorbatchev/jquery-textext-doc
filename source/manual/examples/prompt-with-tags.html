@@ -1,11 +1,13 @@
 ---
 layout  : example
-title   : Custom Filtering
-example : tags
-order   : 6
-id      : custom-filtering
+title   : Prompt with Tags
+example : prompt tags
+id      : prompt-with-tags
 ---
 {% include common.html %}
+
+{% capture intro %}
+{% endcapture %}
 
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
@@ -13,16 +15,8 @@ id      : custom-filtering
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea').textext({ plugins: 'tags' }).bind('isTagAllowed', function(e, data)
-	{
-		if(data.tag === 'foo')
-		{
-			alert('Foo is not allowed!');
-			data.result = false;
-		}
-	})
+	$('#textarea').textext({ plugins : 'prompt tags' });
 </script>
 {% endcapture %}
 
 {% include live_demo.html %}
-

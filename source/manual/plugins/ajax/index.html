@@ -13,8 +13,8 @@ id     : ajax
 {% capture examples %}
 <ul>
 	{% for item in site.pages %}
-		{% if item.example == 'ajax' %}
-			<li data-order="{{ item.order }}"><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
+		{% if item.example contains 'ajax' %}
+			<li><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
 		{% endif %}
 	{% endfor %}
 </ul>

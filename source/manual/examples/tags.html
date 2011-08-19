@@ -1,9 +1,8 @@
 ---
 layout  : example
-title   : With Tags
-example : autocomplete
-order   : 2
-id      : with-tags
+title   : Tags
+example : tags
+id      : tags
 ---
 {% include common.html %}
 
@@ -13,13 +12,9 @@ id      : with-tags
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea')
-		.textext({
-			plugins : 'autocomplete tags'
-		})
-		{{ getSuggestions }}
-		;
+	$('#textarea').textext({ plugins : 'tags' });
 </script>
 {% endcapture %}
 
 {% include live_demo.html %}
+

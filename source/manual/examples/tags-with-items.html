@@ -1,14 +1,10 @@
 ---
 layout  : example
-title   : Plain
-example : prompt
-order   : 1
-id      : plain
+title   : Tags with Items
+example : tags
+id      : tags-with-items
 ---
 {% include common.html %}
-
-{% capture intro %}
-{% endcapture %}
 
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
@@ -16,11 +12,10 @@ id      : plain
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea')
-		.textext({
-			plugins : 'prompt'
-		})
-		;
+	$('#textarea').textext({
+		plugins: 'tags',
+		tagsItems: [ 'PHP', 'Closure', 'Java' ]
+	});
 </script>
 {% endcapture %}
 

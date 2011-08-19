@@ -1,9 +1,8 @@
 ---
 layout  : example
-title   : With Autocomplete
-example : ajax
-order   : 1
-id      : with-autocomplete
+title   : Autocomplete With Tags And Filter
+example : autocomplete tags filter
+id      : autocomplete-with-tags-and-filter
 ---
 {% include common.html %}
 
@@ -15,14 +14,10 @@ id      : with-autocomplete
 <script type="text/javascript">
 	$('#textarea')
 		.textext({
-			plugins : 'autocomplete ajax',
-			ajax : {
-				url : '/manual/plugins/ajax/examples/data.json',
-				dataType : 'json',
-				cacheResults : true
-			}
+			plugins : 'autocomplete tags filter'
 		})
-	;
+		{{ getSuggestions }}
+		;
 </script>
 {% endcapture %}
 

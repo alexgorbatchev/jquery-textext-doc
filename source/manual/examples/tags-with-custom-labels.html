@@ -1,9 +1,8 @@
 ---
 layout  : example
-title   : With Filter
-example : autocomplete
-order   : 3
-id      : with-filter
+title   : Tags with Custom Labels
+example : tags
+id      : tags-with-custom-labels
 ---
 {% include common.html %}
 
@@ -15,12 +14,21 @@ id      : with-filter
 <script type="text/javascript">
 	$('#textarea')
 		.textext({
-			plugins : 'autocomplete filter',
-			useSuggestionsToFilter : true
+			plugins: 'tags',
+			items: [ 'PHP', 'Closure', 'Java' ],
+
+			ext : {
+				itemManager: {
+					itemToString: function(item)
+					{
+						return '[ ' + item + ' ]';
+					}
+				}
+			}
 		})
-		{{ getSuggestions }}
 		;
 </script>
 {% endcapture %}
 
 {% include live_demo.html %}
+

@@ -16,7 +16,10 @@ id      : custom-filtering
 	$('#textarea').textext({ plugins: 'tags' }).bind('isTagAllowed', function(e, data)
 	{
 		if(data.tag === 'foo')
+		{
+			alert('Foo is not allowed!');
 			data.result = false;
+		}
 	})
 </script>
 {% endcapture %}

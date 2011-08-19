@@ -1,0 +1,25 @@
+---
+layout  : example
+title   : Custom Filtering
+example : tags
+order   : 6
+id      : custom-filtering
+---
+{% include common.html %}
+
+{% capture example_textarea %}
+<textarea id="textarea" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#textarea').textext({ plugins: 'tags' }).bind('isTagAllowed', function(e, data)
+	{
+		if(data.tag === 'foo')
+			data.result = false;
+	})
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}
+

@@ -2,5 +2,22 @@
 layout : manual
 title  : TextExtPlugin
 ---
+{% doc_file textext.core.js %}
 
+{% capture about %}
+	{% doc_desc TextExtPlugin %}
+{% endcapture %}
+
+{% capture methods %}
+	{% doc_method TextExtPlugin.baseInit %}
+	{% doc_method TextExtPlugin.core %}
+	{% doc_method TextExtPlugin.init %}
+	{% doc_method TextExtPlugin.input %}
+	{% doc_method TextExtPlugin.itemManager %}
+	{% doc_method TextExtPlugin.on %}
+	{% doc_method TextExtPlugin.opts %}
+	{% doc_method TextExtPlugin.trigger %}
+{% endcapture %}
+
+{% include api_doc.html %}
 

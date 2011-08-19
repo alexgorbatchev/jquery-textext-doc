@@ -54,7 +54,9 @@ module Jekyll
             :value => (match[3] || '').rstrip
           }
         else
-          tags.last[:value] << line.rstrip if tags.length > 0
+          # need to add a space before the value here, similiar to the way
+          # HTML engines treat new lines as a single white character.
+          tags.last[:value] << ' ' + line.rstrip if tags.length > 0
         end
       end
 

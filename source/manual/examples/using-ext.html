@@ -1,0 +1,95 @@
+---
+layout : example
+title  : Using `ext` Example
+name   : using-ext
+tags   : core
+---
+{% include common.html %}
+
+<script type="text/javascript">
+// insure we don't have null pointers if user doesn't have console open or available
+console = console || {};
+console.log = console.log || function() {};
+</script>
+
+Please open your browser's debug console to see the output.
+
+<h3>Extending Core</h3>
+
+{% capture example_textarea %}
+<textarea id="core-ext" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#core-ext').textext({
+		ext: {
+			core: {
+				trigger: function()
+				{
+					console.log('TextExt.trigger', arguments);
+					$.fn.textext.TextExt.prototype.trigger.apply(this, arguments);
+				}
+			}
+		}
+	});
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}
+
+
+
+
+<h3>Extending A Plugin</h3>
+
+{% capture example_textarea %}
+<textarea id="tags-ext" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#tags-ext').textext({
+		plugins: 'tags',
+		ext: {
+			tags: {
+				addTags: function(tags)
+				{
+					console.log('TextExtTags.addTags', tags);
+					$.fn.textext.TextExtTags.prototype.addTags.apply(this, arguments);
+				}
+			}
+		}
+	});
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}
+
+
+
+
+<h3>Extending ItemManager</h3>
+
+{% capture example_textarea %}
+<textarea id="itemmanager-ext" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#itemmanager-ext').textext({
+		plugins: 'tags',
+		ext: {
+			itemManager: {
+				stringToItem: function(str)
+				{
+					console.log('ItemManager.stringToItem', str);
+					return $.fn.textext.ItemManager.prototype.stringToItem.apply(this, arguments);
+				}
+			}
+		}
+	});
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}

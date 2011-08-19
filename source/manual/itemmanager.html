@@ -2,3 +2,21 @@
 layout : manual
 title  : ItemManager
 ---
+{% doc_file textext.core.js %}
+
+{% capture about %}
+	{% doc_desc ItemManager %}
+{% endcapture %}
+
+{% capture methods %}
+	{% doc_method ItemManager.bind %}
+	{% doc_method ItemManager.compareItems %}
+	{% doc_method ItemManager.filter %}
+	{% doc_method ItemManager.init %}
+	{% doc_method ItemManager.itemContains %}
+	{% doc_method ItemManager.itemToString %}
+	{% doc_method ItemManager.stringToItem %}
+{% endcapture %}
+
+{% include api_doc.html %}
+

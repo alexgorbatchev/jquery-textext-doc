@@ -9,7 +9,7 @@
 
 <p class="hint">This is the data that the original text input is populates with
 and which will be submitted with the form.</p>
-<textarea id="output"></textarea>
+<pre id="output"></pre>
 
 <script>
 var textarea = $('#textarea'),
@@ -18,9 +18,10 @@ var textarea = $('#textarea'),
 
 output.val('');
 
-textarea.textext().bind('setData', function(e)
+textarea.bind('setFormData', function(e, data, isEmpty)
 {
-	$('#output').val(textarea.val());
+	var textext = $(e.target).textext()[0];
+	$('#output').text(textext.getFormData());
 });
 </script>
 

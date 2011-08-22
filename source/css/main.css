@@ -1,0 +1,54 @@
+body {
+  background: #fff;
+  font: 1em Georgia, Times New Roman;
+}
+code {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #d6d6d6;
+  background: #eee;
+  padding: 0px 2px;
+  font: 0.8em Monaco, Consolas, Courier New;
+}
+pre {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #d6d6d6;
+  background: #eee;
+  padding: 4px 7px;
+}
+pre code {
+  background: none;
+  border: none;
+  padding: none;
+}
+textarea.example {
+  width: 300px;
+}
+textarea#output {
+  width: 400px;
+}
+#api h3 {
+  border-bottom: 1px solid #c0c0c0;
+}
+#api h4 {
+  border-bottom: 1px solid #c0c0c0;
+  margin: 3em 0 0 0;
+}
+#api h4 .default {
+  font-weight: normal;
+  color: #c0c0c0;
+}
+#api ul.params {
+  margin: 0.5em 0 0 0;
+  padding-left: 1.5em;
+  list-style-type: square;
+}
+#api ul.params li {
+  margin: 0;
+}
+#api ul.params li p {
+  margin: 0;
+}

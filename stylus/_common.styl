@@ -1,0 +1,18 @@
+$code_bg   = #eee
+$body_font = 1em Georgia, Times New Roman
+$code_font = 0.8em Monaco, Consolas, Courier New
+
+vendor(prop, args)
+	-webkit-{prop} : args
+	-moz-{prop}    : args
+	{prop}         : args
+
+border_box()
+	vendor('box-sizing', border-box)
+
+shadow(args...)
+	vendor('box-shadow', args)
+
+round_corners(args...)
+	vendor('border-radius', args)
+

@@ -21,7 +21,7 @@ module Jekyll
     def extract_comments_from_file(selector_regex)
       match = @@source.match(@selector_regex)
 
-      return kramdown("`#{@selector}` not found in `#{@@full_path}`") unless match
+      raise "Not found" unless match
 
       pos       = match.pre_match.length
       left_pos  = pos - match.pre_match.reverse.index('**/')
@@ -111,6 +111,14 @@ module Jekyll
         :tags => get_tags(lines)
       }
     end
+
+    def slug(str)
+      str.gsub(/\W+/, ' ').gsub(/\s+/, ' ').gsub(/\s/, '-').gsub(/^-*|-*$/, '').downcase
+    end
+
+    def a(str)
+      "<a name=\"#{slug(str)}\">#{str}</a>"
+    end
   end
 
   class DocBaseTag < DocTag
@@ -118,40 +126,44 @@ module Jekyll
       @selector       = args.strip
       @selector_regex = /@id (#{Regexp.escape(@selector)})\s*$/
     end
+
+    def render(context)
+      get_html(get_comments_block)
+    rescue => e
+      "<p style=\"background: red; color: white; padding: 2px 4px;\">`#{@selector}` in `#{@@file}`: #{e}</p>"
+    end
+
+    def get_html(comments)
+      ''
+    end
   end
 
   class DocDescriptionTag < DocBaseTag
-    def render(context)
-      comments = get_comments_block
+    def get_html(comments)
       comments[:description]
     end
   end
 
   class DocOptTag < DocBaseTag
-    def render(context)
-      comments = get_comments_block
-
+    def get_html(comments)
       "<div class=\"option\">" +
-        "<h4>#{comments[:tags][:name]} <span class=\"default\">(#{comments[:tags][:default]})</span></h4>" +
+        "<h4>#{a comments[:tags][:name]} <span class=\"default\">(#{comments[:tags][:default]})</span></h4>" +
         comments[:description] +
       "</div>"
     end
   end
 
   class DocEventTag < DocBaseTag
-    def render(context)
-      comments = get_comments_block
-
+    def get_html(comments)
       "<div class=\"event\">" +
-        "<h4>#{comments[:tags][:name]}</h4>" +
+        "<h4>#{a comments[:tags][:name]}</h4>" +
         comments[:description] +
       "</div>"
     end
   end
 
   class DocMethodTag < DocBaseTag
-    def render(context)
-      comments = get_comments_block
+    def get_html(comments)
       params = comments[:tags][:param]
 
       if params
@@ -163,7 +175,7 @@ module Jekyll
       end
 
       "<div class=\"method\">" +
-        "<h4>#{comments[:tags][:signature]}</h4>" +
+        "<h4>#{a comments[:tags][:signature]}</h4>" +
         (params || '') + 
         comments[:description] +
       "</div>"

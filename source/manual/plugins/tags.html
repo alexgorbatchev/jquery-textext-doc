@@ -36,8 +36,7 @@ id     : tags
 
 {% capture methods %}
 	{% doc_method TextExtTags.addTags %}
-	{% doc_method TextExtTags.getAllTagElements %}
-	{% doc_method TextExtTags.getContainer %}
+	{% doc_method TextExtTags.containerElement %}
 	{% doc_method TextExtTags.getTagElement %}
 	{% doc_method TextExtTags.init %}
 	{% doc_method TextExtTags.initPriority %}
@@ -52,6 +51,7 @@ id     : tags
 	{% doc_method TextExtTags.onPreInvalidate %}
 	{% doc_method TextExtTags.removeTag %}
 	{% doc_method TextExtTags.renderTag %}
+	{% doc_method TextExtTags.tagElements %}
 	{% doc_method TextExtTags.toggleZIndex %}
 	{% doc_method TextExtTags.updateFormCache %}
 {% endcapture %}

@@ -32,8 +32,6 @@ id     : tags
 {% capture events %}
 	{% doc_desc TextExtTags.events %}
 	{% doc_event TextExtTags.events.isTagAllowed %}
-	{% doc_event TextExtTags.events.selectItem %}
-	{% doc_event TextExtTags.events.setFormData %}
 {% endcapture %}
 
 {% capture methods %}
@@ -42,19 +40,20 @@ id     : tags
 	{% doc_method TextExtTags.getContainer %}
 	{% doc_method TextExtTags.getTagElement %}
 	{% doc_method TextExtTags.init %}
+	{% doc_method TextExtTags.initPriority %}
 	{% doc_method TextExtTags.isTagAllowed %}
 	{% doc_method TextExtTags.onBackspaceKeyDown %}
 	{% doc_method TextExtTags.onClick %}
 	{% doc_method TextExtTags.onContainerMouseMove %}
 	{% doc_method TextExtTags.onEnterKeyPress %}
+	{% doc_method TextExtTags.onGetFormData %}
 	{% doc_method TextExtTags.onInputMouseMove %}
 	{% doc_method TextExtTags.onPostInit %}
 	{% doc_method TextExtTags.onPreInvalidate %}
-	{% doc_method TextExtTags.onSelectItem %}
 	{% doc_method TextExtTags.removeTag %}
 	{% doc_method TextExtTags.renderTag %}
-	{% doc_method TextExtTags.setFormData %}
 	{% doc_method TextExtTags.toggleZIndex %}
+	{% doc_method TextExtTags.updateFormCache %}
 {% endcapture %}
 
 {% include api_doc.html %}

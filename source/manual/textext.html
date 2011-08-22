@@ -14,6 +14,7 @@ title  : TextExt
 {% capture options %}
 	{% doc_desc TextExt.options %}
 	{% doc_opt TextExt.options.ext %}
+	{% doc_opt TextExt.options.html.hidden %}
 	{% doc_opt TextExt.options.html.wrap %}
 	{% doc_opt TextExt.options.item.manager %}
 	{% doc_opt TextExt.options.keys %}
@@ -27,19 +28,21 @@ title  : TextExt
 	{% doc_event TextExt.events.[name]KeyUp %}
 	{% doc_event TextExt.events.anyKeyDown %}
 	{% doc_event TextExt.events.anyKeyUp %}
+	{% doc_event TextExt.events.getFormData %}
 	{% doc_event TextExt.events.postInit %}
 	{% doc_event TextExt.events.postInvalidate %}
 	{% doc_event TextExt.events.preInvalidate %}
 	{% doc_event TextExt.events.ready %}
 	{% doc_event TextExt.events.setFormData %}
+	{% doc_event TextExt.events.setInputData %}
 {% endcapture %}
 
 {% capture methods %}
 	{% doc_method TextExt.bind %}
 	{% doc_method TextExt.focusInput %}
 	{% doc_method TextExt.getFormData %}
+	{% doc_method TextExt.getWeightedEventResponse %}
 	{% doc_method TextExt.getWrapContainer %}
-	{% doc_method TextExt.hasFormData %}
 	{% doc_method TextExt.init %}
 	{% doc_method TextExt.initPlugins %}
 	{% doc_method TextExt.input %}
@@ -47,9 +50,11 @@ title  : TextExt
 	{% doc_method TextExt.itemManager %}
 	{% doc_method TextExt.on %}
 	{% doc_method TextExt.onAnyKeyUp %}
+	{% doc_method TextExt.onGetFormData %}
 	{% doc_method TextExt.onKeyDown %}
 	{% doc_method TextExt.onKeyUp %}
 	{% doc_method TextExt.onSetFormData %}
+	{% doc_method TextExt.onSetInputData %}
 	{% doc_method TextExt.opts %}
 	{% doc_method TextExt.serializeData %}
 	{% doc_method TextExt.trigger %}

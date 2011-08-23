@@ -1,23 +1,31 @@
 body {
   background: #fff;
-  font: 1em Georgia, Times New Roman;
-  padding-left: 16em;
+  font: 0.9em "Helvetica Neue", Arial, sans-serif;
+  padding-left: 15.5em;
 }
 code {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  border: 1px solid #d6d6d6;
-  background: #eee;
+  border: 1px solid #fff6b7;
+  background: #fffce8;
   padding: 0px 2px;
   font: 0.8em Monaco, Consolas, Courier New;
+}
+a[href] {
+  text-decoration: none;
+  color: #00f;
+}
+a[href]:hover {
+  text-decoration: underline;
+  color: #f00;
 }
 pre {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  border: 1px solid #d6d6d6;
-  background: #eee;
+  border: 1px solid #fff6b7;
+  background: #fffce8;
   padding: 4px 7px;
 }
 pre code {
@@ -40,36 +48,92 @@ nav {
   top: 0;
   bottom: 0;
   width: 15em;
-  background: #c0c0c0;
+  background: #eee;
   padding: 1em;
+}
+nav h2 {
+  margin: 0 0 0.4em 0;
+}
+nav h3 {
+  margin: 0;
+}
+nav section {
+  margin-left: 0.5em;
 }
 nav ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1em 0;
 }
 nav ul li {
   padding: 0;
 }
 #api h3 {
-  border-bottom: 1px solid #c0c0c0;
+  margin: 3em 0 1em -1em;
+  padding: 0.4em 1em;
+  font-size: 1.3em;
+  background: #eee;
 }
 #api h4 {
-  border-bottom: 1px solid #c0c0c0;
-  margin: 3em 0 0 0;
+  font: 0.8em Monaco, Consolas, Courier New;
+  font-size: 1.3em;
+  padding-bottom: 0.3em;
+  margin: 0;
 }
 #api h4 .default {
   font-weight: normal;
   color: #c0c0c0;
 }
+#api h4 .param {
+  cursor: pointer;
+}
+#api section > div {
+  margin-bottom: 3em;
+}
+#api section > div p {
+  margin: 0 0 1em 0;
+}
 #api ul.params {
-  margin: 0.5em 0 0 0;
+  margin: 0 0 1em 1em;
   padding-left: 1.5em;
-  list-style-type: square;
+  list-style-type: none;
+  padding: 0;
 }
 #api ul.params li {
   margin: 0;
 }
+#api ul.params li.highlight {
+  background: #ff0;
+}
+#api ul.params li code.type,
+#api ul.params li code.var {
+  font-weight: bold;
+  background: none;
+  border: none;
+}
 #api ul.params li p {
   margin: 0;
+}
+#toc .block {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+#toc .block h4 {
+  margin: 0;
+  padding: 0;
+  font: 0.9em "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.2em;
+  border-bottom: 1px solid #000;
+}
+#toc .block ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0.5em 0 0 0;
+  font: 0.8em Monaco, Consolas, Courier New;
+  font-size: 0.7em;
+}
+#example #output {
+  display: inline;
 }

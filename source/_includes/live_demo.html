@@ -1,39 +1,40 @@
-{{ intro | markdownify }}
+<div id="example">
 
-<h4>Live Demo</h4>
+	{{ intro | markdownify }}
 
-{{ example_textarea }}
-{{ example_script }}
+	<h4>Live Demo</h4>
 
-<h4>Textarea Content</h4>
+	{{ example_textarea }}
+	{{ example_script }}
 
-<p class="hint">This is the data that will be submitted with HTML form.</p>
-<pre id="output"></pre>
+	<h4>Form Content</h4>
 
-<script>
-var textarea = $('#textarea'),
-	output   = $('#output')
-	;
+	<p class="hint">This is the data that will be submitted with HTML form.</p>
+	<pre id="output"></pre>
 
-output.val('');
+	<script>
+	var textarea = $('#textarea'),
+		output   = $('#output')
+		;
 
-textarea.bind('setFormData', function(e, data, isEmpty)
-{
-	var textext = $(e.target).textext()[0];
-	$('#output').text(textext.hiddenInput().val());
-});
-</script>
+	textarea.bind('setFormData', function(e, data, isEmpty)
+	{
+		var textext = $(e.target).textext()[0];
+		$('#output').text(textext.hiddenInput().val());
+	});
 
-<h4>Source</h4>
+	// force this for the sake of the example so that we get one extra
+	// `setFormData` event fire and we would set the #output value
+	textarea.textext()[0].getFormData();
+	</script>
 
-<p class="hint">This is the original input HTML.</p>
-<pre class="brush: html">
-{{ example_textarea | escape}}
-</pre>
+	<h4>Source</h4>
 
-<p class="hint">This is the JavaScript source that was used to initialize this demo
-instance of TextExt.</p>
-<pre class="brush: js; html-script: true">
-{{ example_script | escape }}
-</pre>
+	<p class="hint">This is the original input HTML.</p>
+	<pre class="brush: html">{{ example_textarea | escape}}</pre>
+
+	<p class="hint">This is the JavaScript source that was used to initialize this demo instance of TextExt.</p>
+	<pre class="brush: js; html-script: true">{{ example_script | replace:"	","    " | escape }}</pre>
+
+</div>
 

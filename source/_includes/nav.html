@@ -1,20 +1,26 @@
 <nav>
 
-	<h3>Core Parts</h3>
-	<ul>
-		<li id="nav-textext"><a href="/manual/textext.html">TextExt</a></li>
-		<li id="nav-textextplugin"><a href="/manual/textextplugin.html">TextExtPlugin</a></li>
-		<li id="nav-itemmanager"><a href="/manual/itemmanager.html">ItemManager</a></li>
-	</ul>
+	<h2>Api Doc</h2>
 
-	<h3>Plugins</h3>
-	<ul>
-		{% for item in site.pages %}
-			{% if item.plugin %}
-				<li id="nav-{{ item.id }}"><a href="{{ item.url }}">{{ item.title }}</a></li>
-			{% endif %}
-		{% endfor %}
-	</ul>
+	<section>
+		<h3>Core</h3>
+		<ul>
+			<li id="nav-textext"><a href="/manual/textext.html">TextExt</a></li>
+			<li id="nav-textextplugin"><a href="/manual/textextplugin.html">TextExtPlugin</a></li>
+			<li id="nav-itemmanager"><a href="/manual/itemmanager.html">ItemManager</a></li>
+		</ul>
+
+		<h3>Plugins</h3>
+		<ul>
+			{% for item in site.pages %}
+				{% if item.plugin %}
+					<li id="nav-{{ item.id }}"><a href="{{ item.url }}">{{ item.title }}</a></li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+
+		<p><a href="/manual/examples.html">Examples</a></p>
+	</section>
 
 </nav>
 

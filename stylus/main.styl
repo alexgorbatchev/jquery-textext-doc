@@ -1,8 +1,9 @@
 @import '_common'
 
 body
-	background : white
-	font       : $body_font
+	background   : white
+	font         : $body_font
+	padding-left : 16em
 
 code
 	round_corners 2px
@@ -28,6 +29,24 @@ textarea
 
 	&#output
 		width: 400px
+
+nav
+	border_box()
+	position   : fixed
+	left       : 0
+	top        : 0
+	bottom     : 0
+	width      : 15em
+	background : silver
+	padding    : 1em
+
+	ul
+		list-style-type: none
+		padding : 0
+		margin: 0
+
+		li
+			padding: 0
 
 #api
 	h3

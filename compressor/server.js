@@ -8,22 +8,6 @@ var
 	uglify  = require('uglify-js').uglify
 	;
 
-function compressSource(source)
-{
-	var opts = {};
-	var ast = parser.parse(source);     // parse code and get the initial AST
-	ast = uglify.ast_mangle(ast, opts); // get a new AST with mangled names
-	ast = uglify.ast_squeeze(ast);      // get an AST with compression optimizations
-	return uglify.gen_code(ast);        // compressed code here
-};
-
-function md5(source)
-{
-	var hash = crypto.createHash('md5');
-	hash.update(source);
-	return hash.digest('hex');
-};
-
 var app = module.exports = express.createServer();
 
 var SOURCE_PATH = fs.realpathSync(__dirname + '/products'),
@@ -50,6 +34,22 @@ app.configure('production', function()
 	app.use(express.errorHandler());
 });
 
+function compressSource(source)
+{
+	var opts = {};
+	var ast = parser.parse(source);     // parse code and get the initial AST
+	ast = uglify.ast_mangle(ast, opts); // get a new AST with mangled names
+	ast = uglify.ast_squeeze(ast);      // get an AST with compression optimizations
+	return uglify.gen_code(ast);        // compressed code here
+};
+
+function md5(source)
+{
+	var hash = crypto.createHash('md5');
+	hash.update(source);
+	return hash.digest('hex');
+};
+
 function loadFiles(product, version, files, callback)
 {
 	var loaded = 0,
@@ -58,6 +58,7 @@ function loadFiles(product, version, files, callback)
 	
 	files.forEach(function(file, index)
 	{
+		file = file.replace(/\/|\\/g, '-');
 		file = path.join(SOURCE_PATH, product, version, file);
 
 		path.exists(file, function(exists)
@@ -74,8 +75,7 @@ function loadFiles(product, version, files, callback)
 
 			fs.readFile(file, 'utf8', function(err, data)
 			{
-				if(err) throw err;
-				source[index] = data;
+				source[index] = err ? err.message : data;
 
 				if(++loaded == files.length)
 					callback(source);
@@ -98,6 +98,10 @@ app.post('/build', function(request, response)
 	if(PRODUCTS[product].indexOf(version) == -1)
 		version = null;
 
+	winston.info('Product: ' + product);
+	winston.info('Version: ' + version);
+	winston.info('Files: ' + files.join(', '));
+
 	path.exists(sumFile, function(exists)
 	{
 		if(exists)
@@ -114,10 +118,12 @@ app.post('/build', function(request, response)
 			var result = source.join('\n\n\n');
 
 			if(compress)
-				result = compressSource(result);
+			{
+				var copyright = result.substring(0, result.indexOf('*/') + 2);
+				result = copyright + '\n' + compressSource(result);
+			}
 
 			fs.writeFile(sumFile, result);
-
 			response.end(result);
 		});
 	});

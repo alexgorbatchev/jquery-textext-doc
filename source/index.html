@@ -1,10 +1,22 @@
 ---
-title: jQuery TextExt
+title: jQuery TextExt Plugin
 layout: default
-# permalink: /contact/
 ---
+<h3>Demo</h3>
 
-<a href="/manual">Manual</a>
+<textarea id="textarea" rows="1"></textarea>
 
-{% doc textext.core.js, TextExt.hasData %}
+<script type="text/javascript">
+	$('#textarea').textext({
+		plugins : 'tags prompt focus autocomplete ajax',
+		tagsItems : [ 'jquery', 'plugin', 'tags', 'autocomplete' ],
+		prompt : 'Add one...',
+		ajax : {
+			url : '/manual/examples/data.json',
+			dataType : 'json',
+			cacheResults : true
+		}
+	});
+</script>
 
+{% capture about %}{% include README.md %}{% endcapture %}{{ about | markdownify }}

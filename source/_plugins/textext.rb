@@ -1,13 +1,6 @@
 require 'kramdown'
 
 module Jekyll
-  class TextExtGenerator < Generator
-    safe false
-    
-    def generate(site)
-    end
-  end
-
   class Site
     alias jekyll_process process
     alias jekyll_render render
@@ -36,5 +29,26 @@ module Jekyll
       puts "Created TextExt symlink"
     end
   end
+
+  # patch the render method so that it doesn't exclude symlinks
+  class IncludeTag < Liquid::Tag
+    def render(context)
+      includes_dir = File.join(context.registers[:site].source, '_includes')
+
+      Dir.chdir(includes_dir) do
+        choices = Dir['**/*']
+        if choices.include?(@file)
+          source = File.read(@file)
+          partial = Liquid::Template.parse(source)
+          context.stack do
+            partial.render(context)
+          end
+        else
+          "Included file '#{@file}' not found in _includes directory"
+        end
+      end
+    end
+  end
 end
 
+Liquid::Template.register_tag('include', Jekyll::IncludeTag)

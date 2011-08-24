@@ -14,11 +14,11 @@ code
 
 a[href]
 	text-decoration : none
-	color : blue
+	color           : blue
 
 	&:hover
 		text-decoration : underline
-		color : red
+		color           : red
 
 pre
 	round_corners(2px)
@@ -31,12 +31,8 @@ pre
 		border     : none
 		padding    : none
 
-textarea
-	&.example
-		width: 300px
-
-	&#output
-		width: 400px
+textarea#textarea
+	width : 400px
 
 nav
 	border_box()
@@ -111,8 +107,16 @@ nav
 
 			p
 				margin : 0
+	
+	#examples
+		ul
+			padding         : 0
+			list-style-type : none
+			margin          : 0
 
 #toc
+	margin-top : 2em
+
 	.block
 		border_box()
 		float : left

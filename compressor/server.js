@@ -50,21 +50,12 @@ app.configure('production', function()
 	app.use(express.errorHandler());
 });
 
-app.post('/build', function(request, response)
+function loadFiles(product, version, files, callback)
 {
-	var params   = request.body,
-		files    = params.files,
-		product  = PRODUCTS[params.product] ? params.product : null,
-		version  = params.version,
-		compress = params.compress == 'true',
-		sum      = md5(compress.toString() + JSON.stringify(files) + product + version),
-		loaded   = 0,
-		source   = []
+	var loaded = 0,
+		source = []
 		;
-
-	if(PRODUCTS[product].indexOf(version) == -1)
-		version = null;
-
+	
 	files.forEach(function(file, index)
 	{
 		file = path.join(SOURCE_PATH, product, version, file);
@@ -74,30 +65,62 @@ app.post('/build', function(request, response)
 			if(!exists)
 			{
 				source[index] = file;
-				loaded++;
-				complete();
+
+				if(++loaded == files.length)
+					callback(source);
+
 				return;
 			}
 
 			fs.readFile(file, 'utf8', function(err, data)
 			{
 				if(err) throw err;
-				source[index] = compress ? compressSource(data) : data;
-				loaded++;
-				complete();
+				source[index] = data;
+
+				if(++loaded == files.length)
+					callback(source);
 			});
 		})
 	});
+};
 
-	function complete()
+app.post('/build', function(request, response)
+{
+	var params   = request.body,
+		files    = params.files,
+		product  = PRODUCTS[params.product] ? params.product : null,
+		version  = params.version,
+		compress = params.compress == 'true',
+		sum      = md5(compress.toString() + JSON.stringify(files) + product + version),
+		sumFile  = path.join(SOURCE_PATH, product, version + '_cache', sum + '.txt')
+		;
+
+	if(PRODUCTS[product].indexOf(version) == -1)
+		version = null;
+
+	path.exists(sumFile, function(exists)
 	{
-		if(loaded < files.length)
+		if(exists)
+		{
+			winston.info('Using cached file');
+			response.sendfile(sumFile);
 			return;
+		}
 
-		var result = source.join('\n\n\n');
+		winston.info('Generating new file');
 
-		response.end(result);
-	};
+		loadFiles(product, version, files, function(source)
+		{
+			var result = source.join('\n\n\n');
+
+			if(compress)
+				result = compressSource(result);
+
+			fs.writeFile(sumFile, result);
+
+			response.end(result);
+		});
+	});
 });
 
 // Only listen on $ node server.js

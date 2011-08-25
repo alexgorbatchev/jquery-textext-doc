@@ -142,3 +142,26 @@ nav ul li {
 #example #output {
   display: inline;
 }
+form#download ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+form#download ul li {
+  margin-bottom: 0.5em;
+}
+form#download .files {
+  font: 0.8em Monaco, Consolas, Courier New;
+  color: #c0c0c0;
+}
+form#download button {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 1em;
+  padding: 0.5em 0.7em;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

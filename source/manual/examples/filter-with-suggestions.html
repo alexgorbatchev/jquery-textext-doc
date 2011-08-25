@@ -7,7 +7,7 @@ id      : filter-using-suggestions
 {% include common.html %}
 
 {% capture intro %}
-The {{ Filter }} plugin will automatically use items from the {{ Suggestions }} plugin if both are present at the same time. {{ Suggestions }} plugin dispatches `setSuggestions` event which is processed by the {{ Filter }} plugin and passed items are used to filter the input. That is *unless* `filterItems` options is explicitly set as shown in [the example](/manual/plugins/filter/examples/with-static-list-of-items.html). In this case specified options take precedence.
+The {{ Filter }} plugin will automatically use items from the {{ Suggestions }} plugin if both are present at the same time. {{ Suggestions }} plugin dispatches `setSuggestions` event which is processed by the {{ Filter }} plugin and passed items are used to filter the input. That is *unless* `filterItems` options is explicitly set as shown in [the example](/manual/examples/filter-with-tags-and-static-list-of-items.html). In this case specified options take precedence.
 {% endcapture %}
 
 {% capture example_textarea %}

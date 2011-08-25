@@ -3,7 +3,7 @@
 body
 	background   : white
 	font         : $body_font
-	padding-left : 15.5em
+	padding-left : 11.5em
 
 code
 	round_corners(2px)
@@ -41,7 +41,7 @@ nav
 	left       : 0
 	top        : 0
 	bottom     : 0
-	width      : 15em
+	width      : 11em
 	background : #eee
 	padding    : 1em
 	overflow-y : auto
@@ -144,7 +144,37 @@ nav
 	.output
 		display : inline
 
-form#download
+em
+	font-weight : bold
+	color       : green
+
+.announcement
+	round_corners(3px)
+	vendor('margin-before', 1em)
+	vendor('margin-after', 1em)
+	font-size  : 1.1em
+	background : yellow
+	border     : 1px solid yellow - 10%
+	padding    : .5em 1em
+
+form
+	&#download
+		.files
+			font  : $code_font
+			color : silver
+
+	&#purchase
+		.price
+			font-weight : bold
+
+		#total
+			.value
+				color : silver
+
+			font-size   : 1.3em
+			font-weight : bold
+			margin      : 1em 0 
+
 	ul
 		list-style-type : none
 		padding         : 0
@@ -152,11 +182,7 @@ form#download
 
 		li
 			margin-bottom : .5em
-
-	.files
-		font  : $code_font
-		color : silver
-
+	
 	button
 		round_corners(3px)
 		font-size  : 1em

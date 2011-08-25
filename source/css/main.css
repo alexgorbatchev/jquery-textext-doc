@@ -1,7 +1,7 @@
 body {
   background: #fff;
   font: 0.9em "Helvetica Neue", Arial, sans-serif;
-  padding-left: 15.5em;
+  padding-left: 11.5em;
 }
 code {
   -webkit-border-radius: 2px;
@@ -45,7 +45,7 @@ nav {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 15em;
+  width: 11em;
   background: #eee;
   padding: 1em;
   overflow-y: auto;
@@ -146,19 +146,49 @@ nav ul li {
 #example .output {
   display: inline;
 }
-form#download ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+em {
+  font-weight: bold;
+  color: #008000;
 }
-form#download ul li {
-  margin-bottom: 0.5em;
+.announcement {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-margin-before: 1em;
+  -moz-margin-before: 1em;
+  margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -moz-margin-after: 1em;
+  margin-after: 1em;
+  font-size: 1.1em;
+  background: #ff0;
+  border: 1px solid #e5e600;
+  padding: 0.5em 1em;
 }
 form#download .files {
   font: 0.8em Monaco, Consolas, Courier New;
   color: #c0c0c0;
 }
-form#download button {
+form#purchase .price {
+  font-weight: bold;
+}
+form#purchase #total {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+form#purchase #total .value {
+  color: #c0c0c0;
+}
+form ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+form ul li {
+  margin-bottom: 0.5em;
+}
+form button {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;

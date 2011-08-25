@@ -5,7 +5,8 @@ var
 	fs      = require('fs'),
 	crypto  = require('crypto'),
 	parser  = require('uglify-js').parser,
-	uglify  = require('uglify-js').uglify
+	uglify  = require('uglify-js').uglify,
+	stylus  = require('stylus')
 	;
 
 var app = module.exports = express.createServer();
@@ -50,49 +51,85 @@ function md5(source)
 	return hash.digest('hex');
 };
 
-function loadFiles(product, version, files, callback)
+function assembleFileList(productPath, files, callback)
 {
-	var loaded = 0,
-		source = []
+	var jsFiles     = [],
+		stylusFiles = [],
+		counter     = 0,
+		stopAt      = files.length * 2 // twice the list because checking two files for each entry
+		;
+
+	files.forEach(function(file, index)
+	{
+		file = file.replace(/\/|\\/g, '-');
+
+		var ext = path.extname(file);
+
+		if(ext.length > 0)
+			file = path.basename(file, ext);
+
+		var styleFile = path.join(productPath, 'stylus', file + '.styl'),
+			jsFile    = path.join(productPath, 'js', file + '.js')
+			;
+
+		path.exists(styleFile, function(exists)
+		{
+			if(exists)
+				stylusFiles.push(styleFile);
+
+			finish();
+		});
+
+		path.exists(jsFile, function(exists)
+		{
+			if(exists)
+				jsFiles.push(jsFile);
+
+			finish();
+		});
+	});
+
+	function finish()
+	{
+		if(++counter < stopAt)
+			return;
+
+		callback(jsFiles.concat(stylusFiles));
+	};
+};
+
+function loadFiles(files, callback)
+{
+	var counter = 0,
+		stopAt  = files.length,
+		result  = []
 		;
 	
 	files.forEach(function(file, index)
 	{
-		file = file.replace(/\/|\\/g, '-');
-		file = path.join(SOURCE_PATH, product, version, file);
-
-		path.exists(file, function(exists)
+		fs.readFile(file, 'utf8', function(err, data)
 		{
-			if(!exists)
-			{
-				source[index] = file;
+			result[index] = {
+				name    : file,
+				content : err ? err.message : data
+			};
 
-				if(++loaded == files.length)
-					callback(source);
-
-				return;
-			}
-
-			fs.readFile(file, 'utf8', function(err, data)
-			{
-				source[index] = err ? err.message : data;
-
-				if(++loaded == files.length)
-					callback(source);
-			});
-		})
+			if(++counter == stopAt)
+				callback(result);
+		});
 	});
 };
 
 app.post('/build', function(request, response)
 {
-	var params   = request.body,
-		files    = params.files,
-		product  = PRODUCTS[params.product] ? params.product : null,
-		version  = params.version,
-		compress = params.compress == 'true',
-		sum      = md5(compress.toString() + JSON.stringify(files) + product + version),
-		sumFile  = path.join(SOURCE_PATH, product, version + '_cache', sum + '.txt')
+	var params      = request.body,
+		files       = params.files,
+		product     = PRODUCTS[params.product] ? params.product : null,
+		version     = params.version,
+		compress    = params.compress == 'true',
+		sum         = md5(compress.toString() + JSON.stringify(files) + product + version),
+		productPath = path.join(SOURCE_PATH, product, version),
+		sumFile     = path.join(productPath + '_cache', sum + '.txt')
 		;
 
 	if(PRODUCTS[product].indexOf(version) == -1)
@@ -113,20 +150,57 @@ app.post('/build', function(request, response)
 
 		winston.info('Generating new file');
 
-		loadFiles(product, version, files, function(source)
+		assembleFileList(productPath, files, function(files)
 		{
-			var result = source.join('\n\n\n');
-
-			if(compress)
+			loadFiles(files, function(files)
 			{
-				var copyright = result.substring(0, result.indexOf('*/') + 2);
-				result = copyright + '\n' + compressSource(result);
-			}
+				var jsSource     = '',
+					stylusSource = '',
+					stylusPath   = path.join(productPath, 'stylus'),
+					cssPath      = path.join(productPath, 'css')
+					;
 
-			fs.writeFile(sumFile, result);
-			response.end(result);
+				files.forEach(function(file)
+				{
+					switch(path.extname(file.name))
+					{
+						case '.js'   : jsSource += file.content; break;
+						case '.styl' : stylusSource += file.content; break;
+					}
+				});
+
+				if(compress)
+				{
+					var copyright = jsSource.substring(0, jsSource.indexOf('*/') + 2);
+					jsSource = copyright + '\n' + compressSource(jsSource);
+				}
+
+				stylus(stylusSource)
+					.set('filename', path)
+					.set('compress', compress)
+					.include(stylusPath)
+					.define('url', stylus.url({ paths: [ cssPath ] }))
+					.render(function(err, result)
+					{
+						if(err) throw err;
+						complete(jsSource, result);
+					});
+			});
 		});
 	});
+
+	function complete(jsSource, stylusSource)
+	{
+		var joinWith = compress ? '\\n' : '\\n' + '\\' + '\n',
+			result
+			;
+		
+		stylusSource = ";$.fn.textext.css = '" + stylusSource.split('\n').join(joinWith).replace(/'/g, '\\\'') + "';";
+		result       = jsSource + stylusSource;
+
+		fs.writeFile(sumFile, result);
+		response.end(result);
+	};
 });
 
 // Only listen on $ node server.js

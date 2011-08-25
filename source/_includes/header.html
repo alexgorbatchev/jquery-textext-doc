@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+{% include common.html %}
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>		
-		<title>TextExt - {{ page.title }}</title>
+		<title>jQuery TextExt Plugin{% if page.title != '' %} - {{ page.title }}{% endif %}</title>
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
 		<link rel="stylesheet" href="/css/main.css" type="text/css" />
@@ -24,4 +25,6 @@
 	</head>
 	<body>
 
+		<h1><a href="/">jQuery TextExt Plugin {{ version }}</a></h1>
+		<div class="tagline">Autocomplete, Tags and everything...</div>
 

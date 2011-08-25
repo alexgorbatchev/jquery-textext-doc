@@ -1,9 +1,11 @@
 {% include header.html %}
 
-<h2>{{ page.title }}</h2>
+<h2>Plugin: {{ page.title }}</h2>
 
-{% include nav.html %}
+{% include nav_manual.html %}
 
-{{ content }}
+<div id="content">
+	{{ content }}
+</div>
 
 {% include footer.html %}

@@ -1,8 +1,12 @@
 {% include header.html %}
 
-<h2>{{ page.title }}</h2>
+{% if page.title != '' %}<h2>{{ page.title }}</h2>{% endif %}
 
-{{ content }}
+{% include nav_default.html %}
+
+<div id="content">
+	{{ content }}
+</div>
 
 {% include footer.html %}
 

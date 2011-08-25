@@ -48,14 +48,17 @@ nav {
   width: 15em;
   background: #eee;
   padding: 1em;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 nav h2 {
   margin: 0 0 0.4em 0;
 }
 nav h3 {
   margin: 0;
+  font-size: 1em;
 }
-nav section {
+nav section.api ul {
   margin-left: 0.5em;
 }
 nav ul {

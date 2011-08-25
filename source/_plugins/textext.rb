@@ -8,8 +8,8 @@ module Jekyll
     def render
       # sort pages by title
       @pages.sort! do |p1, p2|
-        p1 = p1.data['title']
-        p2 = p2.data['title']
+        p1 = p1.data['title'] or ''
+        p2 = p2.data['title'] or ''
         if p1 == p2
           0
         else

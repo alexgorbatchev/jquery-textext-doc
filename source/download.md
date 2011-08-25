@@ -2,6 +2,11 @@
 title: Download
 layout: default
 ---
+I've created this super awesome download page for you! It lets you pick just what you need and gives back the googies! What's super awesome about it, is that you get everything, and I mean *everything*, in a single JavaScript file! That even includes images and CSS!
+
+So when you add this component to the page, you only add ONE extra roundtrip to the server!
+
+What are you waiting for? Take it for a spin!
 
 <form id="download" method="post" action="http://localhost:3000/build">
 	<input type="hidden" name="product" value="textext" />
@@ -15,7 +20,7 @@ layout: default
 
 		<li>
 			<input type="checkbox" name="files" value="textext.core.js" id="check_core" checked="true" />
-			<label for="check_core">TextExt core <span class="files">textext.core.js, textext.core.css<span>)</label>
+			<label for="check_core">TextExt core <span class="files">textext.core.js, textext.core.css</span></label>
 		</li>
 
 		<li>

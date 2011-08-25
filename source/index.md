@@ -4,7 +4,7 @@ layout: default
 ---
 <h3>Demo</h3>
 
-<textarea id="textarea" rows="1"></textarea>
+<textarea id="textarea" rows="1"> </textarea>
 
 <script type="text/javascript">
 	$('#textarea').textext({
@@ -19,4 +19,5 @@ layout: default
 	});
 </script>
 
-{% capture about %}{% include README.md %}{% endcapture %}{{ about | markdownify }}
+{% include about.html %}
+

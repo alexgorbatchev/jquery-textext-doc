@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="/css/main.css" type="text/css" />
 		<script src="/js/jquery-1.6.1.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/js/doc.js" type="text/javascript" charset="utf-8"></script>
-
 		<link rel="stylesheet" href="/textext/css/textext.core.css" type="text/css" />
 		<link rel="stylesheet" href="/textext/css/textext.plugin.tags.css" type="text/css" />
 		<link rel="stylesheet" href="/textext/css/textext.plugin.autocomplete.css" type="text/css" />
@@ -22,9 +21,19 @@
 		<script src="/textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/textext/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="http://localhost:3100/a1/products/textext/1.0.10?compress=true&bundle=core&bundle=autocomplete&bundle=tags" type="text/javascript" charset="utf-8"></script>-->
 	</head>
 	<body>
+		<div class="container">
 
-		<h1><a href="/">jQuery TextExt Plugin {{ version }}</a></h1>
-		<div class="tagline">Autocomplete, Tags and everything...</div>
+			<div class="topbar-wrapper">
+				<div class="topbar">
+					<div class="topbar-inner">
+						<div class="container">
+							<h3><a href="/">jQuery TextExt Plugin {{ version }}</a></h3>
+							{% include nav_common.html %}
+						</div>
+					</div>
+				</div>
+			</div>
 

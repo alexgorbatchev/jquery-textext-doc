@@ -2,7 +2,12 @@
 	"name"          : "app_name",
 	"version"       : "0.0.0",
 	"dependencies"  : {
-		"stylus"    : "x.x.x"
+		"cluster"   : "0.6.x",
+		"uglify-js" : "1.0.x",
+		"express"   : "2.3.x",
+		"winston"   : "0.2.x",
+		"less"      : "1.1.x",
+		"stylus"    : "0.12.x"
 	}
 }
 

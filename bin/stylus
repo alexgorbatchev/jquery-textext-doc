@@ -1,3 +1,0 @@
-#!/bin/bash
-../node_modules/.bin/stylus --watch --include ../stylus --out ../source/css ../stylus/main.styl
-

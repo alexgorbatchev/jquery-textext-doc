@@ -1,8 +1,8 @@
 ---
 title: ''
-layout: default
+layout: home
 ---
-<h3>Demo</h3>
+<h2>Demo</h2>
 
 <textarea id="textarea" rows="1"> </textarea>
 

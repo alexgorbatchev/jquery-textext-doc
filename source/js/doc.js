@@ -33,10 +33,18 @@ $(function()
 		);
 	};
 
+	// common DOM updates
+	(function()
+	{
+		$('#content').find('h1,h2,h3').wrapInner('<div class="page-header"/>');
+	})();
+
 	// add TOC to the API doc page
 	(function()
 	{
-		var blocks = [];
+		var row = $('<div class="row"/>');
+
+		$('#toc').append(row);
 
 		$('#api section h3').each(function()
 		{
@@ -56,16 +64,8 @@ $(function()
 			})
 			.toArray();
 
-			block = $('<div class="block"><h4>' + h3.html() + '</h4><ul>' + links.join('') + '</ul></div>');
-			blocks.push(block);
-			$('#toc').append(block);
-		});
-
-		$('#toc').append('<div style="clear: both"/>');
-
-		$.each(blocks, function()
-		{
-			this.css('width', Math.floor(100 / blocks.length) + '%');
+			block = $('<div class="span4 columns"><h4>' + h3.html() + '</h4><ul>' + links.join('') + '</ul></div>');
+			row.append(block);
 		});
 	})();
 

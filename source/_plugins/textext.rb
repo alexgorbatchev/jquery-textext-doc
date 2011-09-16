@@ -27,6 +27,9 @@ module Jekyll
       to   = File.expand_path(config['destination'] + '/textext')
       `ln -s \"#{from}\" \"#{to}\"`
       puts "Created TextExt symlink"
+
+      `cd bin && ./less`
+      puts "Updated less"
     end
   end
 

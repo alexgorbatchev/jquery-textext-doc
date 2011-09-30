@@ -1,4 +1,10 @@
 @import "../../vendor/bootstrap/lib/bootstrap.less";
+@import "masthead.less";
+@import "purchase.less";
+
+h1, h2, h3 {
+	font-family: Rosario, Helvetica, Arial, sans;
+}
 
 body {
 	margin-top: 50px;
@@ -10,7 +16,19 @@ pre {
 	}
 }
 
+nav {
+	position : fixed;
+}
+
 #api {
+	h1, h2, h3, h4, h5 {
+		a {
+			/* Fixes page anchor links being coverd by navigation */
+			margin-top: -50px;
+			padding-top: 50px;
+		}
+	}
+
 	#toc {
 		.page-header {
 			margin-bottom: 5px;
@@ -31,3 +49,4 @@ pre {
 		}
 	}
 }
+

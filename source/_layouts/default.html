@@ -1,10 +1,11 @@
 {% include header.html %}
 
-{% if page.title != '' %}<h2>{{ page.title }}</h2>{% endif %}
-
-<div class="row">
-	<div id="content" class="span16 columns">
-		{{ content }}
+<div class="container">
+	<div class="row">
+		<div id="content" class="span16 columns">
+			{% if page.title != '' %}<h2>{{ page.title }}</h2>{% endif %}
+			{{ content }}
+		</div>
 	</div>
 </div>
 

@@ -1,13 +1,15 @@
 {% include header.html %}
 
-<div class="row">
-	<div class="span4 columns">
-		{% include nav_manual.html %}
-	</div>
+<div class="container">
+	<div class="row">
+		<div class="span4 columns">
+			{% include nav_manual.html %}
+		</div>
 
-	<div id="content" class="span12 columns">
-		<h2>{{ page.title }} <small>plugin</small></h2>
-		{{ content }}
+		<div id="content" class="span12 columns">
+			<h2>{{ page.title }} <small>plugin</small></h2>
+			{{ content }}
+		</div>
 	</div>
 </div>
 

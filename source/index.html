@@ -1,0 +1,46 @@
+---
+title: ''
+---
+{% include header.html %}
+{% include common.html %}
+
+<div id="masthead">
+	<div class="container">
+		<div class="row">
+			<div class="content" class="span10 columns">
+				<h1>TextExt {{version}} for jQuery</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div id="content" class="span16 columns">
+			<h2>Demo</h2>
+
+			<textarea id="textarea" rows="1"> </textarea>
+
+			<script type="text/javascript">
+				$('#textarea').textext({
+					plugins : 'tags prompt focus autocomplete ajax',
+					tagsItems : [ 'jquery', 'plugin', 'tags', 'autocomplete' ],
+					prompt : 'Add one...',
+					ajax : {
+						url : '/manual/examples/data.json',
+						dataType : 'json',
+						cacheResults : true
+					}
+				});
+			</script>
+
+			<div id="about">
+				{% include about.html %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/js/home.js"></script>
+
+{% include footer.html %}

@@ -85,7 +85,7 @@ $(function()
 				p.html(
 					'<code class="var ' + match[1] + '">' + match[1] + '</code> '
 					+ (match[2] ? '<code class="type">' + match[2] + '</code> ' : '')
-					+ match[3]
+					+ '<span class="desc">' + match[3] + '</span>'
 				);
 			}
 		});

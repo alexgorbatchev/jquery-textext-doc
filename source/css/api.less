@@ -1,0 +1,56 @@
+#api {
+	h1, h2, h3, h4, h5 {
+		a {
+			/* Fixes page anchor links being coverd by navigation */
+			margin-top  : -50px;
+			padding-top : 50px;
+			color       : inherit;
+
+			&:hover {
+				text-decoration : none;
+			}
+		}
+	}
+
+	#toc {
+		.page-header {
+			margin-bottom : 5px;
+		}
+
+		ul {
+			padding         : 0;
+			margin          : 0;
+			list-style-type : none;
+			
+			li {
+				font-family   : Monaco, Andale Mono, Courier New, monospace;
+				font-size     : 10px;
+				text-overflow : ellipsis;
+				white-space   : nowrap;
+				overflow      : hidden;
+			}
+		}
+	}
+
+	.method {
+		h4 .param {
+			cursor : pointer;
+
+			&:hover {
+				text-decoration : underline;
+			}
+		}
+
+		.params li {
+			.desc {
+				padding : 1px 3px;
+			}
+
+			&.highlight .desc {
+				background : yellow;
+				color      : black;
+			}
+		}
+	}
+}
+

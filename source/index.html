@@ -14,29 +14,21 @@ title: ''
 	</div>
 </div>
 
-<div class="container">
+<div id="content" class="container">
 	<div class="row">
-		<div id="content" class="span16 columns">
+		<div id="new-about" class="span8 columns"></div>
+
+		<div class="span8 columns">
 			<h2>Demo</h2>
-
-			<textarea id="textarea" rows="1"> </textarea>
-
-			<script type="text/javascript">
-				$('#textarea').textext({
-					plugins : 'tags prompt focus autocomplete ajax',
-					tagsItems : [ 'jquery', 'plugin', 'tags', 'autocomplete' ],
-					prompt : 'Add one...',
-					ajax : {
-						url : '/manual/examples/data.json',
-						dataType : 'json',
-						cacheResults : true
-					}
-				});
-			</script>
-
-			<div id="about">
-				{% include about.html %}
+			<p>This demo shows off Tags, Prompt, Focus, Autocomplete and Ajax plugins.</p>
+			<div id="demo">
+				<textarea rows="1"></textarea>
 			</div>
+			<p>You can see the code for this demo below in the example section.</p>
+		</div>
+
+		<div id="about-section" class="span16 columns">
+			{% include about.html %}
 		</div>
 	</div>
 </div>

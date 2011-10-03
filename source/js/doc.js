@@ -1,5 +1,14 @@
 $(function()
 {
+	(function()
+	{
+		$('a').each(function()
+		{
+			var a = $(this);
+			if((a.attr('href') || '').indexOf('http') == 0)
+				a.addClass('external');
+		});
+	})();
 
 	function enhanceMethodSignature(a)
 	{

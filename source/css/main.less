@@ -4,11 +4,11 @@
 @import "api.less";
 
 h1, h2, h3 {
-	font-family: Rosario, Helvetica, Arial, sans;
+	font-family : Helvetica, Arial, sans;
 }
 
 body {
-	margin-top: 50px;
+	margin-top : 50px;
 }
 
 pre {
@@ -17,8 +17,31 @@ pre {
 	}
 }
 
+a.external {
+	background    : url(/images/external.png) 100% 50% no-repeat;
+	padding-right : 13px;
+}
+
+ul.nav a.external {
+	background-image : none;
+}
+
 nav {
 	position : fixed;
 }
 
+#demo {
+	textarea { width: 450px; }
+	margin-bottom: 10px;
+}
 
+#content {
+	h2, h3 {
+		background  : url(/images/025.png) 0 50% no-repeat;
+		text-indent : 30px;
+	}
+
+	h2 {
+		background-image : url(/images/026.png);
+	}
+}

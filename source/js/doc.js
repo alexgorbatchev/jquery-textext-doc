@@ -1,14 +1,16 @@
 $(function()
 {
-	(function()
+	function email()
 	{
-		$('a').each(function()
-		{
-			var a = $(this);
-			if((a.attr('href') || '').indexOf('http') == 0)
-				a.addClass('external');
-		});
-	})();
+		// http://rumkin.com/tools/mailto_encoder/simple.php
+		var ML=":\"<ab.ixrgf=oetl @h>mvc/";
+		var MI="23@B8=:;1D36?><03?=759<843>FB=EA9D36?5F<D1C3?=759<843>FB=EA9D36?5F<D2G3C";
+		var OT="";
+		for(j=0;j<MI.length;j++){
+			OT+=ML.charAt(MI.charCodeAt(j)-48);
+		}
+		return OT;
+	};
 
 	function enhanceMethodSignature(a)
 	{
@@ -69,7 +71,7 @@ $(function()
 			{
 				var a = $(this);
 				enhanceMethodSignature(a);
-				return '<li><a href="#' + a.attr('name') + '">' + a.html() + '</a></li>';
+				return '<li><a href="#' + a.attr('name') + '">' + a.text().replace(/^\w+\./, '') + '</a></li>';
 			})
 			.toArray();
 
@@ -101,4 +103,6 @@ $(function()
 
 	})();
 
+	$('a').filter('*[href^="http://"], *[href^="https://"]').addClass('external');
+	$('.email').html(email());
 });

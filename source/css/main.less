@@ -7,9 +7,9 @@ h1, h2, h3 {
 	font-family : Helvetica, Arial, sans;
 }
 
-body {
-	margin-top : 50px;
-}
+body { margin-top : 50px; }
+
+a { font-weight: bold; }
 
 pre {
 	code {
@@ -22,8 +22,9 @@ a.external {
 	padding-right : 13px;
 }
 
-ul.nav a.external {
-	background-image : none;
+ul.nav a {
+	font-weight : normal;
+	&.external { background-image : none; }
 }
 
 nav {
@@ -45,3 +46,12 @@ nav {
 		background-image : url(/images/026.png);
 	}
 }
+
+#textarea {
+	width : 400px;
+}
+
+.text-core {
+	margin-bottom : 10px;
+}
+

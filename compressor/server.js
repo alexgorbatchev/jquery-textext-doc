@@ -206,6 +206,6 @@ app.post('/build', function(request, response)
 // Only listen on $ node server.js
 if(!module.parent)
 {
-	app.listen(3000);
+	app.listen(process.env.PORT || 3000);
 	winston.info('Compressor ' + app.address().port);
 }

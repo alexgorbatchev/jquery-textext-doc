@@ -3,12 +3,16 @@ title: Purchase TextExt
 layout: default
 ---
 <div id="purchase" class="form-table">
-	<div class="alert-message info">
-		As an introductory offer you name the price! That's right, for limited time only, you can pay whatever you think this component is worth to you!
-	</div>
+	<form class="form-stacked" method="post" action="https://www.paypal.com/cgi-bin/webscr">
+		<input type="hidden" name="cmd" value="_s-xclick"/>
+		<input type="hidden" name="hosted_button_id" value="TBJLSNWZN6DL6"/>
+		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" style="position: absolute; top: 0; left: 0"/>
 
-	<div class="row">
-		<form class="form-stacked" method="post" action="">
+		<div class="alert-message info">
+			As an introductory offer you name the price! That's right, for limited time only, you can pay whatever you think this component is worth to you!
+		</div>
+
+		<div class="row">
 			<div class="span6 columns">
 				<table class="zebra-striped">
 				<tr>
@@ -16,6 +20,15 @@ layout: default
 						<label>
 							<input type="checkbox" name="price" data-price="5" value="textext.core.js" id="check_core" checked="true" />
 							<span>TextExt core</span>
+						</label>
+					</td>
+					<td class="price">$5</td>
+				</tr>
+				<tr>
+					<td>
+						<label>
+							<input type="checkbox" name="price" data-price="5" value="textext.plugin.ajax.js" id="check_ajax" checked="true" />
+							<span>AJAX plugin</span>
 						</label>
 					</td>
 					<td class="price">$5</td>
@@ -86,13 +99,13 @@ layout: default
 				</ol>
 				<p>Having both, I will continue working on TextExt and <em>you get all future updates completely free</em>. If you buy the whole shenanigans, I will get pissed drunk on your behalf and maybe email you pictures of what that looked like!</p>
 			</div>
-		</form>
-	</div>
+		</div>
 
-	<div class="actions">
-		<div id="total"><strike>Total: <span class="value">$0</span></strike> For limited time you name the price!</div>
-		<button class="btn primary large">Send Beer Moneys!</button>
-	</div>
+		<div class="actions">
+			<div id="total"><strike>Total: <span class="value">$0</span></strike> For limited time you name the price!</div>
+			<button class="btn primary large">Send Beer Moneys!</button>
+		</div>
+	</form>
 </div>
 
 <script src="/js/purchase.js" type="text/javascript">

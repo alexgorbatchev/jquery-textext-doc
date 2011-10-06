@@ -3,16 +3,24 @@ title: Download
 layout: default
 ---
 <div id="purchase" class="form-table">
-	<div class="row">
-		<form class="form-stacked" method="post" action="http://localhost:3000/build">
+	<form class="form-stacked" method="post" action="http://strong-snow-9531.herokuapp.com/build">
+		<div class="row">
 			<input type="hidden" name="product" value="textext" />
 			<input type="hidden" name="version" value="1.0" />
 			<div class="span6 columns">
 				<table class="zebra-striped">
 				<tr>
 					<td>
+						<label id="compress">
+							<input type="checkbox" name="compress" value="true" id="check_compress" checked="true" />
+							<span>Compress Source</span>
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
 						<label>
-							<input type="checkbox" name="price" data-price="5" value="textext.core.js" id="check_core" checked="true" />
+							<input type="checkbox" name="files" value="textext.core.js" id="check_core" checked="true" />
 							<span>TextExt core</span>
 						</label>
 					</td>
@@ -20,7 +28,15 @@ layout: default
 				<tr>
 					<td>
 						<label>
-							<input type="checkbox" name="price" data-price="5" value="textext.plugin.autocomplete.js" id="check_autocomplete" checked="true" />
+							<input type="checkbox" name="files" value="textext.plugin.ajax.js" id="check_ajax" checked="true" />
+							<span>AJAX plugin</span>
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>
+							<input type="checkbox" name="files" value="textext.plugin.autocomplete.js" id="check_autocomplete" checked="true" />
 							<span>Autocomplete plugin</span>
 						</label>
 					</td>
@@ -28,7 +44,7 @@ layout: default
 				<tr>
 					<td>
 						<label>
-							<input type="checkbox" name="price" data-price="5" value="textext.plugin.filter.js" id="check_filter" checked="true" />
+							<input type="checkbox" name="files" value="textext.plugin.filter.js" id="check_filter" checked="true" />
 							<span>Filter plugin</span>
 						</label>
 					</td>
@@ -36,7 +52,7 @@ layout: default
 				<tr>
 					<td>
 						<label>
-							<input type="checkbox" name="price" data-price="5" value="textext.plugin.focus.js" id="check_focus" checked="true" />
+							<input type="checkbox" name="files" value="textext.plugin.focus.js" id="check_focus" checked="true" />
 							<span>Focus plugin</span>
 						</label>
 					</td>
@@ -44,7 +60,7 @@ layout: default
 				<tr>
 					<td>
 						<label>
-							<input type="checkbox" name="price" data-price="5" value="textext.plugin.prompt.js" id="check_prompt" checked="true" />
+							<input type="checkbox" name="files" value="textext.plugin.prompt.js" id="check_prompt" checked="true" />
 							<span>Prompt plugin</span>
 						</label>
 					</td>
@@ -52,7 +68,7 @@ layout: default
 				<tr>
 					<td>
 						<label>
-							<input type="checkbox" name="price" data-price="5" value="textext.plugin.suggestions.js" id="check_suggestions" checked="true" />
+							<input type="checkbox" name="files" value="textext.plugin.suggestions.js" id="check_suggestions" checked="true" />
 							<span>Suggestions plugin</span>
 						</label>
 					</td>
@@ -60,7 +76,7 @@ layout: default
 				<tr>
 					<td>
 						<label>
-							<input type="checkbox" name="price" data-price="5" value="textext.plugin.tags.js" id="check_tags" checked="true" />
+							<input type="checkbox" name="files" value="textext.plugin.tags.js" id="check_tags" checked="true" />
 							<span>Tags plugin</span>
 						</label>
 					</td>
@@ -79,10 +95,9 @@ layout: default
 				<h3>Issues</h3>
 				<p>If you are sure you have found a bug, please take a second to <a href="https://github.com/alexgorbatchev/jquery-textext/issues">report it</a></p>
 			</div>
-		</form>
-	</div>
-
-	<div class="actions">
-		<button class="btn primary large">Get Codez!</button>
-	</div>
+		</div>
+		<div class="actions">
+			<button class="btn primary large">Get Codez!</button>
+		</div>
+	</form>
 </div>

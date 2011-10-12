@@ -1,6 +1,6 @@
 $(function()
 {
-	var form       = $('#purchase'),
+	var form       = $('#download'),
 		checkboxes = form.find('input:checkbox')
 		;
 
@@ -8,10 +8,11 @@ $(function()
 	{
 		_gaq.push(['_trackEvent', 'Download', 'Counter']);
 
+		console.log(e);
 		checkboxes.filter(':checked').each(function()
 		{
 			var self = $(this);
-			_gaq.push(['_trackEvent', 'Download', self.attr('name'), self.val()]);
+			_gaq.push(['_trackEvent', 'Download', self.val()]);
 		});
 	});
 });

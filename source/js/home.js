@@ -2,7 +2,9 @@
 {
 	var about    = $('#about-section'),
 		masthead = $('#masthead .content'),
-		blocks   = []
+		blocks   = [],
+		left     = $('#left'),
+		right    = $('#right')
 		;
 	
 	about.find('p:nth(0), p:nth(1)').appendTo(masthead);
@@ -17,10 +19,18 @@
 			blocks[blocks.length - 1].push(item);
 	});
 
-	$(blocks[0]).each(function()
+	function move(index, to)
 	{
-		$(this).appendTo($('#new-about'));
-	});
+		$(blocks[index]).each(function()
+		{
+			$(this).appendTo(to);
+		});
+	}
+
+	move(0, left);  // about
+	move(1, left);  // features
+	move(3, left);  // how to use
+	move(2, right); // example
 
 	$('#demo textarea').textext({
 		plugins : 'tags prompt focus autocomplete ajax',

@@ -112,6 +112,10 @@ module Jekyll
       }
     end
 
+    def version(ver)
+      return ver ? "<span class=\"label version\" title=\"Introduced in version #{ver}\">#{ver}</span>" : ''
+    end
+
     def slug(str)
       str.gsub(/\W+/, ' ').gsub(/\s+/, ' ').gsub(/\s/, '-').gsub(/^-*|-*$/, '').downcase
     end
@@ -147,7 +151,7 @@ module Jekyll
   class DocOptTag < DocBaseTag
     def get_html(comments)
       "<div class=\"option\">" +
-        "<h4>#{a comments[:tags][:name]} <span class=\"default\">(#{comments[:tags][:default]})</span></h4>" +
+        "<h4>#{a comments[:tags][:name]} <span class=\"default\">(#{comments[:tags][:default]})</span>#{version comments[:tags][:version]}</h4>" +
         comments[:description] +
       "</div>"
     end
@@ -156,7 +160,7 @@ module Jekyll
   class DocEventTag < DocBaseTag
     def get_html(comments)
       "<div class=\"event\">" +
-        "<h4>#{a comments[:tags][:name]}</h4>" +
+        "<h4>#{a comments[:tags][:name]}#{version comments[:tags][:version]}</h4>" +
         comments[:description] +
       "</div>"
     end
@@ -164,7 +168,8 @@ module Jekyll
 
   class DocMethodTag < DocBaseTag
     def get_html(comments)
-      params = comments[:tags][:param]
+      tags = comments[:tags]
+      params = tags[:param]
 
       if params
         params.map! do |item|
@@ -175,7 +180,7 @@ module Jekyll
       end
 
       "<div class=\"method\">" +
-        "<h4>#{a comments[:tags][:signature]}</h4>" +
+        "<h4>#{a tags[:signature]}#{version tags[:version]}</h4>" +
         (params || '') + 
         comments[:description] +
       "</div>"

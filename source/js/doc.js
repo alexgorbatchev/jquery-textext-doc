@@ -48,6 +48,7 @@ $(function()
 	(function()
 	{
 		$('#content').find('h1,h2,h3').wrapInner('<div class="page-header"/>');
+		$('#nav').find('.' + ($(document.body).data('section') || 'nada')).addClass('active');
 	})();
 
 	// add TOC to the API doc page

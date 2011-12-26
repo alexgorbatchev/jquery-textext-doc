@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div id="content" class="span16 columns">
-			{% if page.title != '' %}<h2>{{ page.title }}</h2>{% endif %}
+			{% if page.title %}<h2>{{ page.title }}</h2>{% endif %}
 			{{ content }}
 		</div>
 	</div>

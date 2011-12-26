@@ -1,0 +1,65 @@
+---
+layout  : example
+title   : Autocomplete With Custom Render
+example : autocomplete
+id      : autocomplete-with-custom-render
+---
+{% include common.html %}
+
+{% capture example_textarea %}
+<textarea id="textarea" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	// a trivial hash function
+	function hash(str, hashSize)
+	{
+		var result = 0; 
+		
+		for(var i = 0; i < str.length; i++) 
+			result += str.charCodeAt(i) + 31 * result;
+		
+		return result % hashSize;
+	}
+
+	$('#textarea')
+		.textext({
+			plugins : 'autocomplete',
+
+			autocomplete : {
+				render : function(suggestion)
+				{
+					// `this` refers to the instance of `TextExtAutocomplete`
+
+					var icons = 'exclamation feed house information lock'.split(/ /g),
+						icon  = icons[hash(suggestion, icons.length)]
+						;
+
+					return '<div style="background-image:url(/images/render-demo/' +
+						icon + '.png)">' + suggestion + '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p></div>';
+				}
+			}
+		})
+		{{ getSuggestions }}
+		;
+</script>
+
+<style>
+	.text-label div {
+		background-position : 0 0;
+		background-repeat   : no-repeat;
+		padding-left        : 21px;
+		line-height         : 16px;
+	}
+
+	.text-label div p {
+		margin      : 0;
+		font-size   : 10px;
+		color       : silver;
+		line-height : 10px;
+	}
+</style>
+{% endcapture %}
+
+{% include live_demo.html %}

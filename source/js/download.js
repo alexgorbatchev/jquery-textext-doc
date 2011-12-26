@@ -7,8 +7,6 @@ $(function()
 	form.submit(function(e)
 	{
 		_gaq.push(['_trackEvent', 'Download', 'Counter']);
-
-		console.log(e);
 		checkboxes.filter(':checked').each(function()
 		{
 			var self = $(this);

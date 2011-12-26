@@ -12,7 +12,7 @@ var
 var app = module.exports = express.createServer();
 
 var SOURCE_PATH = fs.realpathSync(__dirname + '/products'),
-	PRODUCTS    = { textext : [ '1.0' ] }
+	PRODUCTS    = { textext : [ '1.0', '1.1' ] }
 	;
 
 app.configure(function()

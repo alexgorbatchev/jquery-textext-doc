@@ -28,11 +28,12 @@
 					'Ruby',
 					'Scala'
 				],
-				textext = $(e.target).textext()[0]
+				textext = $(e.target).textext()[0],
+				query = (data ? data.query : '') || ''
 				;
 
 			$(this).trigger(
 				'setSuggestions',
-				{ result : textext.itemManager().filter(list, data.query) }
+				{ result : textext.itemManager().filter(list, query) }
 			);
 		}){% endcapture %}

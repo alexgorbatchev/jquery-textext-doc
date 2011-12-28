@@ -1,0 +1,24 @@
+---
+layout  : example
+title   : Arrow With Autocomplete
+example : autocomplete arrow
+id      : arrow-with-autocomplete
+---
+{% include common.html %}
+
+{% capture example_textarea %}
+<textarea id="textarea" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#textarea')
+		.textext({
+			plugins : 'arrow autocomplete'
+		})
+		{{ getSuggestions }}
+		;
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}

@@ -72,7 +72,7 @@ $(function()
 			{
 				var a = $(this);
 				enhanceMethodSignature(a);
-				return '<li><a href="#' + a.attr('name') + '">' + a.text().replace(/^\w+\./, '') + '</a></li>';
+				return '<li><a href="#' + a.attr('name') + '">' + a.text().replace(/^[A-Z]\w+\./, '') + '</a></li>';
 			})
 			.toArray();
 

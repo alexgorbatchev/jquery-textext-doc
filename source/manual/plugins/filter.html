@@ -35,9 +35,10 @@ id     : filter
 
 {% capture methods %}
 	{% doc_method TextExtFilter.init %}
+	{% doc_method TextExtFilter.isValueAllowed %}
+	{% doc_method TextExtFilter.onGetFormData %}
 	{% doc_method TextExtFilter.onIsTagAllowed %}
 	{% doc_method TextExtFilter.onSetSuggestions %}
-	{% doc_method TextExtFilter.suggestions %}
 {% endcapture %}
 
 {% include api_doc.html %}

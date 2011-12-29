@@ -32,8 +32,8 @@
 	move(3, left);  // how to use
 	move(2, right); // example
 
-	$('#demo textarea').textext({
-		plugins : 'tags prompt focus autocomplete ajax',
+	$('#textarea').textext({
+		plugins : 'tags prompt focus autocomplete ajax arrow',
 		tagsItems : [ 'jquery', 'plugin', 'tags', 'autocomplete' ],
 		prompt : 'Add one...',
 		ajax : {

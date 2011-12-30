@@ -1,8 +1,8 @@
 ---
 layout  : example
-title   : Prompt with Autocomplete
-example : prompt autocomplete
-id      : prompt-with-autocomplete
+title   : Prompt with Autocomplete and Arrow
+example : prompt autocomplete arrow
+id      : prompt-with-autocomplete-and-arrow
 ---
 {% include common.html %}
 
@@ -17,7 +17,7 @@ id      : prompt-with-autocomplete
 <script type="text/javascript">
 	$('#textarea')
 		.textext({
-			plugins : 'prompt autocomplete'
+			plugins : 'prompt autocomplete arrow'
 		})
 		{{ getSuggestions }}
 		;

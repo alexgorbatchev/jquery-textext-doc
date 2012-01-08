@@ -6,7 +6,7 @@ section: contact
 #### Before Emailing
 
 Please consider googling and looking through the manual first. To reach me with questions, support issues, please send me an email at
-<span class="email"></span>.
+<span class="email">email</span> or hit me up on twitter <a href="https://twitter.com/#!/TextExtJs">@TextExtJs</a>.
 
 #### Issue Reports
 

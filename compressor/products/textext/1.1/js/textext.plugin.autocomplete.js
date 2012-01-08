@@ -63,6 +63,19 @@
 		OPT_POSITION = 'autocomplete.dropdown.position',
 
 		/**
+		 * This option allows to specify maximum height of the dropdown. Value is taken directly, so
+		 * if desired height is 200 pixels, value must be `200px`.
+		 *
+		 * @name autocomplete.dropdown.maxHeight
+		 * @default "100px"
+		 * @author agorbatchev
+		 * @date 2011/12/29
+		 * @id TextExtAutocomplete.options.autocomplete.dropdown.maxHeight
+		 * @version 1.1
+		 */
+		OPT_MAX_HEIGHT = 'autocomplete.dropdown.maxHeight',
+
+		/**
 		 * This option allows to override how a suggestion item is rendered. The value should be
 		 * a function, the first argument of which is suggestion to be rendered and `this` context
 		 * is the current instance of `TextExtAutocomplete`. 
@@ -191,13 +204,28 @@
 		 */
 		EVENT_GET_FORM_DATA = 'getFormData',
 
+		/**
+		 * Autocomplete plugin reacts to `toggleDropdown` event and either shows or hides the dropdown
+		 * depending if it's currently hidden or visible.
+		 * 
+		 * @name toggleDropdown
+		 * @author agorbatchev
+		 * @date 2011/12/27
+		 * @id TextExtAutocomplete.events.toggleDropdown
+		 * @version 1.1
+		 */
+		EVENT_TOGGLE_DROPDOWN = 'toggleDropdown',
+
 		POSITION_ABOVE = 'above',
 		POSITION_BELOW = 'below',
 
 		DEFAULT_OPTS = {
 			autocomplete : {
-				enabled          : true,
-				dropdownPosition : POSITION_BELOW
+				enabled : true,
+				dropdown : {
+					position : POSITION_BELOW,
+					maxHeight : '100px'
+				}
 			},
 
 			html : {
@@ -231,7 +259,6 @@
 		if(self.opts(OPT_ENABLED) === true)
 		{
 			self.on({
-				click             : self.onClick,
 				blur              : self.onBlur,
 				anyKeyUp          : self.onAnyKeyUp,
 				deleteKeyUp       : self.onAnyKeyUp,
@@ -241,8 +268,8 @@
 				setSuggestions    : self.onSetSuggestions,
 				showDropdown      : self.onShowDropdown,
 				hideDropdown      : self.onHideDropdown,
+				toggleDropdown    : self.onToggleDropdown,
 				postInvalidate    : self.positionDropdown,
-
 				getFormData       : self.onGetFormData,
 
 				// using keyDown for up/down keys so that repeat events are
@@ -254,8 +281,13 @@
 			container = $(self.opts(OPT_HTML_DROPDOWN));
 			container.insertAfter(input);
 
+			self.on(container, {
+				mouseover : self.onMouseOver,
+				click     : self.onClick
+			});
+
 			container
-				.mouseover(function(e) { self.onMouseOver(e) })
+				.css('maxHeight', self.opts(OPT_MAX_HEIGHT))
 				.addClass('text-position-' + self.opts(OPT_POSITION))
 				;
 
@@ -634,9 +666,30 @@
 	};
 
 	/**
+	 * Reacts to the 'toggleDropdown` event and shows or hides the dropdown depending if
+	 * it's currently hidden or visible.
+	 *
+	 * @signature TextExtAutocomplete.onToggleDropdown(e)
+	 *
+	 * @param e {Object} jQuery event.
+	 *
+	 * @author agorbatchev
+	 * @date 2011/12/27
+	 * @id TextExtAutocomplete.onToggleDropdown
+	 * @version 1.1
+	 */
+	p.onToggleDropdown = function(e)
+	{
+		var self = this;
+		self.trigger(self.containerElement().is(':visible') ? EVENT_HIDE_DROPDOWN : EVENT_SHOW_DROPDOWN);
+	};
+
+	/**
 	 * Reacts to the `showDropdown` event and shows the dropdown if it's not already visible.
 	 * It's possible to pass a render callback function which will be called instead of the
 	 * default `TextExtAutocomplete.renderSuggestions()`.
+	 *
+	 * If no suggestion were previously loaded, it will fire `getSuggestions` event and exit.
 	 *
 	 * Here's how another plugin should trigger this event with the optional render callback:
 	 *
@@ -661,9 +714,13 @@
 	 */
 	p.onShowDropdown = function(e, renderCallback)
 	{
-		var self    = this,
-			current = self.selectedSuggestionElement().data(CSS_SUGGESTION)
+		var self        = this,
+			current     = self.selectedSuggestionElement().data(CSS_SUGGESTION),
+			suggestions = self._suggestions
 			;
+
+		if(!suggestions)
+			return self.trigger(EVENT_GET_SUGGESTIONS);
 
 		if($.isFunction(renderCallback))
 		{
@@ -982,7 +1039,10 @@
 			;
 
 		if(suggestion)
+		{
 			self.val(self.itemManager().itemToString(suggestion));
+			self.core().getFormData();
+		}
 
 		self.trigger(EVENT_HIDE_DROPDOWN);
 	};

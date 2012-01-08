@@ -500,20 +500,27 @@
 	 * @author agorbatchev
 	 * @date 2011/08/09
 	 */
-	function hookupEvents(args)
+	function hookupEvents()
 	{
-		var self = this,
+		var args   = slice.apply(arguments),
+			self   = this,
+			target = args.length === 1 ? self : args.shift(),
 			event
 			;
 
-		for(event in args)
-			(function(self, event, handler)
+		args = args[0] || {};
+
+		function bind(event, handler)
+		{
+			target.bind(event, function()
 			{
-				self.bind(event, function()
-				{
-					return handler.apply(self, arguments);
-				});
-			})(self, event, args[event]);
+				// apply handler to our PLUGIN object, not the target
+				return handler.apply(self, arguments);
+			});
+		}
+
+		for(event in args)
+			bind(event, args[event]);
 	};
 
 	function formDataObject(input, form)
@@ -790,7 +797,7 @@
 			if(plugin)
 			{
 				self._plugins[name] = plugin = new plugin();
-				initList.push(plugin)
+				initList.push(plugin);
 				$.extend(true, plugin, self.opts(OPT_EXT + '.*'), self.opts(OPT_EXT + '.' + name));
 			}
 		}
@@ -801,7 +808,7 @@
 			p1 = p1.initPriority();
 			p2 = p2.initPriority();
 
-			return p1 == p2
+			return p1 === p2
 				? 0
 				: p1 < p2 ? 1 : -1
 				;
@@ -812,10 +819,29 @@
 	};
 
 	/**
+	 * Returns true if specified plugin is was instantiated for the current instance of core.
+	 *
+	 * @signature TextExt.hasPlugin(name)
+	 *
+	 * @param name {String} Name of the plugin to check.
+	 *
+	 * @author agorbatchev
+	 * @date 2011/12/28
+	 * @id TextExt.hasPlugin
+	 * @version 1.1
+	 */
+	p.hasPlugin = function(name)
+	{
+		return !!this._plugins[name];
+	};
+
+	/**
 	 * Allows to add multiple event handlers which will be execued in the scope of the current object.
 	 * 
-	 * @signature TextExt.on(handlers)
+	 * @signature TextExt.on([target], handlers)
 	 *
+	 * @param target {Object} **Optional**. Target object which has traditional `bind(event, handler)` method.
+	 *                        Handler function will still be executed in the current object's scope.
 	 * @param handlers {Object} Key/value pairs of event names and handlers, eg `{ event: handler }`.
 	 *
 	 * @author agorbatchev
@@ -1196,8 +1222,10 @@
 	/**
 	 * Allows to add multiple event handlers which will be execued in the scope of the current object.
 	 * 
-	 * @signature TextExtPlugin.on(handlers)
+	 * @signature TextExt.on([target], handlers)
 	 *
+	 * @param target {Object} **Optional**. Target object which has traditional `bind(event, handler)` method.
+	 *                        Handler function will still be executed in the current object's scope.
 	 * @param handlers {Object} Key/value pairs of event names and handlers, eg `{ event: handler }`.
 	 *
 	 * @author agorbatchev
@@ -1559,9 +1587,7 @@
 
 		var self = this;
 
-		core.on({
-			postInvalidate : self.onPostInvalidate,
-		});
+		core.on({ postInvalidate : self.onPostInvalidate });
 	};
 
 	p.onPostInvalidate = function()

@@ -164,14 +164,14 @@
 				getFormData      : self.onGetFormData
 			});
 
-			container
-				.click(function(e) { self.onClick(e) })
-				.mousemove(function(e) { self.onContainerMouseMove(e) })
-				;
+			self.on(container, {
+				click     : self.onClick,
+				mousemove : self.onContainerMouseMove
+			});
 
-			input
-				.mousemove(function(e) { self.onInputMouseMove(e) })
-				;
+			self.on(input, {
+				mousemove : self.onInputMouseMove
+			});
 		}
 
 		self._originalPadding = { 
@@ -223,7 +223,7 @@
 	};
 
 	/**
-	 * Reacts to the `getFormData` event triggered by the core. Returns data with the
+	 * Reacts to the [`getFormData`][1] event triggered by the core. Returns data with the
 	 * weight of 200 to be *greater than the Autocomplete plugin* data weight. The weights 
 	 * system is covered in greater detail in the [`getFormData`][1] event documentation.
 	 *
@@ -242,7 +242,7 @@
 	p.onGetFormData = function(e, data, keyCode)
 	{
 		var self       = this,
-			inputValue = keyCode == 13 ? '' : self.val(),
+			inputValue = keyCode === 13 ? '' : self.val(),
 			formValue  = self._formData
 			;
 

@@ -34,7 +34,7 @@
 
 	$('#textarea').textext({
 		plugins : 'tags prompt focus autocomplete ajax arrow',
-		tagsItems : [ 'jquery', 'plugin', 'tags', 'autocomplete' ],
+		tagsItems : [ 'Basic', 'JavaScript', 'PHP', 'Scala' ],
 		prompt : 'Add one...',
 		ajax : {
 			url : '/manual/examples/data.json',

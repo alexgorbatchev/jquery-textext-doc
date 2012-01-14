@@ -104,6 +104,10 @@ $(function()
 
 	})();
 
-	$('a').filter('*[href^="http://"], *[href^="https://"]').addClass('external');
+	$('a')
+		.filter('*[href^="http://"], *[href^="https://"]')
+		.filter(':not(*[href^="http://textextjs"])')
+		.addClass('external')
+		;
 	$('.email').html(email());
 });

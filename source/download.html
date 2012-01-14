@@ -3,11 +3,12 @@ title: Download
 layout: default
 section: download
 ---
+{% include common.html %}
 <div class="form-table">
-	<form id="download" class="form-stacked" method="post" action="http://strong-snow-9531.herokuapp.com/build">
+	<form id="download" class="form-stacked" method="post" action="http://localhost:3000/build">
 		<div class="row">
 			<input type="hidden" name="product" value="textext" />
-			<input type="hidden" name="version" value="1.1" />
+			<input type="hidden" name="version" value="{{version}}" />
 			<div class="span6 columns">
 				<table class="zebra-striped">
 				<tr>
@@ -22,7 +23,7 @@ section: download
 					<td>
 						<label>
 							<input type="checkbox" name="files" value="textext.core.js" id="check_core" checked="true" />
-							<span>TextExt core</span>
+							<span>TextExt core v{{version}}</span>
 						</label>
 					</td>
 				</tr>

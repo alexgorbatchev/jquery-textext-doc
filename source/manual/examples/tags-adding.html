@@ -1,0 +1,35 @@
+---
+layout  : example
+title   : Adding Tags Directly
+example : tags
+id      : adding-tags-directly
+---
+{% include common.html %}
+
+{% capture intro %}
+New in version 1.2.0
+{% endcapture %}
+
+{% capture example_textarea %}
+<textarea id="textarea" class="example" rows="1"></textarea>
+
+<div style="margin-top: 20px">
+	<input type="text" id="tagname" placeholder="tag name" />
+	<button id="addtag" class="btn">Click to add tag</button>
+</div>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#textarea').textext({ plugins: 'tags' });
+
+	$('#addtag').bind('click', function(e)
+	{
+		$('#textarea').textext()[0].tags().addTags([ $('#tagname').val() ]);
+		$('#tagname').val('');
+	});
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}
+

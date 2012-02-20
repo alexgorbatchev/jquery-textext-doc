@@ -17,34 +17,24 @@
 		}
 
 		.default {
-			color       : silver;
+			color       : @gray;
 			font-weight : normal;
 			font-size   : 70%;
 			font-family : Monaco, Andale Mono, Courier New, monospace,
 		}
 	}
 
-	#toc {
-		margin-bottom : 10px;
+	section {
+		margin-bottom : 30px;
 
-		.page-header {
-			margin-bottom : 5px;
+		> h3 {
+			font-size     : 30px;
+			line-height   : initial;
+			margin-bottom : 10px;
 		}
 
-		ul {
-			padding         : 0;
-			margin          : 0;
-			list-style-type : none;
-			
-			li {
-				font-family   : Monaco, Andale Mono, Courier New, monospace;
-				font-size     : 10px;
-				text-overflow : ellipsis;
-				white-space   : nowrap;
-				overflow      : hidden;
-
-				a { font-weight : normal; }
-			}
+		> div {
+			margin-top : 30px;
 		}
 	}
 
@@ -76,3 +66,27 @@
 	}
 }
 
+#toc {
+	margin-bottom : 10px;
+
+	> div {
+		margin-bottom : 10px;
+	}
+
+	ul {
+		padding         : 0;
+		margin          : 0;
+		list-style-type : none;
+		
+		li {
+			font-family   : Monaco, Andale Mono, Courier New, monospace;
+			font-size     : 10px;
+			font-weight   : normal;
+			text-overflow : ellipsis;
+			white-space   : nowrap;
+			overflow      : hidden;
+
+			a { font-weight : normal; }
+		}
+	}
+}

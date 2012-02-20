@@ -1,21 +1,33 @@
 .form-table {
 	form {
-		&.form-stacked {
-			padding-left : 0px;
+		padding-left : 0;
 
-			#compress {
-				font-size: 130%;
-			}
+		td {
+			padding : 0;
+		}
 
-			.actions {
-				margin-left : auto;
+		#compress {
+			font-size   : 150%;
+			font-weight : bold;
+			line-height : initial;
+
+			input {
+				margin-top: 10px !important;
 			}
 		}
 
 		label {
+			cursor : pointer;
+			margin : 0;
+			padding : 8px;
+
 			span {
 				font-size   : 120%;
 				margin-left : 10px;
+			}
+
+			input {
+				margin : 4px 0 0 !important;
 			}
 		}
 
@@ -27,7 +39,8 @@
 
 	}
 
-	.actions {
+	.form-actions {
+		margin-left : auto;
 		padding-left : 30px;
 
 		#total {

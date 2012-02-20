@@ -47,16 +47,14 @@ $(function()
 	// common DOM updates
 	(function()
 	{
-		$('#content').find('h1,h2,h3').wrapInner('<div class="page-header"/>');
+		// $('#content').find('h1,h2,h3').wrapInner('<div class="page-header"/>');
 		$('#nav').find('.' + ($(document.body).data('section') || 'nada')).addClass('active');
 	})();
 
 	// add TOC to the API doc page
 	(function()
 	{
-		var row = $('<div class="row"/>');
-
-		$('#toc').append(row);
+		var row = $('#toc');
 
 		$('#api section h3').each(function()
 		{
@@ -76,7 +74,7 @@ $(function()
 			})
 			.toArray();
 
-			block = $('<div class="span4 columns"><h4>' + h3.html() + '</h4><ul>' + links.join('') + '</ul></div>');
+			block = $('<div><h4>' + h3.html() + '</h4><ul>' + links.join('') + '</ul></div>');
 			row.append(block);
 		});
 	})();

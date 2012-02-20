@@ -1,10 +1,14 @@
-@import "../../vendor/bootstrap/lib/bootstrap.less";
+@import "../../vendor/bootstrap/less/bootstrap.less";
 @import "masthead.less";
 @import "form.less";
 @import "api.less";
 
 h1, h2, h3 {
 	font-family : Helvetica, Arial, sans;
+}
+
+.page-header > h2 {
+	font-size : 30px;
 }
 
 body { margin-top : 50px; }
@@ -22,13 +26,28 @@ a.external {
 	padding-right : 13px;
 }
 
-ul.nav a {
-	font-weight : normal;
-	&.external { background-image : none; }
-}
+.navbar {
+	a.brand {
+		font-family : 'Kaushan Script', Georgia;
+	}
 
-nav {
-	position : fixed;
+	ul.nav {
+		a {
+			&.external { background-image : none; }
+		}
+
+		li.plain {
+			display     : block;
+			padding     : 10px 10px 0;
+			line-height : 19px;
+			color       : #fff;
+
+			&#twitter-follow {
+				width : 120px;
+				a { display : none; }
+			}
+		}
+	}
 }
 
 #demo {
@@ -59,4 +78,24 @@ nav {
 		overflow      : hidden;
 		white-space   : pre;
 	}
+}
+
+footer {
+	margin-top  : 50px;
+	border-top  : 1px solid #ccc;
+	padding-top : 20px;
+	color       : @grayLight;
+}
+
+#donate-alert {
+	.alert {
+		padding-bottom  : 11px;
+		padding-left    : 230px;
+		background      : url(/images/alexgorbatchev.jpg) 10px 10px no-repeat;
+		background-size : 21.7%;
+	}
+}
+
+#donate-form {
+	margin : 0;
 }

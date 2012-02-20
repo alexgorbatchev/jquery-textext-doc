@@ -5,50 +5,71 @@
 		<title>jQuery TextExt Plugin{% if page.title != '' %} - {{ page.title }}{% endif %}</title>
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Kaushan+Script" type="text/css" />
 		<link rel="stylesheet" href="/css/main.css" type="text/css" />
 
 		<script src="/js/jquery-1.6.1.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/js/doc.js" type="text/javascript" charset="utf-8"></script>
+
 		{% if debug == "false" %}
-		<script src="/js/textext-{{ version }}.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/js/textext-{{ version }}.js" type="text/javascript" charset="utf-8"></script>
 		{% else %}
-		<link rel="stylesheet" href="/textext/css/textext.core.css" type="text/css" />
-		<link rel="stylesheet" href="/textext/css/textext.plugin.tags.css" type="text/css" />
-		<link rel="stylesheet" href="/textext/css/textext.plugin.autocomplete.css" type="text/css" />
-		<link rel="stylesheet" href="/textext/css/textext.plugin.focus.css" type="text/css" />
-		<link rel="stylesheet" href="/textext/css/textext.plugin.prompt.css" type="text/css" />
-		<link rel="stylesheet" href="/textext/css/textext.plugin.arrow.css" type="text/css" />
-		<script src="/textext/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/textext/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/textext/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/textext/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/textext/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/textext/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/textext/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+			<link rel="stylesheet" href="/textext/css/textext.core.css" type="text/css" />
+			<link rel="stylesheet" href="/textext/css/textext.plugin.tags.css" type="text/css" />
+			<link rel="stylesheet" href="/textext/css/textext.plugin.autocomplete.css" type="text/css" />
+			<link rel="stylesheet" href="/textext/css/textext.plugin.focus.css" type="text/css" />
+			<link rel="stylesheet" href="/textext/css/textext.plugin.prompt.css" type="text/css" />
+			<link rel="stylesheet" href="/textext/css/textext.plugin.arrow.css" type="text/css" />
+			<script src="/textext/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
 		{% endif %}
 	</head>
+
 	<body data-section="{% if page.section %}{{ page.section }}{% else %}{{ section }}{% endif %}">
-		<div class="topbar-wrapper">
-			<div class="topbar">
-				<div class="topbar-inner">
-					<div class="container">
-						<h3><a href="/">jQuery TextExt v{{ version }}</a></h3>
-						<ul class="nav" id="nav">
-							<li class="manual"><a href="/manual/index.html">Manual</a></li>
-							<li class="examples"><a href="/manual/examples.html">Examples</a></li>
-							<li class="donate"><a href="/donate.html">Donate</a></li>
-							<li class="download"><a href="/download.html">Download</a></li>
-							<li class="contact"><a href="/contact.html">Contact</a></li>
-						</ul>
-						<ul class="nav secondary-nav">
-							<li><a href="https://twitter.com/#!/TextExtJs">@TextExtJs</a></li>
-							<li><a href="https://github.com/alexgorbatchev/jquery-textext/issues">Issues</a></li>
-							<li><a href="https://github.com/alexgorbatchev/jquery-textext">GitHub</a></li>
-						</ul>
-					</div>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a href="/" class="brand">jQuery TextExt v{{ version }}</a>
+					<ul class="nav" id="nav">
+						<li class="manual"><a href="/manual/index.html">Manual</a></li>
+						<li class="examples"><a href="/manual/examples.html">Examples</a></li>
+						<li class="download"><a href="/download.html">Download</a></li>
+						<li class="contact"><a href="/contact.html">Contact</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="https://github.com/alexgorbatchev/jquery-textext/issues">Issues</a></li>
+						<li id="twitter-follow" class="plain">
+							<a href="https://twitter.com/TextExtJs" class="twitter-follow-button" data-show-count="false">Follow @TextExtJs</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</li>
+						<li id="github-watch" class="plain">
+							<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=alexgorbatchev&repo=jquery-textext&type=watch&count=true"
+								allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 
+		<div id="donate-alert" class="container">
+			<div class="alert alert-info">
+				<h4 class="alert-heading">Hey there stanger! My name is Alex Gorbatchev and I wrote TextExt.</h4>
+				<p>
+					Did you know that it took months of hard work and two full weeks of vacation time to bring this 
+					awesome plugin to you completly free? Did you also know that I love coffee and beer and it makes
+					me feel that my hard work is really appreciated when you buy me one or say thanks?
+				</p>
+				<p>
+					Please take a second to show your appreciation and donate to keep development going! Click the button
+					thingy below, it won't bite!
+				</p>
+				{% include donate.html %}
+			</div>
+		</div>

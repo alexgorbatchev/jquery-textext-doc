@@ -42,4 +42,6 @@
 			cacheResults : true
 		}
 	});
+
+	$('#donate-alert').insertAfter('#first-row');
 })();

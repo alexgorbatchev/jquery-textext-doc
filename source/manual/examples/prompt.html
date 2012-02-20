@@ -6,9 +6,6 @@ id      : prompt
 ---
 {% include common.html %}
 
-{% capture intro %}
-{% endcapture %}
-
 {% capture example_textarea %}
 <textarea id="textarea" class="example" rows="1"></textarea>
 {% endcapture %}
@@ -17,7 +14,8 @@ id      : prompt
 <script type="text/javascript">
 	$('#textarea')
 		.textext({
-			plugins : 'prompt'
+			plugins : 'prompt',
+			prompt  : 'Type something...'
 		})
 		;
 </script>

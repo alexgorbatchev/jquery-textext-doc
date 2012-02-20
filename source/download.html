@@ -5,7 +5,7 @@ section: download
 ---
 {% include common.html %}
 <div class="form-table">
-	<form id="download" method="post" action="{% if debug == "false" %}http://strong-snow-9531.herokuapp.com{% else %}localhost:3000{% endif %}/build">
+	<form id="download" method="post" action="http://{% if debug == "false" %}strong-snow-9531.herokuapp.com{% else %}localhost:3000{% endif %}/build">
 		<div class="row">
 			<input type="hidden" name="product" value="textext" />
 			<input type="hidden" name="version" value="{{version}}" />

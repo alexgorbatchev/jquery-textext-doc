@@ -1,4 +1,0 @@
-#!/bin/bash
-cd ../compressor
-./node-dev server.js
-

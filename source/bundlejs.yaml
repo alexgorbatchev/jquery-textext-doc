@@ -19,7 +19,7 @@ releases :
     notes    : |
       * Initial release.
   
-    bundles : &bundles
+    bundles : 
     - &core
       slug  : core
       name  : TextExt Core
@@ -33,13 +33,6 @@ releases :
       name  : AJAX Plugin
       files :
       - /src/js/textext.plugin.ajax.js
-  
-    - &arrow
-      slug  : arrow
-      name  : Arrow Plugin
-      files :
-      - /src/js/textext.plugin.arrow.js
-      - /src/css/textext.plugin.arrow.css
   
     - &autocomplete
       slug  : autocomplete
@@ -84,7 +77,22 @@ releases :
   - version  : 1.1.0
     date     : Jan 7, 2012
     location : https://raw.github.com/alexgorbatchev/jquery-textext/d60661498f4d58741e1730688cd691aa7a789062
-    bundles  : [ *core, *ajax, *arrow, *autocomplete, *files, *focus, *prompt, *suggestions, *tags ]
+    bundles  : &bundles
+    - *core
+    - *ajax
+    - &arrow
+      slug  : arrow
+      name  : Arrow Plugin
+      files :
+      - /src/js/textext.plugin.arrow.js
+      - /src/css/textext.plugin.arrow.css
+    - *autocomplete
+    - *files
+    - *focus
+    - *prompt
+    - *suggestions
+    - *tags
+
     notes    : |
       #### New Features
       * Added `autocomplete.render` option for custom rendering. See the

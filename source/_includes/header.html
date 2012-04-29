@@ -58,18 +58,20 @@
 			</div>
 		</div>
 
-		<div id="donate-alert" class="container">
-			<div class="alert alert-info">
-				<h4 class="alert-heading">Hey there stanger! My name is Alex Gorbatchev and I wrote TextExt.</h4>
-				<p>
-					Did you know that it took months of hard work and two full weeks of vacation time to bring this 
-					awesome plugin to you completly free? Did you also know that I love coffee and beer and it makes
-					me feel that my hard work is really appreciated when you buy me one or say thanks?
-				</p>
-				<p>
-					Please take a second to show your appreciation and donate to keep development going! Click the button
-					thingy below, it won't bite!
-				</p>
-				{% include donate.html %}
+		{% if page.hide_donate != true %}
+			<div id="donate-alert" class="container">
+				<div class="alert alert-info">
+					<h4 class="alert-heading">Hey there stanger! My name is Alex Gorbatchev and I wrote TextExt.</h4>
+					<p>
+						Did you know that it took months of hard work and two full weeks of vacation time to bring this 
+						awesome plugin to you completly free? Did you also know that I love coffee and beer and it makes
+						me feel that my hard work is really appreciated when you buy me one or say thanks?
+					</p>
+					<p>
+						Please take a second to show your appreciation and donate to keep development going! Click the button
+						thingy below, it won't bite!
+					</p>
+					{% include donate.html %}
+				</div>
 			</div>
-		</div>
+		{% endif %}

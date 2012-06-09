@@ -36,19 +36,22 @@ module Jekyll
   # patch the render method so that it doesn't exclude symlinks
   class IncludeTag < Liquid::Tag
     def render(context)
-      includes_dir = File.join(context.registers[:site].source, '_includes')
+      page_dir = File.dirname(context.environments[0]['page']['url'])
+      file     = File.join(context.registers[:site].source, page_dir, @file)
 
-      Dir.chdir(includes_dir) do
-        choices = Dir['**/*']
-        if choices.include?(@file)
-          source = File.read(@file)
-          partial = Liquid::Template.parse(source)
-          context.stack do
-            partial.render(context)
-          end
-        else
-          "Included file '#{@file}' not found in _includes directory"
-        end
+      if not File.exists?(file) then
+        file = File.join(context.registers[:site].source, '_includes', @file)
+      end
+
+      if not File.exists?(file) then
+        return "Include file `#{@file}` not found in `_includes` or `#{page_dir}` directory"
+      end
+
+      source  = File.read(file)
+      partial = Liquid::Template.parse(source.chomp)
+
+      context.stack do
+        partial.render(context)
       end
     end
   end

@@ -28,7 +28,7 @@ module Jekyll
       `ln -s \"#{from}\" \"#{to}\"`
       puts "Created TextExt symlink"
 
-      `cd bin && ./less`
+      `make less`
       puts "Updated less"
     end
   end

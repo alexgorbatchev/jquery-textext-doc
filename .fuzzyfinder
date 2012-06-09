@@ -1,5 +1,4 @@
 source/**/*.*
-stylus/**/*.*
-compressor/**/*.*
+vendor/textextjs/**/*.*
 *.*
 

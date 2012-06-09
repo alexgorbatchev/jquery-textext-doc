@@ -1,1 +1,1 @@
-../../../jquery-textext/README.md
+../../vendor/textextjs/README.md

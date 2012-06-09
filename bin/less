@@ -1,3 +1,0 @@
-#!/bin/bash
-node ../node_modules/less/bin/lessc ../source/css/main.less ../output/css/main.css
-

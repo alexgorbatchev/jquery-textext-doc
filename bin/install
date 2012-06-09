@@ -1,5 +1,0 @@
-#!/bin/bash
-rvm gemset create 'textext'
-rvm gemset use 'textext'
-gem install jekyll --no-ri --no-rdoc
-

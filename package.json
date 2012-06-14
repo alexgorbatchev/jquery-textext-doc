@@ -2,16 +2,8 @@
 	"name"    : "textext-doc",
 	"version" : "0.0.1",
 
-	"dependencies"  : {
-		"uglify-js" : ">= 1.0.x",
-		"express"   : ">= 2.3.x",
-		"winston"   : ">= 0.2.x",
-		"stylus"    : ">= 0.15.x",
-		"less"      : ">= 1.1.6"
-	},
-
-	"devDependencies" : {
-		"node-dev" : "x.x.x"
+	"dependencies" : {
+		"less" : ">= 1.1.6"
 	}
 }
 

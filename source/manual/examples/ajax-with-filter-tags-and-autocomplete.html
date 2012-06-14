@@ -12,6 +12,10 @@ id      : ajax-with-filter-tags-and-autocomplete
 
 {% capture example_script %}
 <script type="text/javascript">
+/* custom_data.json
+{% include data.json %}
+*/
+
 	$('#textarea')
 		.textext({
 			plugins : 'autocomplete filter tags ajax',

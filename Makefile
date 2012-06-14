@@ -1,4 +1,4 @@
-_:
+http:
 	-@killall ruby
 	@jekyll --server
 
@@ -15,7 +15,6 @@ install:
 	@gem install jekyll --no-ri --no-rdoc
 	@git submodule init
 	@git submodule update
-	@vendor/textextjs/tests/get_selenium_rc
-	@echo "ALL DONE"
-
+	@npm install
+	@echo "Success"
 

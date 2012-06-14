@@ -1,1 +1,1 @@
-../../vendor/textextjs/README.md
+../../../README.md

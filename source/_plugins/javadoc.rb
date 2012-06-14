@@ -10,7 +10,7 @@ module Jekyll
     def init(args)
       @@file      = args.strip
       # TODO use config to get the path
-      @@full_path = File.expand_path('vendor/textextjs/src/js/' + @@file)
+      @@full_path = File.expand_path('../src/js/' + @@file)
       @@source    = File.read(@@full_path)
     end
 

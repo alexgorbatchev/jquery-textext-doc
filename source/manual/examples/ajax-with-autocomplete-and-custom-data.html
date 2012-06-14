@@ -1,0 +1,91 @@
+---
+layout  : example
+title   : Ajax With Autocomplete and Custom Data Objects
+example : ajax autocomplete
+id      : ajax-with-autocomplete-and-custom-data
+---
+{% include common.html %}
+
+{% capture example_textarea %}
+<p>You can type `name` or `id` of the record in the input box</p>
+<textarea id="textarea" class="example" rows="1"></textarea>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+/* custom_data.json
+{% include custom_data.json %}
+*/
+
+	$('#textarea')
+		.textext({
+			plugins : 'autocomplete ajax',
+
+			ajax : {
+				url : '/manual/examples/custom_data.json',
+				dataType : 'json',
+				cacheResults : true
+			},
+
+			itemManager : {
+				filter : function(query)
+				{
+					var list   = this._data.items,
+						result = [],
+						item,
+						i
+						;
+
+					for(i = 0; i < list.length; i++)
+					{
+						item = list[i];
+
+						if(this.itemContains(item, query))
+							result.push(item);
+					}
+
+					return result;
+				},
+
+				itemContains : function(item, needle)
+				{
+					return item.name.toLowerCase().indexOf(needle.toLowerCase()) >= 0 || item.id == needle;
+				},
+
+				stringToItem : function(str)
+				{
+					if(!this._data)
+						return '';
+
+					var list = this._data.items,
+						i
+						;
+
+					for(i = 0; i < list.length; i++)
+						if(list[i].name === str)
+							return list[i];
+
+					return '';
+				},
+
+				itemToString : function(item)
+				{
+					return item.name;
+				},
+
+				compareItems : function(item1, item2)
+				{
+					return item1.name === item2.name && item1.id === item2.id;
+				},
+
+				itemToFormData : function(item)
+				{
+					return item;
+				}
+			}
+		})
+	;
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}

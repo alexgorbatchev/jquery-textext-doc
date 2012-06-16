@@ -28,9 +28,14 @@ id      : ajax-with-autocomplete-and-custom-data
 			},
 
 			itemManager : {
+				getItems : function()
+				{
+					return (this.getSuggestions() || {}).items || [];
+				},
+
 				filter : function(query)
 				{
-					var list   = this._data.items,
+					var list   = this.getItems(),
 						result = [],
 						item,
 						i
@@ -54,10 +59,7 @@ id      : ajax-with-autocomplete-and-custom-data
 
 				stringToItem : function(str)
 				{
-					if(!this._data)
-						return '';
-
-					var list = this._data.items,
+					var list = this.getItems(),
 						i
 						;
 

@@ -1,23 +1,22 @@
 ---
 layout  : example
-title   : Arrow With Autocomplete
-example : autocomplete arrow
-id      : arrow-with-autocomplete
+title   : Item Validator
+example : itemvalidator
+id      : itemvalidator
 ---
 {% include common.html %}
 
 {% capture example_textarea %}
-<input id="demo_input"/>
+<input id="demo_input" class="example" />
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
 	$('#demo_input')
 		.textext({
-			plugins : 'arrow autocomplete',
-			suggestions : {{ suggestions }}
-		})
-		;
+			itemValidator : 'suggestions',
+			suggestions   : {{ suggestions }}
+		});
 </script>
 {% endcapture %}
 

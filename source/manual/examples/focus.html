@@ -11,12 +11,15 @@ To see the effect of the {{ Focus }} plugin, click in and out of the text input 
 {% endcapture %}
 
 {% capture example_textarea %}
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input" class="example" />
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea').textext({ plugins : 'focus tags' });
+	$('#demo_input')
+		.textext({
+			plugins : 'focus'
+		});
 </script>
 {% endcapture %}
 

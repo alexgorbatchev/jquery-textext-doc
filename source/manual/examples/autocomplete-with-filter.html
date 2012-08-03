@@ -7,17 +7,17 @@ id      : autocomplete-with-filter
 {% include common.html %}
 
 {% capture example_textarea %}
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input"/>
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea')
+	$('#demo_input')
 		.textext({
-			plugins : 'autocomplete filter',
-			useSuggestionsToFilter : true
+			plugins       : 'autocomplete',
+			itemValidator : 'suggestions',
+			suggestions   : {{ suggestions }}
 		})
-		{{ getSuggestions }}
 		;
 </script>
 {% endcapture %}

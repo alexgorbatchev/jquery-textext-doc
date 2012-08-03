@@ -17,73 +17,54 @@ id      : ajax-with-autocomplete-and-custom-data
 {% include custom_data.json %}
 */
 
+	var ItemManagerAjax = $.fn.textext.ItemManagerAjax;
+
+	function CustomItemManager() {}
+
+	CustomItemManager.prototype = $.extend({}, new ItemManagerAjax(), {
+		itemContains : function(item, needle)
+		{
+			return item.name.toLowerCase().indexOf(needle.toLowerCase()) === 0 || item.id == needle;
+		},
+
+		stringToItem : function(str)
+		{
+			var data = this.data,
+				i
+				;
+
+			if(data)
+				for(i = 0; i < data.length; i++)
+					if(data[i].name === str)
+						return data[i];
+
+			return '';
+		},
+
+		itemToString : function(item)
+		{
+			return item.name;
+		},
+
+		compareItems : function(item1, item2)
+		{
+			return item1.name === item2.name && item1.id === item2.id;
+		},
+
+		getItemsFromAjax : function(data)
+		{
+			return data.items;
+		}
+	});
+
 	$('#textarea')
 		.textext({
-			plugins : 'autocomplete ajax',
-
-			ajax : {
-				url : '/manual/examples/custom_data.json',
-				dataType : 'json',
+			plugins     : 'autocomplete',
+			itemManager : CustomItemManager,
+			ajax        : {
+				url          : '/manual/examples/custom_data.json',
+				dataType     : 'json',
 				cacheResults : true
-			},
-
-			itemManager : {
-				getItems : function()
-				{
-					return (this.getSuggestions() || {}).items || [];
-				},
-
-				filter : function(query)
-				{
-					var list   = this.getItems(),
-						result = [],
-						item,
-						i
-						;
-
-					for(i = 0; i < list.length; i++)
-					{
-						item = list[i];
-
-						if(this.itemContains(item, query))
-							result.push(item);
-					}
-
-					return result;
-				},
-
-				itemContains : function(item, needle)
-				{
-					return item.name.toLowerCase().indexOf(needle.toLowerCase()) >= 0 || item.id == needle;
-				},
-
-				stringToItem : function(str)
-				{
-					var list = this.getItems(),
-						i
-						;
-
-					for(i = 0; i < list.length; i++)
-						if(list[i].name === str)
-							return list[i];
-
-					return '';
-				},
-
-				itemToString : function(item)
-				{
-					return item.name;
-				},
-
-				compareItems : function(item1, item2)
-				{
-					return item1.name === item2.name && item1.id === item2.id;
-				},
-
-				itemToFormData : function(item)
-				{
-					return item;
-				}
 			}
 		})
 	;

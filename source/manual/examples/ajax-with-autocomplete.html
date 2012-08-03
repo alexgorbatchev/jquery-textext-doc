@@ -18,10 +18,11 @@ id      : ajax-with-autocomplete
 
 	$('#textarea')
 		.textext({
-			plugins : 'autocomplete ajax',
-			ajax : {
-				url : '/manual/examples/data.json',
-				dataType : 'json',
+			plugins     : 'autocomplete',
+			itemManager : 'ajax',
+			ajax        : {
+				url          : '/manual/examples/data.json',
+				dataType     : 'json',
 				cacheResults : true
 			}
 		})

@@ -1,25 +1,26 @@
 ---
 layout  : example
-title   : Prompt
-example : prompt
-id      : prompt
+title   : Prompt from Placeholder Attribute with Tags
+example : prompt tags
+id      : prompt-from-placeholder-with-tags
 ---
 {% include common.html %}
 
 {% capture intro %}
 This example shows how to display a simple user prompt in the input area.
+The prompt value comes from the `placeholder` attribute in the `<input/>`
+tag.
 {% endcapture %}
 
 {% capture example_textarea %}
-<input id="demo_input" class="example" />
+<input id="demo_input" class="example" placeholder="Type something..." />
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
 	$('#demo_input')
 		.textext({
-			plugins : 'prompt',
-			prompt  : 'Type something...'
+			plugins : 'prompt tags'
 		});
 </script>
 {% endcapture %}

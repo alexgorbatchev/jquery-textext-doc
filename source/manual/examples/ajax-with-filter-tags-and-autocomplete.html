@@ -18,10 +18,12 @@ id      : ajax-with-filter-tags-and-autocomplete
 
 	$('#textarea')
 		.textext({
-			plugins : 'autocomplete filter tags ajax',
-			ajax : {
-				url : '/manual/examples/data.json',
-				dataType : 'json',
+			plugins     : 'filter > autocomplete > tags*',
+			dataSource  : 'tags',
+			itemManager : 'ajax',
+			ajax        : {
+				url          : '/manual/examples/data.json',
+				dataType     : 'json',
 				cacheResults : true
 			}
 		})

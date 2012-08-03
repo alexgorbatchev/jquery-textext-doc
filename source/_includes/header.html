@@ -14,20 +14,26 @@
 		{% if debug == "false" %}
 			<script src="http://bundlejs.com/alexgorbatchev/products/textext/{{ version }}?compress=true&bundles=core,ajax,arrow,autocomplete,filter,focus,prompt,suggestions,tags" type="text/javascript" charset="utf-8"></script>
 		{% else %}
-			<link rel="stylesheet" href="/textext/css/textext.core.css" type="text/css" />
+			<link rel="stylesheet" href="/textext/css/textext.css" type="text/css" />
+			<link rel="stylesheet" href="/textext/css/textext.itemmanager.ajax.css" type="text/css" />
 			<link rel="stylesheet" href="/textext/css/textext.plugin.tags.css" type="text/css" />
 			<link rel="stylesheet" href="/textext/css/textext.plugin.autocomplete.css" type="text/css" />
 			<link rel="stylesheet" href="/textext/css/textext.plugin.focus.css" type="text/css" />
 			<link rel="stylesheet" href="/textext/css/textext.plugin.prompt.css" type="text/css" />
 			<link rel="stylesheet" href="/textext/css/textext.plugin.arrow.css" type="text/css" />
-			<script src="/textext/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.plugin.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.itemmanager.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.itemmanager.default.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.itemmanager.ajax.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.itemvalidator.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.itemvalidator.default.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.itemvalidator.suggestions.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/textext/js/textext.patch.ie9.js" type="text/javascript" charset="utf-8"></script>
 			<script src="/textext/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
 			<script src="/textext/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
 			<script src="/textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
 			<script src="/textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
 			<script src="/textext/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
 		{% endif %}
 	</head>

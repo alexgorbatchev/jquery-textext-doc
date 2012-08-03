@@ -1,0 +1,37 @@
+---
+layout  : example
+title   : Item Validator with Ajax
+example : itemvalidatorsuggestions itemvalidator itemmanagerajax itemmanager
+id      : itemvalidator-with-ajax
+---
+{% include common.html %}
+
+{% capture intro %}
+This example shows how to limit user input only to the list of items that is loaded 
+from a remote end point with AJAX.
+{% endcapture %}
+
+{% capture example_textarea %}
+<input id="demo_input" class="example" />
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+/* data.json
+{% include data.json %}
+*/
+
+	$('#demo_input')
+		.textext({
+			itemValidator : 'suggestions',
+			itemManager   : 'ajax',
+			ajax          : {
+				url          : '/manual/examples/data.json',
+				dataType     : 'json',
+				cacheResults : true
+			}
+		});
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}

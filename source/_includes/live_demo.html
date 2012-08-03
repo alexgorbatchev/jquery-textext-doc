@@ -15,29 +15,28 @@
 	<script>
 	(function()
 	{
-		var textarea = $('textarea.example:last'),
+		var textarea = $('#demo_input, textarea.example:last'),
 			output   = $('pre.output:last')
 			;
 
-		textarea.bind('setFormData', function(e, data, isEmpty)
-		{
-			var textext = $(e.target).textext()[0];
-			output.text(textext.hiddenInput().val());
-		});
-
-		// force this for the sake of the example so that we get one extra
-		// `setFormData` event fire and we would set the #output value
-		textarea.textext()[0].getFormData();
+		textarea
+			.on('formDataChange', function(e, data)
+			{
+				var textext = $(e.target).textext()[0];
+				output.text(textext.formValue());
+			})
+			;
 	})();
 	</script>
 
 	<h4>Source</h4>
 
-	<p class="hint">This is the original input HTML.</p>
+	<p class="hint">This is the original <code>&lt;input/&gt;</code> tag.</p>
 	<pre class="brush: html">{{ example_textarea | escape}}</pre>
 
 	<p class="hint">This is the JavaScript source that was used to initialize this demo instance of TextExt.</p>
 	<pre class="brush: js; html-script: true">{{ example_script | replace:"	","    " | escape }}</pre>
 
+	{{ extras }}
 </div>
 

@@ -7,20 +7,21 @@ id      : prompt-with-autocomplete-and-arrow
 {% include common.html %}
 
 {% capture intro %}
+This example shows how to display a user prompt until something is
+selected from the autocomplete dropdown.
 {% endcapture %}
 
 {% capture example_textarea %}
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input" class="example" />
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea')
+	$('#demo_input')
 		.textext({
-			plugins : 'prompt autocomplete arrow'
-		})
-		{{ getSuggestions }}
-		;
+			plugins     : 'prompt autocomplete arrow',
+			suggestions : {{ suggestions }}
+		});
 </script>
 {% endcapture %}
 

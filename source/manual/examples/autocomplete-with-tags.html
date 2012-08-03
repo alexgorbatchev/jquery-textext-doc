@@ -7,17 +7,16 @@ id      : autocomplete-with-tags
 {% include common.html %}
 
 {% capture example_textarea %}
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input" class="example"/>
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea')
+	$('#demo_input')
 		.textext({
-			plugins : 'tags autocomplete'
-		})
-		{{ getSuggestions }}
-		;
+			plugins     : 'autocomplete > tags*',
+			suggestions : {{ suggestions }}
+		});
 </script>
 {% endcapture %}
 

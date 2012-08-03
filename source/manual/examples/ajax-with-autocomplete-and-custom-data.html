@@ -27,7 +27,7 @@ id      : ajax-with-autocomplete-and-custom-data
 			return item.name.toLowerCase().indexOf(needle.toLowerCase()) === 0 || item.id == needle;
 		},
 
-		stringToItem : function(str)
+		stringToItem : function(str, callback)
 		{
 			var data = this.data,
 				i
@@ -36,9 +36,9 @@ id      : ajax-with-autocomplete-and-custom-data
 			if(data)
 				for(i = 0; i < data.length; i++)
 					if(data[i].name === str)
-						return data[i];
+						return callback(null, data[i]);
 
-			return '';
+			callback(null, '');
 		},
 
 		itemToString : function(item)

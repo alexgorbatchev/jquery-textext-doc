@@ -1,25 +1,15 @@
 {% capture debug %}true{% endcapture %}
-{% capture version %}1.4.0{% endcapture %}
+{% capture version %}2.0.0{% endcapture %}
 {% capture wallet_id %}18i2kGxBVtoZMjdp5BLATweT6pYXkgwRMt{% endcapture %}
 
-{% capture Filter %}[Filter](/manual/plugins/filter.html){% endcapture %}
 {% capture Focus %}[Focus](/manual/plugins/focus.html){% endcapture %}
 {% capture Prompt %}[Prompt](/manual/plugins/prompt.html){% endcapture %}
-{% capture Suggestions %}[Suggestions](/manual/plugins/suggestions.html){% endcapture %}
 {% capture Autocomplete %}[Autocomplete](/manual/plugins/autocomplete.html){% endcapture %}
 {% capture Tags %}[Tags](/manual/plugins/tags.html){% endcapture %}
+{% capture ItemManager %}[ItemManager](/manual/itemmanager.html){% endcapture %}
+{% capture ItemValidor %}[ItemValidor](/manual/itemvalidator.html){% endcapture %}
+{% capture ItemManagerAjax %}[ItemManagerAjax](/manual/itemmanager.ajax.html){% endcapture %}
+{% capture ext %}[ext](/manual/ext.html){% endcapture %}
 
 {% capture suggestions %}'Basic Closure Cobol Delphi Erlang Fortran Go Groovy Haskell Java JavaScript OCaml PHP Perl Python Ruby Scala'.split(/ /g){% endcapture %}
 
-{% capture getSuggestions %}.bind('getSuggestions', function(e, data)
-		{
-			var list        = 'Basic Closure Cobol Delphi Erlang Fortran Go Groovy Haskel Java JavaScript OCAML PHP Perl Python Ruby Scala'.split(/ /g),
-				textext     = $(e.target).textext()[0],
-				itemManager = textext.itemManager(),
-				query       = data ? data.query || '' : ''
-				;
-
-			itemManager.setData(list);
-
-			$(this).trigger('setSuggestions', { result : itemManager.filter(query) });
-		}){% endcapture %}

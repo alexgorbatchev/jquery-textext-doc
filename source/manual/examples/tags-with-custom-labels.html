@@ -1,25 +1,30 @@
 ---
 layout  : example
 title   : Tags with Custom Labels
-example : tags
+example : tags itemmanager ext
 id      : tags-with-custom-labels
 ---
 {% include common.html %}
 
+{% capture intro %}
+This example show how to use {{ Tags }} plugin with {{ ItemManager }} to override how the tags
+are displayed without affecting the actual data that would be sent back to the server.
+Note how the functions are overridden using the {{ ext }} option.
+{% endcapture %}
+
 {% capture example_textarea %}
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input"/>
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea')
+	$('#demo_input')
 		.textext({
-			plugins: 'tags',
-			items: [ 'PHP', 'Closure', 'Java' ],
+			plugins : 'tags',
 
 			ext : {
-				itemManager: {
-					itemToString: function(item)
+				itemManager : {
+					itemToString : function(item)
 					{
 						return '[ ' + item + ' ]';
 					}

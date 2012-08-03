@@ -6,13 +6,20 @@ id      : tags
 ---
 {% include common.html %}
 
+{% capture intro %}
+This example show basic use of the {{ Tags }} plugin.
+{% endcapture %}
+
 {% capture example_textarea %}
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input"/>
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea').textext({ plugins : 'tags' });
+	$('#demo_input')
+		.textext({
+			plugins : 'tags'
+		});
 </script>
 {% endcapture %}
 

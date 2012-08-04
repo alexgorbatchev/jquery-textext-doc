@@ -1,0 +1,31 @@
+---
+layout  : example
+title   : Tags with Prepopulated Items
+example : tags data
+id      : tags-with-prepopulated-items
+---
+{% include common.html %}
+
+{% capture intro %}
+This example shows how to prepopulate tags with the {{ Tags }} plugin.
+{% endcapture %}
+
+{% capture example_textarea %}
+<input id="demo_input"/>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+	$('#demo_input')
+		.textext({
+			plugins : 'tags',
+
+			tags : {
+				items : [ 'hello', 'world' ]
+			}
+		});
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}
+

@@ -1,10 +1,15 @@
 ---
 layout  : example
-title   : Arrow With Autocomplete
+title   : Arrow with Autocomplete
 example : autocomplete arrow
 id      : arrow-with-autocomplete
 ---
 {% include common.html %}
+
+{% capture intro %}
+This example shows how to use {{ Arrow }} plugin with {{ Autocomplete }}. Click
+on the arrow to open the dropdown.
+{% endcapture %}
 
 {% capture example_textarea %}
 <input id="demo_input"/>
@@ -14,7 +19,7 @@ id      : arrow-with-autocomplete
 <script type="text/javascript">
 	$('#demo_input')
 		.textext({
-			plugins : 'arrow autocomplete',
+			plugins     : 'arrow autocomplete',
 			suggestions : {{ suggestions }}
 		})
 		;

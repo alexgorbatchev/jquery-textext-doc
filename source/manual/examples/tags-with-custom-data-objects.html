@@ -1,13 +1,13 @@
 ---
 layout  : example
 title   : Tags with Custom Data Objects
-example : tags itemmanager itemmanagerajax ext
+example : tags itemmanager ajaxitemmanager ext
 id      : tags-with-custom-data-objects
 ---
 {% include common.html %}
 
 {% capture intro %}
-This example show how to use {{ Tags }} plugin with {{ ItemManagerAjax }} which loads custom AJAX data.
+This example shows how to use {{ Tags }} plugin with {{ AjaxItemManager }} which loads custom AJAX data.
 Note how the functions are overridden using the {{ ext }} option.
 {% endcapture %}
 
@@ -25,14 +25,14 @@ Note how the functions are overridden using the {{ ext }} option.
 			plugins     : 'tags',
 			itemManager : 'ajax',
 
-			ajax        : {
+			ajax : {
 				url          : '/manual/examples/custom_data.json',
 				dataType     : 'json',
 				cacheResults : true
 			},
 
-			ext: {
-				itemManager: {
+			ext : {
+				itemManager : {
 					itemContains : function(item, needle)
 					{
 						return item.name.toLowerCase().indexOf(needle.toLowerCase()) === 0 || item.id == needle;
@@ -59,6 +59,13 @@ Note how the functions are overridden using the {{ ext }} option.
 					getItemsFromAjax : function(data)
 					{
 						return data.items;
+					}
+				},
+
+				itemValidator : {
+					isValid : function(item, callback)
+					{
+						callback(null, item && item.name.length > 0);
 					}
 				}
 			}

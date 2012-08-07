@@ -1,13 +1,13 @@
 ---
 layout  : example
-title   : Adding Tags Directly
-example : tags
-id      : adding-tags-directly
+title   : Tags with code
+example : tags api
+id      : tags-adding-directly
 ---
 {% include common.html %}
 
 {% capture intro %}
-New in version 1.2.0
+This example shows how to add tags to the {{ Tags }} plugin using code.
 {% endcapture %}
 
 {% capture extras %}
@@ -18,7 +18,7 @@ New in version 1.2.0
 {% endcapture %}
 
 {% capture example_textarea %}
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input"/>
 
 <div id="add_controls">
 	<input type="text" id="tagname" placeholder="tag name" />
@@ -28,14 +28,15 @@ New in version 1.2.0
 
 {% capture example_script %}
 <script type="text/javascript">
-	$('#textarea').textext({
-		plugins : 'tags'
-	});
+	$('#demo_input')
+		.textext({
+			plugins : 'tags'
+		});
 
 	$('#add_controls button').bind('click', function(e)
 	{
 		var input   = $('#add_controls > :text'),
-			textext = $('#textarea').textext()[0]
+			textext = $('#demo_input').textext()[0]
 			;
 
 		textext.tags().addTags([ input.val() ]);

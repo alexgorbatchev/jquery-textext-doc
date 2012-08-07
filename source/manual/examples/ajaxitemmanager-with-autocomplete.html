@@ -1,25 +1,28 @@
 ---
 layout  : example
-title   : Ajax With Filter, Tags and Autocomplete
-example : ajax filter tags autocomplete
-id      : ajax-with-filter-tags-and-autocomplete
+title   : AJAX Item Manager with Autocomplete
+example : autocomplete itemmanager ajaxitemmanager
+id      : ajaxitemmanager-with-autocomplete
 ---
 {% include common.html %}
 
+{% capture intro %}
+This example shows how to use {{ AjaxItemManager }} with {{ Autocomplete }}.
+{% endcapture %}
+
 {% capture example_textarea %}
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input"/>
 {% endcapture %}
 
 {% capture example_script %}
 <script type="text/javascript">
-/* custom_data.json
+/* data.json
 {% include data.json %}
 */
 
-	$('#textarea')
+	$('#demo_input')
 		.textext({
-			plugins     : 'filter > autocomplete > tags*',
-			dataSource  : 'tags',
+			plugins     : 'autocomplete',
 			itemManager : 'ajax',
 			ajax        : {
 				url          : '/manual/examples/data.json',

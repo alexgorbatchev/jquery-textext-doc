@@ -1,13 +1,18 @@
 ---
 layout  : example
-title   : Autocomplete With Custom Render
+title   : Autocomplete with Custom Item Rendering
 example : autocomplete
 id      : autocomplete-with-custom-render
 ---
 {% include common.html %}
 
+{% capture intro %}
+This example shows how to customize {{ Autocomplete }} plugin to render drop down
+item differently.
+{% endcapture %}
+
 {% capture example_textarea %}
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input"/>
 {% endcapture %}
 
 {% capture example_script %}
@@ -34,7 +39,7 @@ id      : autocomplete-with-custom-render
 
 	var icons = 'exclamation feed house information lock'.split(/ /g);
 
-	$('#textarea')
+	$('#demo_input')
 		.textext({
 			plugins     : 'autocomplete',
 			suggestions : suggestions,

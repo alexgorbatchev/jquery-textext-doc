@@ -1,13 +1,14 @@
 ---
 layout  : example
 title   : Tags with Custom Rendering
-example : tags
+example : tags rendering
 id      : tags-with-custom-rendering
 ---
 {% include common.html %}
 
 {% capture intro %}
 This example show how to use {{ Tags }} and {{ ext }} option to override how the tags are rendered.
+Each tag will be created with a random icon.
 {% endcapture %}
 
 {% capture example_textarea %}
@@ -50,7 +51,7 @@ This example show how to use {{ Tags }} and {{ ext }} option to override how the
 				tags : {
 					renderTag : function(item)
 					{
-						var node = $.fn.textext.PluginTags.prototype.renderTag.apply(this, [ item ]);
+						var node = $.fn.textext.TagsPlugin.prototype.renderTag.apply(this, [ item ]);
 						node.find('.custom-edit').css('background-image', 'url(/images/render-demo/' + icons[Math.round(Math.random() * (icons.length - 1))] + '.png)');
 						return node;
 					}

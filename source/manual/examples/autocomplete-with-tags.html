@@ -1,13 +1,17 @@
 ---
 layout  : example
-title   : Autocomplete With Tags
+title   : Autocomplete with Tags
 example : autocomplete tags
 id      : autocomplete-with-tags
 ---
 {% include common.html %}
 
+{% capture intro %}
+This example shows how to use {{ Autocomplete }} and {{ Tags }} plugins together.
+{% endcapture %}
+
 {% capture example_textarea %}
-<input id="demo_input" class="example"/>
+<input id="demo_input"/>
 {% endcapture %}
 
 {% capture example_script %}

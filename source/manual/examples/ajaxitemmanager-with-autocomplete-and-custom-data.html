@@ -1,14 +1,18 @@
 ---
 layout  : example
-title   : Ajax With Autocomplete and Custom Data Objects
-example : ajax autocomplete
-id      : ajax-with-autocomplete-and-custom-data
+title   : AJAX Item Manager with Autocomplete and Custom Data
+example : autocomplete itemmanager ajaxitemmanager customdata
+id      : ajaxitemmanager-with-autocomplete-and-custom-data
 ---
 {% include common.html %}
 
+{% capture intro %}
+This example show how to use {{ Autocomplete }} and {{ AjaxItemManager }} togethere
+in order to load and use custom JSON format. Try typing name or id in the input box.
+{% endcapture %}
+
 {% capture example_textarea %}
-<p>You can type `name` or `id` of the record in the input box</p>
-<textarea id="textarea" class="example" rows="1"></textarea>
+<input id="demo_input"/>
 {% endcapture %}
 
 {% capture example_script %}
@@ -17,11 +21,11 @@ id      : ajax-with-autocomplete-and-custom-data
 {% include custom_data.json %}
 */
 
-	var ItemManagerAjax = $.fn.textext.ItemManagerAjax;
+	var AjaxItemManager = $.fn.textext.AjaxItemManager;
 
 	function CustomItemManager() {}
 
-	CustomItemManager.prototype = $.extend({}, new ItemManagerAjax(), {
+	CustomItemManager.prototype = $.extend({}, AjaxItemManager.prototype, {
 		itemContains : function(item, needle)
 		{
 			return item.name.toLowerCase().indexOf(needle.toLowerCase()) === 0 || item.id == needle;
@@ -57,7 +61,7 @@ id      : ajax-with-autocomplete-and-custom-data
 		}
 	});
 
-	$('#textarea')
+	$('#demo_input')
 		.textext({
 			plugins     : 'autocomplete',
 			itemManager : CustomItemManager,
@@ -66,8 +70,7 @@ id      : ajax-with-autocomplete-and-custom-data
 				dataType     : 'json',
 				cacheResults : true
 			}
-		})
-	;
+		});
 </script>
 {% endcapture %}
 

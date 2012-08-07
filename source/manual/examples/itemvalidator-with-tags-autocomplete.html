@@ -1,17 +1,19 @@
 ---
 layout  : example
 title   : Item Validator with Tags and Autocomplete
-example : itemvalidator autocomplete tags
+example : itemvalidator suggestionsitemvalidator autocomplete tags
 id      : itemvalidator-with-tags-autocomplete
 ---
 {% include common.html %}
 
 {% capture intro %}
-The {{ ItemValidatorSuggestions }} will automatically use items provided by `ItemManager` default implementation of which pulls items from the `suggestions` options.
+This example shows how to use limit results produced by the {{ Tags }} plugin
+using {{ SuggestionsItemValidator }} which will draw the list of valid items
+from the {{ ItemManager }}.
 {% endcapture %}
 
 {% capture example_textarea %}
-<input id="demo_input" class="example" />
+<input id="demo_input"/>
 {% endcapture %}
 
 {% capture example_script %}

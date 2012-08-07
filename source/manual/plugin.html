@@ -1,0 +1,30 @@
+---
+layout : manual
+title  : Plugin
+id     : plugin
+---
+{% doc_file textext.plugin.js %}
+
+{% capture about %}
+	{% doc_desc Plugin %}
+{% endcapture %}
+
+{% capture methods %}
+	{% doc_method Plugin.baseInit %}
+	{% doc_method Plugin.bind %}
+	{% doc_method Plugin.core %}
+	{% doc_method Plugin.formDataObject %}
+	{% doc_method Plugin.init %}
+	{% doc_method Plugin.initPriority %}
+	{% doc_method Plugin.input %}
+	{% doc_method Plugin.itemManager %}
+	{% doc_method Plugin.on %}
+	{% doc_method Plugin.opts %}
+	{% doc_method Plugin.startTimer %}
+	{% doc_method Plugin.stopTimer %}
+	{% doc_method Plugin.trigger %}
+	{% doc_method Plugin.val %}
+{% endcapture %}
+
+{% include api_doc.html %}
+

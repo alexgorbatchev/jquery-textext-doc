@@ -1,0 +1,24 @@
+---
+layout : manual
+title  : ItemValidator
+id     : itemvalidator
+---
+{% doc_file textext.itemvalidator.js %}
+
+{% capture about %}
+	{% doc_desc ItemValidator %}
+{% endcapture %}
+
+{% capture methods %}
+	{% doc_method ItemValidator.compareItems %}
+	{% doc_method ItemValidator.filter %}
+	{% doc_method ItemValidator.init %}
+	{% doc_method ItemValidator.itemContains %}
+	{% doc_method ItemValidator.itemToString %}
+	{% doc_method ItemValidator.setSuggestions %}
+	{% doc_method ItemValidator.getSuggestions %}
+	{% doc_method ItemValidator.stringToItem %}
+{% endcapture %}
+
+{% include api_doc.html %}
+

@@ -1,0 +1,25 @@
+---
+layout : manual
+title  : AjaxItemManager
+plugin : true
+id     : ajaxitemmanager
+---
+{% doc_file textext.itemmanager.ajax.js %}
+
+{% capture about %}
+	{% doc_desc AjaxItemManager %}
+{% endcapture %}
+
+{% capture methods %}
+	{% doc_method AjaxItemManager.compareItems %}
+	{% doc_method AjaxItemManager.filter %}
+	{% doc_method AjaxItemManager.init %}
+	{% doc_method AjaxItemManager.itemContains %}
+	{% doc_method AjaxItemManager.itemToString %}
+	{% doc_method AjaxItemManager.setSuggestions %}
+	{% doc_method AjaxItemManager.getSuggestions %}
+	{% doc_method AjaxItemManager.stringToItem %}
+{% endcapture %}
+
+{% include api_doc.html %}
+

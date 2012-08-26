@@ -1,12 +1,20 @@
 <nav id="side-nav">
 	<section class="api">
+		<h3>Manual</h3>
+		<ul>
+			<li id="nav-download"><a href="{{ download_url }}">Download</a></li>
+			<li id="nav-install"><a href="/{{ version }}/manual/install.html">Install</a></li>
+			<li id="nav-options"><a href="/{{ version }}/manual/options.html">Options</a></li>
+		</ul>
+	</section>
+
+	<section class="api">
 		<h3>Core</h3>
 		<ul>
-			<li id="nav-textext"><a href="/manual/textext.html">TextExt</a></li>
-			<li id="nav-options"><a href="/manual/options.html">Options</a></li>
-			<li id="nav-plugin"><a href="/manual/plugin.html">Plugin</a></li>
-			<li id="nav-itemmanager"><a href="/manual/itemmanager.html">ItemManager</a></li>
-			<li id="nav-itemvalidator"><a href="/manual/itemvalidator.html">ItemValidator</a></li>
+			<li id="nav-textext"><a href="/{{ version }}/manual/textext.html">TextExt</a></li>
+			<li id="nav-plugin"><a href="/{{ version }}/manual/plugin.html">Plugin</a></li>
+			<li id="nav-itemmanager"><a href="/{{ version }}/manual/itemmanager.html">ItemManager</a></li>
+			<li id="nav-itemvalidator"><a href="/{{ version }}/manual/itemvalidator.html">ItemValidator</a></li>
 		</ul>
 	</section>
 
@@ -15,7 +23,7 @@
 		<ul>
 			{% for item in site.pages %}
 				{% if item.plugin %}
-					<li id="nav-{{ item.id }}"><a href="{{ item.url }}">{{ item.title }}</a></li>
+					<li id="nav-{{ item.id }}"><a href="/{{ version }}{{ item.url }}">{{ item.title }}</a></li>
 				{% endif %}
 			{% endfor %}
 		</ul>

@@ -22,13 +22,19 @@ pre {
 }
 
 a.external {
-	background    : url(/images/external.png) 100% 50% no-repeat;
+	background    : url(../images/external.png) 100% 50% no-repeat;
 	padding-right : 13px;
 }
 
 .navbar {
-	a.brand {
+	.brand {
 		font-family : 'Kaushan Script', Georgia;
+
+		a {
+			color : white;
+
+			&:hover { text-decoration : none }
+		}
 	}
 
 	ul.nav {
@@ -99,7 +105,7 @@ footer {
 	.alert {
 		padding-bottom  : 11px;
 		padding-left    : 230px;
-		background      : url(/images/alexgorbatchev.jpg) 10px 10px no-repeat;
+		background      : url(../images/alexgorbatchev.jpg) 10px 10px no-repeat;
 		background-size : 21.7%;
 	}
 }

@@ -6,35 +6,33 @@
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Kaushan+Script" type="text/css" />
-		<link rel="stylesheet" href="/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/{{ version }}/css/main.css" type="text/css" />
 
-		<script src="/js/jquery-1.7.2.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/js/doc.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/{{ version }}/js/jquery-1.7.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/{{ version }}/js/doc.js" type="text/javascript" charset="utf-8"></script>
 
 		{% if debug == "false" %}
 			<script src="http://bundlejs.com/alexgorbatchev/products/textext/{{ version }}?compress=true&bundles=core,ajax,arrow,autocomplete,filter,focus,prompt,suggestions,tags" type="text/javascript" charset="utf-8"></script>
 		{% else %}
-			<link rel="stylesheet" href="/textext/css/textext.css" type="text/css" />
-			<link rel="stylesheet" href="/textext/css/textext.itemmanager.ajax.css" type="text/css" />
-			<link rel="stylesheet" href="/textext/css/textext.plugin.tags.css" type="text/css" />
-			<link rel="stylesheet" href="/textext/css/textext.plugin.autocomplete.css" type="text/css" />
-			<link rel="stylesheet" href="/textext/css/textext.plugin.focus.css" type="text/css" />
-			<link rel="stylesheet" href="/textext/css/textext.plugin.prompt.css" type="text/css" />
-			<link rel="stylesheet" href="/textext/css/textext.plugin.arrow.css" type="text/css" />
-			<script src="/textext/js/textext.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.plugin.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.itemmanager.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.itemmanager.default.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.itemmanager.ajax.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.itemvalidator.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.itemvalidator.default.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.itemvalidator.suggestions.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.patch.ie9.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/textext/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.css" type="text/css" />
+			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.tags.css" type="text/css" />
+			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.autocomplete.css" type="text/css" />
+			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.focus.css" type="text/css" />
+			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.prompt.css" type="text/css" />
+			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.arrow.css" type="text/css" />
+			<script src="/{{ version }}/textext/js/textext.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.plugin.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.itemmanager.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.itemmanager.default.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.itemvalidator.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.itemvalidator.default.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.itemvalidator.suggestions.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.patch.ie9.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+			<script src="/{{ version }}/textext/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
 		{% endif %}
 	</head>
 
@@ -42,13 +40,13 @@
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a href="/" class="brand">jQuery TextExt v{{ version }}</a>
+					<h1 class="brand"><a href="/{{ version }}/">jQuery TextExt v{{ version }}</a></h1>
 					<ul class="nav" id="nav">
-						<li class="manual"><a href="/manual/index.html">Manual</a></li>
-						<li class="examples"><a href="/manual/examples.html">Examples</a></li>
-						<li class="download"><a href="http://bundlejs.com/alexgorbatchev/products/textext/{{ version }}">Download</a></li>
+						<li class="manual"><a href="/{{ version }}/manual/index.html">Manual</a></li>
+						<li class="examples"><a href="/{{ version }}/manual/examples.html">Examples</a></li>
+						<li class="download"><a href="{{ download_url }}">Download</a></li>
 						<li class="issues"><a href="https://github.com/alexgorbatchev/jquery-textext/issues">Issues</a></li>
-						<li class="contact"><a href="/contact.html">Contact</a></li>
+						<li class="contact"><a href="/{{ version }}/contact.html">Contact</a></li>
 					</ul>
 					<ul class="nav pull-right">
 						<li id="twitter-follow" class="plain">

@@ -2,16 +2,14 @@
 {% include header.html %}
 
 <div class="container">
-	<div class="page-header">
-		<h2>{{ page.title }} <small>plugin</small></h2>
-	</div>
-
 	<div class="row">
-		<div class="span3">
+		<div id="manual-nav-affix" class="span12">
 			{% include nav_manual.html %}
 		</div>
-
-		<div id="content" class="span9">
+		<div id="content" class="span12" style="margin-top : 60px">
+			<div class="hero-unit">
+				<h1>{{ page.title }} <small>plugin</small></h1>
+			</div>
 			{{ content }}
 		</div>
 	</div>

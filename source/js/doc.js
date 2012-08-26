@@ -1,5 +1,9 @@
 $(function()
 {
+	var topNav    = $('#top-nav'),
+		manualNav = $('#manual-nav')
+		;
+
 	function email()
 	{
 		// http://rumkin.com/tools/mailto_encoder/simple.php
@@ -11,6 +15,32 @@ $(function()
 		}
 		return OT;
 	};
+
+	(function()
+	{
+		var nav = $('#manual-nav-affix');
+
+		if(nav.length)
+			nav.affix({
+				offset : {
+					top : nav.offset().top - topNav.height(),
+					bottom : 0
+				}
+			});
+
+		manualNav.find('a').each(function()
+		{
+			var a = $(this);
+
+			if(window.location.pathname == a.attr('href'))
+			{
+				a.parents('li.dropdown').addClass('active');
+				a.parent().addClass('active');
+
+				$('#toc .nav-header').text(a.text());
+			}
+		});
+    })();
 
 	function enhanceMethodSignature(a)
 	{
@@ -54,7 +84,7 @@ $(function()
 	// add TOC to the API doc page
 	(function()
 	{
-		var row = $('#toc');
+		var toc = $('#toc');
 
 		$('#api section h3').each(function()
 		{
@@ -74,11 +104,20 @@ $(function()
 			})
 			.toArray();
 
-			block = $('<section><h4>' + h3.html() + '</h4><ul>' + links.join('') + '</ul></section>');
-			row.append(block);
+			block = $('<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">' + h3.html() + ' <b class="caret"></b></a><ul class="dropdown-menu">' + links.join('') + '</ul>');
+			toc.append(block);
 		});
 	})();
 
+	(function()
+	{
+		$('#content > .hero-unit')
+			.append($('#api > section#hero'))
+			.find('h3').remove()
+			;
+	})();
+
+	// add rollover functionality to the method params 
 	(function()
 	{
 		var params = /^([\w\.\…]+) (\{\w+\})?(.*)$/;

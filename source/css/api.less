@@ -25,6 +25,8 @@
 	}
 
 	section {
+		margin-bottom : 30px;
+
 		> h3 {
 			font-size     : 30px;
 			line-height   : initial;
@@ -64,27 +66,35 @@
 	}
 }
 
-#side-nav {
-	section {
-		margin-bottom : 10px;
+#manual-nav-affix {
+	padding       : 10px 0;
+	background    : white;
+	margin-bottom : -60px;
+
+	&.affix {
+		top : 40px;
 	}
 
-	ul {
-		padding         : 0;
-		margin          : 0;
-		list-style-type : none;
-		
-		li {
-			font-family   : Monaco, Andale Mono, Courier New, monospace;
-			font-size     : 10px;
-			font-weight   : normal;
-			text-overflow : ellipsis;
-			white-space   : nowrap;
-			overflow      : hidden;
+	&.affix-top {
+	}
+}
 
-			a {
-				font-weight : normal;
-			}
+#manual-nav {
+	margin : 0;
+
+	a {
+		cursor : pointer;
+	}
+
+	#toc {
+		margin-bottom : 0;
+
+		.nav-header {
+			padding        : 8px 8px 8px 50px;
+			color          : inherit;
+			font-size      : inherit;
+			text-transform : none;
+			text-shadow    : none;
 		}
 	}
 }

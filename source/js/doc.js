@@ -74,7 +74,7 @@ $(function()
 			})
 			.toArray();
 
-			block = $('<div><h4>' + h3.html() + '</h4><ul>' + links.join('') + '</ul></div>');
+			block = $('<section><h4>' + h3.html() + '</h4><ul>' + links.join('') + '</ul></section>');
 			row.append(block);
 		});
 	})();

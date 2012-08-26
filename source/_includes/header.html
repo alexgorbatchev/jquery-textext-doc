@@ -5,10 +5,10 @@
 		<title>jQuery TextExt Plugin{% if page.title != '' %} - {{ page.title }}{% endif %}</title>
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Kaushan+Script" type="text/css" />
 		<link rel="stylesheet" href="/{{ version }}/css/main.css" type="text/css" />
 
 		<script src="/{{ version }}/js/jquery-1.7.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/{{ version }}/js/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/{{ version }}/js/doc.js" type="text/javascript" charset="utf-8"></script>
 
 		{% if debug == "false" %}
@@ -40,7 +40,7 @@
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<h1 class="brand"><a href="/{{ version }}/">jQuery TextExt v{{ version }}</a></h1>
+					<a href="/{{ version }}/" class="brand">jQuery TextExt v{{ version }}</a>
 					<ul class="nav" id="nav">
 						<li class="manual"><a href="/{{ version }}/manual/index.html">Manual</a></li>
 						<li class="examples"><a href="/{{ version }}/manual/examples.html">Examples</a></li>

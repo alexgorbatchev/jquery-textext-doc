@@ -23,13 +23,10 @@ module Jekyll
     def process
       jekyll_process
 
-      from = File.expand_path(config['textext'])
-      to   = File.expand_path(config['destination'] + '/textext')
-      `ln -s \"#{from}\" \"#{to}\"`
-      puts "Created TextExt symlink"
+      # from = File.expand_path(config['textext'])
+      # to   = File.expand_path(config['destination'] + '/textext')
 
-      `make less`
-      puts "Updated less"
+      `make copy_symlinks less`
     end
   end
 

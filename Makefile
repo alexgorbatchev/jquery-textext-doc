@@ -1,9 +1,22 @@
+SHELL = /bin/bash
+
 http:
 	-@killall ruby
 	@jekyll --server
 
+copy_symlinks:
+	@for file in $$(find ./source -type l); \
+	do \
+		dir="$$(dirname $$file)"; \
+		link="$$(readlink $$file)"; \
+		src="$$dir/$$link"; \
+		dest="$${dir/source/output}/$$(basename $$file)"; \
+		[ ! -f $$dest ] && [ -d $$(dirname $$dest) ] && cp -R $$src $$dest; \
+	done;
+
 less:
 	@node ./node_modules/less/bin/lessc ./source/css/main.less ./output/css/main.css
+	@rm ./output/css/*.less
 
 install:
 	@echo "Installing Dependencies for jQuery TextExt.js Documentation Site"

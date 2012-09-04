@@ -38,6 +38,7 @@
 	</head>
 
 	<body data-section="{% if page.section %}{{ page.section }}{% else %}{{ section }}{% endif %}">
+
 		<div id="top-nav" class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
@@ -59,6 +60,16 @@
 								allowtransparency="true" frameborder="0" scrolling="0" width="52px" height="20px"></iframe>
 						</li>
 					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="hero-unit">
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<h1>{{ page.title }}</h1>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -86,3 +97,5 @@
 				</div>
 			</div>
 		{% endif %}
+
+

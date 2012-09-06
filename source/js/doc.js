@@ -16,18 +16,21 @@ $(function()
 		return OT;
 	};
 
-	(function()
+	$(function()
 	{
 		var nav = $('#manual-nav-affix');
 
 		if(nav.length)
 			nav.affix({
 				offset : {
-					top : nav.offset().top - topNav.height(),
+					top    : nav.offset().top - topNav.height(),
 					bottom : 0
 				}
 			});
+	});
 
+	(function()
+	{
 		manualNav.find('a').each(function()
 		{
 			var a = $(this);
@@ -111,7 +114,7 @@ $(function()
 
 	(function()
 	{
-		$('#content > .hero-unit')
+		$('body > .hero-unit .span12')
 			.append($('#api > section#hero'))
 			.find('h3').remove()
 			;

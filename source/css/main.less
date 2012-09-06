@@ -19,6 +19,15 @@ body {
 		border-radius : 0px;
 		color         : #fff;
 		text-shadow   : 2px 2px 5px rgba(0, 0, 0, .2);
+
+		h1 {
+			margin : 0;
+		}
+
+		p {
+			margin      : 0;
+			line-height : 1.3em;
+		}
 	}
 }
 
@@ -32,14 +41,24 @@ pre {
 	}
 }
 
+code {
+	color            : inherit;
+	margin           : 0 2px;
+	padding          : 0px 5px;
+	border           : 1px solid #eaeaea;
+	background-color : #f8f8f8;
+	border-radius    : 3px;
+}
+
 a.external {
 	background    : url(../images/external.png) 100% 50% no-repeat;
 	padding-right : 13px;
 }
 
-.navbar {
-	.brand {
-		font-weight : bold;
+#top-nav {
+	.navbar-inner {
+		background : #fff;
+		box-shadow : none;
 	}
 
 	ul.nav {
@@ -110,7 +129,7 @@ footer {
 	margin-top    : -40px;
 	margin-bottom : 20px;
 
-	> .row {
+	.box {
 		border-radius : 20px;
 		border        : 5px solid #fff;
 		padding       : 30px 30px 30px 160px;

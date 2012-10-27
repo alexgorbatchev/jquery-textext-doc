@@ -1,101 +1,128 @@
 <!DOCTYPE html>
 {% include common.html %}
 <html>
-	<head>		
-		<title>jQuery TextExt Plugin{% if page.title != '' %} - {{ page.title }}{% endif %}</title>
-		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <head>		
+        <title>jQuery TextExt Plugin{% if page.title != '' %} - {{ page.title }}{% endif %}</title>
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
-		<link rel="stylesheet" href="/{{ version }}/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="/{{ version }}/css/main.css" type="text/css" />
 
-		<script src="/{{ version }}/js/jquery-1.7.2.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/{{ version }}/js/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/{{ version }}/js/bootstrap-affix.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/{{ version }}/js/doc.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/{{ version }}/js/jquery-1.7.2.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/{{ version }}/js/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/{{ version }}/js/bootstrap-affix.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/{{ version }}/js/doc.js" type="text/javascript" charset="utf-8"></script>
 
-		{% if debug == "false" %}
-			<script src="http://bundlejs.com/alexgorbatchev/products/textext/{{ version }}?compress=true&bundles=core,ajax,arrow,autocomplete,filter,focus,prompt,suggestions,tags" type="text/javascript" charset="utf-8"></script>
-		{% else %}
-			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.css" type="text/css" />
-			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.tags.css" type="text/css" />
-			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.autocomplete.css" type="text/css" />
-			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.focus.css" type="text/css" />
-			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.prompt.css" type="text/css" />
-			<link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.arrow.css" type="text/css" />
-			<script src="/{{ version }}/textext/js/textext.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.plugin.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.itemmanager.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.itemmanager.default.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.itemvalidator.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.itemvalidator.default.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.itemvalidator.suggestions.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.patch.ie9.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
-			<script src="/{{ version }}/textext/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
-		{% endif %}
-	</head>
+        {% if debug == "false" %}
+            <script src="http://bundlejs.com/alexgorbatchev/products/textext/{{ version }}?compress=true&bundles=core,ajax,arrow,autocomplete,filter,focus,prompt,suggestions,tags" type="text/javascript" charset="utf-8"></script>
+        {% else %}
+            <link rel="stylesheet" href="/{{ version }}/textext/css/textext.css" type="text/css" />
+            <link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.tags.css" type="text/css" />
+            <link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.autocomplete.css" type="text/css" />
+            <link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.focus.css" type="text/css" />
+            <link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.prompt.css" type="text/css" />
+            <link rel="stylesheet" href="/{{ version }}/textext/css/textext.plugin.arrow.css" type="text/css" />
+            <script src="/{{ version }}/textext/js/textext.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.plugin.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.itemmanager.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.itemmanager.default.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.itemvalidator.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.itemvalidator.default.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.itemvalidator.suggestions.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.patch.ie9.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+            <script src="/{{ version }}/textext/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+        {% endif %}
+    </head>
 
-	<body data-section="{% if page.section %}{{ page.section }}{% else %}{{ section }}{% endif %}">
+    <body data-section="{% if page.section %}{{ page.section }}{% else %}{{ section }}{% endif %}">
 
-		<div id="top-nav" class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<a href="/{{ version }}/" class="brand">jQuery TextExt v{{ version }}</a>
-					<ul class="nav" id="nav">
-						<li class="manual"><a href="/{{ version }}/manual/index.html">Manual</a></li>
-						<li class="examples"><a href="/{{ version }}/manual/examples.html">Examples</a></li>
-						<li class="download"><a href="{{ download_url }}">Download</a></li>
-						<li class="issues"><a href="https://github.com/alexgorbatchev/jquery-textext/issues">Issues</a></li>
-						<li class="contact"><a href="/{{ version }}/contact.html">Contact</a></li>
-					</ul>
-					<ul class="nav pull-right">
-						<li id="twitter-follow" class="plain">
-							<a href="https://twitter.com/TextExtJs" class="twitter-follow-button" data-show-count="false">Follow @TextExtJs</a>
-							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-						</li>
-						<li id="github-watch" class="plain">
-							<iframe src="http://ghbtns.com/github-btn.html?user=alexgorbatchev&repo=jquery-textext&type=watch&count=false"
-								allowtransparency="true" frameborder="0" scrolling="0" width="52px" height="20px"></iframe>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+        <div id="top-nav" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="/{{ version }}/" class="brand">jQuery TextExt v{{ version }}</a>
+                    <ul class="nav" id="nav">
+                        <li class="manual"><a href="/{{ version }}/manual/index.html">Manual</a></li>
+                        <li class="examples"><a href="/{{ version }}/manual/examples.html">Examples</a></li>
+                        <li class="download"><a href="{{ download_url }}">Download</a></li>
+                        <li class="issues"><a href="https://github.com/alexgorbatchev/jquery-textext/issues">Issues</a></li>
+                        <li class="contact"><a href="/{{ version }}/contact.html">Contact</a></li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li id="twitter-follow" class="plain">
+                            <a href="https://twitter.com/TextExtJs" class="twitter-follow-button" data-show-count="false">Follow @TextExtJs</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        </li>
+                        <li id="github-watch" class="plain">
+                            <iframe src="http://ghbtns.com/github-btn.html?user=alexgorbatchev&repo=jquery-textext&type=watch&count=false"
+                                allowtransparency="true" frameborder="0" scrolling="0" width="52px" height="20px"></iframe>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-		<div class="hero-unit">
-			<div class="container">
-				<div class="row">
-					<div class="span12">
-						<h1>{{ page.title }}</h1>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="hero-unit">
+            <div class="container">
+                <div class="row">
+                    {% if page.hide_donate != true %}
+                        <div class="span6 content">
+                            <h1>{{ page.title }}</h1>
+                        </div>
+                        <div class="span6">
+                            <div id="donate-alert">
+                                <div class="box">
+                                    <h4>Hey awesome developer!</h4>
+                                    <p>
+                                        My name is Alex Gorbatchev, I wrote TextExt.js. It took me literally months to write and document this 
+                                        jQuery plugin for you. Do you like coffe, beer and dohunts? I do too, OMG! Send me some moneys so I can
+                                        buy one or two! Show that you awesome and support future development!
+                                    </p>
+                                    <form id="donate-form" method="post" action="https://www.paypal.com/cgi-bin/webscr">
+                                        <input type="hidden" name="cmd" value="_s-xclick"/>
+                                        <input type="hidden" name="hosted_button_id" value="TBJLSNWZN6DL6"/>
+                                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" style="position: absolute; top: 0; left: 0"/>
 
-		{% if page.hide_donate != true %}
-			{% include donate.html %}
-		{% endif %}
+                                        <div class="btn-group btn-big">
+                                            <input type="submit" class="btn btn-primary" value="PayPal"/>
+                                            <a class="btn btn-primary" href="/donate_bitcoin.html" style="font-weight: normal;">BitCoint</a>
+                                        </div>
+                                    </form>
 
-		{% if debug == "false" %}
-			<div class="container">
-				<div class="row">
-					<div class="span12">
-						<div class="well" style="text-align: center">
-							<script type="text/javascript"><!--
-							google_ad_client = "ca-pub-2888483682038752";
-							/* TextExtJS - leaderboard */
-							google_ad_slot = "8183496769";
-							google_ad_width = 728;
-							google_ad_height = 90;
-							//-->
-							</script>
-							<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-						</div>
-					</div>
-				</div>
-			</div>
-		{% endif %}
+                                    <div class="photo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="span12 content">
+                            <h1>{{ page.title }}</h1>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+        {% if debug == "false" %}
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <div class="well" style="text-align: center">
+                            <script type="text/javascript"><!--
+                            google_ad_client = "ca-pub-2888483682038752";
+                            /* TextExtJS - leaderboard */
+                            google_ad_slot = "8183496769";
+                            google_ad_width = 728;
+                            google_ad_height = 90;
+                            //-->
+                            </script>
+                            <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
 
 

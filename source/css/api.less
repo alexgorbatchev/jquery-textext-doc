@@ -1,116 +1,99 @@
 #api {
-	h1, h2, h3, h4, h5 {
-		a {
-			/* Fixes page anchor links being coverd by navigation */
-			margin-top  : -50px;
-			padding-top : 50px;
-			color       : inherit;
+    h1, h2, h3, h4, h5 {
+        a {
+            /* Fixes page anchor links being coverd by navigation */
+            margin-top  : -50px;
+            padding-top : 50px;
+            color       : inherit;
 
-			&:hover {
-				text-decoration : none;
-			}
-		}
+            &:hover {
+                text-decoration : none;
+            }
+        }
 
-		.version {
-			margin-left : 5px;
-			font-size   : 12px;
-		}
+        .version {
+            margin-left : 5px;
+            font-size   : 12px;
+        }
 
-		.default {
-			color       : @gray;
-			font-weight : normal;
-			font-size   : 70%;
-			font-family : Monaco, Andale Mono, Courier New, monospace,
-		}
-	}
+        .default {
+            color       : @gray;
+            font-weight : normal;
+            font-size   : 70%;
+            font-family : Monaco, Andale Mono, Courier New, monospace,
+        }
+    }
 
-	section {
-		margin-bottom : 30px;
+    section {
+        margin-bottom : 30px;
 
-		> h3 {
-			font-size     : 30px;
-			line-height   : initial;
-			margin-bottom : 10px;
-			border-bottom : 1px solid #ddd;
-		}
+        > h3 {
+            font-size     : 30px;
+            line-height   : initial;
+            margin-bottom : 10px;
+            border-bottom : 1px solid #ddd;
+        }
 
-		> div {
-			margin-top : 30px;
-		}
-	}
+        > div {
+            margin-top : 30px;
+        }
+    }
 
-	.method {
-		h4 .param {
-			cursor : pointer;
+    .method {
+        h4 .param {
+            cursor : pointer;
 
-			&:hover {
-				text-decoration : underline;
-			}
-		}
+            &:hover {
+                text-decoration : underline;
+            }
+        }
 
-		.params li {
-			.desc {
-				padding : 1px 3px;
-			}
+        .params li {
+            .desc {
+                padding : 1px 3px;
+            }
 
-			&.highlight .desc {
-				background : yellow;
-				color      : black;
-			}
+            &.highlight .desc {
+                background : yellow;
+                color      : black;
+            }
 
-			p {
-				-webkit-margin-after : 0;
-				-moz-margin-after : 0;
-				margin-after : 0;
-			}
-		}
-	}
+            p {
+                -webkit-margin-after : 0;
+                -moz-margin-after : 0;
+                margin-after : 0;
+            }
+        }
+    }
 }
 
 #manual-nav-affix {
-	padding       : 10px 0;
-	background    : white;
-	margin-bottom : -60px;
+    padding       : 10px 0;
+    background    : white;
+    margin-bottom : -60px;
 
-	&.affix {
-		top : 40px;
-	}
+    &.affix {
+        top : 40px;
+    }
 
-	&.affix-top {
-	}
+    &.affix-top {
+    }
 }
 
-#manual-nav {
-	margin : 0;
+#toc, #content {
+    margin-top : 60px;
+}
 
-	a {
-		cursor      : pointer;
-		font-weight : normal;
-	}
-
-	#toc {
-		margin-bottom : 0;
-
-		.nav-header {
-			padding        : 8px 8px 8px 50px;
-			color          : inherit;
-			font-size      : inherit;
-			text-transform : none;
-			text-shadow    : none;
-		}
-
-		a {
-			line-height    : 20px;
-			padding-top    : 6px;
-			padding-bottom : 6px;
-		}
-	}
+#toc {
+    ul {
+        font-family : Monaco, Menlo, Consolas, "Courier New", monospace;
+    }
 }
 
 #example {
-	pre {
-		white-space : pre;
-		overflow    : auto;
-		word-wrap   : normal;
-	}
+    pre {
+        white-space : pre;
+        overflow    : auto;
+        word-wrap   : normal;
+    }
 }

@@ -1,29 +1,25 @@
 <ul id="manual-nav" class="nav nav-tabs">
-	<li id="nav-install"><a href="/{{ version }}/manual/install.html">Install</a></li>
-	<li id="nav-options"><a href="/{{ version }}/manual/options.html">Options</a></li>
+    <li id="nav-install"><a href="install.html">Install</a></li>
+    <li id="nav-options"><a href="options.html">Options</a></li>
 
-	<li class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown">Core <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-			<li id="nav-textext"><a href="/{{ version }}/manual/textext.html">TextExt</a></li>
-			<li id="nav-plugin"><a href="/{{ version }}/manual/plugin.html">Plugin</a></li>
-			<li id="nav-itemmanager"><a href="/{{ version }}/manual/itemmanager.html">ItemManager</a></li>
-			<li id="nav-itemvalidator"><a href="/{{ version }}/manual/itemvalidator.html">ItemValidator</a></li>
-		</ul>
-	</li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">Core <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li id="nav-textext"><a href="core-textext.html">TextExt</a></li>
+            <li id="nav-plugin"><a href="core-plugin.html">Plugin</a></li>
+            <li id="nav-itemmanager"><a href="core-itemmanager.html">ItemManager</a></li>
+            <li id="nav-itemvalidator"><a href="core-itemvalidator.html">ItemValidator</a></li>
+        </ul>
+    </li>
 
-	<li class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-			{% for item in site.pages %}
-				{% if item.plugin %}
-					<li id="nav-{{ item.id }}"><a href="/{{ version }}{{ item.url }}">{{ item.title }}</a></li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-	</li>
-
-	<ul id="toc" class="nav nav-pills">
-		<li class="nav-header"></li>
-	</ul>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            {% for item in site.pages %}
+                {% if item.plugin %}
+                    <li id="nav-{{ item.id }}"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </li>
 </ul>

@@ -1,26 +1,55 @@
-		<div class="container">
-			<footer class="footer">
-				<p class="pull-right"><a href="#">Back to top</a></p>
-				<p>
-					Built with all love and care by <a href="http://alexgorbatchev.com">Alex Gorbatchev</a>.<br />
-					Copyright 2011-2012 Alex Gorbatchev. MIT License.
-				</p>
-			</footer>
-		</div>
+        <div class="container">
+            <footer class="footer">
+                <p class="pull-right"><a href="#">Back to top</a></p>
+                <p>
+                    Built with all love and care by <a href="http://alexgorbatchev.com">Alex Gorbatchev</a>.<br />
+                    Copyright 2011-2012 Alex Gorbatchev. MIT License.
+                </p>
+            </footer>
+        </div>
 
-		<a id="github" href="https://github.com/alexgorbatchev/jquery-textext"><img src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
-	</body>
+        <a id="github" href="https://github.com/alexgorbatchev/jquery-textext"><img src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    </body>
 </html>
 
 <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-83229-17']);
-  _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    _gaq.push(['_setAccount', 'UA-83229-17']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 </script>
 
+<script src="js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/bootstrap-affix.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/doc.js" type="text/javascript" charset="utf-8"></script>
+
+{% if debug == "false" %}
+    <script src="http://bundlejs.com/alexgorbatchev/products/textext/{{ version }}?compress=true&bundles=core,ajax,arrow,autocomplete,filter,focus,prompt,suggestions,tags" type="text/javascript" charset="utf-8"></script>
+{% else %}
+    <link rel="stylesheet" href="textext/css/textext.css" type="text/css" />
+    <link rel="stylesheet" href="textext/css/textext.plugin.tags.css" type="text/css" />
+    <link rel="stylesheet" href="textext/css/textext.plugin.autocomplete.css" type="text/css" />
+    <link rel="stylesheet" href="textext/css/textext.plugin.focus.css" type="text/css" />
+    <link rel="stylesheet" href="textext/css/textext.plugin.prompt.css" type="text/css" />
+    <link rel="stylesheet" href="textext/css/textext.plugin.arrow.css" type="text/css" />
+    <script src="textext/js/textext.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.plugin.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.itemmanager.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.itemmanager.default.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.itemvalidator.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.itemvalidator.default.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.itemvalidator.suggestions.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.patch.ie9.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+    <script src="textext/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+{% endif %}

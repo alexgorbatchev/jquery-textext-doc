@@ -31,13 +31,13 @@ title  : TextExt Core
 	{% doc_event TextExt.events.[name]KeyUp %}
 	{% doc_event TextExt.events.anyKeyDown %}
 	{% doc_event TextExt.events.anyKeyUp %}
+	{% doc_event TextExt.events.formDataChange %}
 	{% doc_event TextExt.events.getFormData %}
+	{% doc_event TextExt.events.inputDataChange %}
 	{% doc_event TextExt.events.postInit %}
 	{% doc_event TextExt.events.postInvalidate %}
 	{% doc_event TextExt.events.preInvalidate %}
 	{% doc_event TextExt.events.ready %}
-	{% doc_event TextExt.events.setFormData %}
-	{% doc_event TextExt.events.setInputData %}
 {% endcapture %}
 
 {% capture methods %}
@@ -51,6 +51,7 @@ title  : TextExt Core
 	{% doc_method TextExt.init %}
 	{% doc_method TextExt.initPatches %}
 	{% doc_method TextExt.initPlugins %}
+	{% doc_method TextExt.initTooling %}
 	{% doc_method TextExt.input %}
 	{% doc_method TextExt.invalidateBounds %}
 	{% doc_method TextExt.itemManager %}

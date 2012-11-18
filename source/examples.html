@@ -1,13 +1,24 @@
 ---
-layout: manual
-title: Examples
-section: examples
+layout  : manual
+title   : Examples
+section : examples
+notoc   : true
 ---
 {% include common.html %}
-<ul>
-	{% for item in site.pages %}
-		{% if item.example %}
-			<li><a id="example-{{ item.id }}" href="/{{ version }}{{ item.url }}">{{ item.title }}</a></li>
-		{% endif %}
-	{% endfor %}
-</ul>
+
+{% capture hero %}
+  Examples are awesome, everyone loves a good demo! Here all all
+  the examples from all pages in one convinient place!
+{% endcapture %}
+
+{% capture about %}
+  <ul>
+  {% for item in site.pages %}
+      {% if item.example %}
+      <li><a id="example-{{ item.id }}" href="/{{ version }}{{ item.url }}">{{ item.title }}</a></li>
+      {% endif %}
+  {% endfor %}
+  </ul>
+{% endcapture %}
+
+{% include api_doc.html %}

@@ -102,7 +102,7 @@ $(function()
     (function()
     {
         $('body > .hero-unit .content')
-            .append($('#api > section#hero'))
+            .append($('section#hero'))
             .find('h3').remove()
             ;
     })();

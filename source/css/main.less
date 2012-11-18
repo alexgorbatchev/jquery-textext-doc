@@ -135,17 +135,31 @@ footer {
     margin-top    : -40px;
     margin-bottom : -40px;
 
+    #donate-form {
+        margin   : 0;
+        position : absolute;
+        left     : 20px;
+        top      : 140px;
+        margin   : 0;
+
+        .btn-group * {
+            width      : 105px;
+            display    : block;
+            box-sizing : border-box;
+        }
+    }
+
     .box {
         padding       : 20px 20px 20px 140px;
         position      : relative;
         background    : #fff;
         color         : @textColor;
         text-shadow   : none;
-        border-radius : 20px;
+        border-radius : 10px;
 
         p {
             font-size : 14px;
-            margin    : 10px 0;
+            margin    : 18px 0 0 0;
         }
 
         h4 {
@@ -165,6 +179,3 @@ footer {
     }
 }
 
-#donate-form {
-    margin : 0;
-}

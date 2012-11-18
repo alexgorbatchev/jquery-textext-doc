@@ -8,6 +8,17 @@ title  : TextExt Core
   {% doc_desc TextExt %}
 {% endcapture %}
 
+{% capture options %}
+  {% doc_opt TextExt.options.dataSource %}
+  {% doc_opt TextExt.options.ext %}
+  {% doc_opt TextExt.options.html.hidden %}
+  {% doc_opt TextExt.options.html.wrap %}
+  {% doc_opt TextExt.options.item.manager %}
+  {% doc_opt TextExt.options.item.validator %}
+  {% doc_opt TextExt.options.keys %}
+  {% doc_opt TextExt.options.plugins %}
+{% endcapture %}
+
 {% capture events %}
   {% doc_desc TextExt.events %}
   {% doc_event TextExt.events.[name]KeyDown %}
@@ -16,7 +27,9 @@ title  : TextExt Core
   {% doc_event TextExt.events.anyKeyDown %}
   {% doc_event TextExt.events.anyKeyUp %}
   {% doc_event TextExt.events.formDataChange %}
+  {% doc_event TextExt.events.formDataChange %}
   {% doc_event TextExt.events.getFormData %}
+  {% doc_event TextExt.events.inputDataChange %}
   {% doc_event TextExt.events.inputDataChange %}
   {% doc_event TextExt.events.postInit %}
   {% doc_event TextExt.events.postInvalidate %}

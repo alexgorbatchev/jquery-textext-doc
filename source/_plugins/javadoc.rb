@@ -117,7 +117,14 @@ module Jekyll
     end
 
     def slug(str)
-      str.gsub(/\W+/, ' ').gsub(/\s+/, ' ').gsub(/\s/, '-').gsub(/^-*|-*$/, '').downcase
+      str
+        .strip
+        .gsub(/\(.*\)$/, '')
+        .gsub(/\W+/, ' ')
+        .gsub(/\s+/, ' ')
+        .gsub(/^.*?(\w+)$/, '\1')
+        .gsub(/\s/, '-')
+        .gsub(/^-*|-*$/, '')
     end
 
     def a(str)

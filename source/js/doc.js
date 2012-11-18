@@ -16,19 +16,6 @@ $(function()
         return OT;
     };
 
-    $(function()
-    {
-        var nav = $('#manual-nav-affix');
-
-        if(nav.length)
-            nav.affix({
-                offset : {
-                    top    : nav.offset().top - topNav.height(),
-                    bottom : 0
-                }
-            });
-    });
-
     (function()
     {
         manualNav.find('a').each(function()

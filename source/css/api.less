@@ -67,26 +67,22 @@
     }
 }
 
-#manual-nav-affix {
-    padding       : 10px 0;
-    background    : white;
-    margin-bottom : -60px;
-
-    &.affix {
-        top : 40px;
-    }
-
-    &.affix-top {
-    }
-}
-
-#toc, #content {
-    margin-top : 60px;
-}
-
 #toc {
     ul {
         font-family : Monaco, Menlo, Consolas, "Courier New", monospace;
+
+        li {
+            line-height         : 15px;
+            font-size           : 12px;
+            list-style-position : inside;
+            white-space         : nowrap;
+            overflow            : hidden;
+            text-overflow       : ellipsis;
+        }
+
+        a {
+            font-weight : normal;
+        }
     }
 }
 

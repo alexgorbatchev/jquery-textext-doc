@@ -15,7 +15,28 @@
                     <a href="/{{ version }}/" class="brand">jQuery TextExt v{{ version }}</a>
                     <ul class="nav" id="nav">
                         <li class="manual">
-                            <a href="install.html">Manual</a>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manual <b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                  <li id="nav-install"><a href="install.html">Install</a></li>
+                                  <li id="nav-options"><a href="options.html">Options</a></li>
+
+                                  <li class="divider"></li>
+                                  <li class="nav-header">Nav header</li>
+                                  <li id="nav-textext"><a href="core-textext.html">TextExt</a></li>
+                                  <li id="nav-plugin"><a href="core-plugin.html">Plugin</a></li>
+                                  <li id="nav-itemmanager"><a href="core-itemmanager.html">ItemManager</a></li>
+                                  <li id="nav-itemvalidator"><a href="core-itemvalidator.html">ItemValidator</a></li>
+
+                                  <li class="divider"></li>
+                                  <li class="nav-header">Plugins</li>
+                                  {% for item in site.pages %}
+                                      {% if item.plugin %}
+                                          <li id="nav-{{ item.id }}"><a href=".{{ item.url }}">{{ item.title }}</a></li>
+                                      {% endif %}
+                                  {% endfor %}
+                              </ul>
+                            </li>
                         </li>
                         <li class="examples">
                         <li class="download"><a href="{{ download_url }}">Download</a></li>

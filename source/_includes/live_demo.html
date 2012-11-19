@@ -1,42 +1,50 @@
 <div id="example">
+    <section id="hero">
+        {{ intro | markdownify }}
+    </section>
 
-	{{ intro | markdownify }}
+    <h3>Live Demo</h3>
 
-	<h4>Live Demo</h4>
+    {{ example_textarea }}
 
-	{{ example_textarea }}
-	{{ example_script }}
+    <h3>Form Content</h3>
 
-	<h4>Form Content</h4>
+    <p class="hint">This is the data that will be submitted with HTML form.</p>
+    <pre id="output" class="output"></pre>
 
-	<p class="hint">This is the data that will be submitted with HTML form.</p>
-	<pre id="output" class="output"></pre>
+    <script>
+    $(function()
+    {
+        {{ example_script }}
 
-	<script>
-	(function()
-	{
-		var textarea = $('#demo_input, textarea.example:last'),
-			output   = $('pre.output:last')
-			;
+        var textarea = $('#demo_input, textarea.example:last'),
+            output   = $('pre.output:last')
+            ;
 
-		textarea
-			.on('formDataChange', function(e, data)
-			{
-				var textext = $(e.target).textext()[0];
-				output.text(textext.formValue());
-			})
-			;
-	})();
-	</script>
+        textarea
+            .on('formDataChange', function(e, data)
+            {
+                var textext = $(e.target).textext()[0];
+                output.text(textext.formValue());
+            })
+            ;
+    });
+    </script>
 
-	<h4>Source</h4>
+    <h3>Source</h3>
 
-	<p class="hint">This is the original <code>&lt;input/&gt;</code> tag.</p>
-	<pre class="brush: html">{{ example_textarea | escape}}</pre>
+    <p class="hint">This is the original <code>&lt;input/&gt;</code> tag.</p>
+    <pre class="brush: html">{{ example_textarea | escape }}</pre>
 
-	<p class="hint">This is the JavaScript source that was used to initialize this demo instance of TextExt.</p>
-	<pre class="brush: js; html-script: true">{{ example_script | replace:"	","    " | escape }}</pre>
+    <p class="hint">This is the JavaScript source that was used to initialize this demo instance of TextExt.</p>
+    <pre class="brush: js">{{ example_script | escape }}</pre>
 
-	{{ extras }}
+    {% if example_styles %}
+        <style>{{ example_styles }}</style>
+        <p class="hint">Here are some additional styles for this example</p>
+        <pre class="brush: css">{{ example_styles | escape }}</pre>
+    {% endif %}
+
+    {{ extras }}
 </div>
 

@@ -5,6 +5,7 @@
         <title>jQuery TextExt Plugin{% if page.title != '' %} - {{ page.title }}{% endif %}</title>
         <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
         <link rel="stylesheet" href="css/main.css" type="text/css" />
+        <script src="js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
     </head>
 
     <body data-section="{% if page.section %}{{ page.section }}{% else %}{{ section }}{% endif %}">
@@ -98,7 +99,6 @@
                 </div>
             </div>
         </div>
-
 
         {% if debug == "false" %}
             <div class="container">

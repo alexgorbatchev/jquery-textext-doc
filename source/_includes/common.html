@@ -3,16 +3,26 @@
 {% capture download_url %}http://bundlejs.com/alexgorbatchev/products/textext/{{ version }}{% endcapture %}
 {% capture wallet_id %}18i2kGxBVtoZMjdp5BLATweT6pYXkgwRMt{% endcapture %}
 
-{% capture Focus %}[Focus](/manual/plugins/focus.html){% endcapture %}
-{% capture Prompt %}[Prompt](/manual/plugins/prompt.html){% endcapture %}
-{% capture Arrow %}[Arrow](/manual/plugins/arrow.html){% endcapture %}
-{% capture Autocomplete %}[Autocomplete](/manual/plugins/autocomplete.html){% endcapture %}
-{% capture Tags %}[Tags](/manual/plugins/tags.html){% endcapture %}
-{% capture ItemManager %}[ItemManager](/manual/itemmanager.html){% endcapture %}
-{% capture AjaxItemManager %}[ItemManagerAjax](/manual/itemmanager.ajax.html){% endcapture %}
-{% capture ItemValidor %}[ItemValidor](/manual/itemvalidator.html){% endcapture %}
-{% capture SuggestionsItemValidator %}[SuggestionsItemValidator](/manual/itemvalidator.suggestions.html){% endcapture %}
-{% capture ext %}[ext](/manual/ext.html){% endcapture %}
+{% capture Focus %}[Focus](plugin-focus.html){% endcapture %}
+{% capture Prompt %}[Prompt](plugin-prompt.html){% endcapture %}
+{% capture Arrow %}[Arrow](plugin-arrow.html){% endcapture %}
+{% capture Autocomplete %}[Autocomplete](plugin-autocomplete.html){% endcapture %}
+{% capture Tags %}[Tags](plugin-tags.html){% endcapture %}
+{% capture ItemManager %}[ItemManager](plugin-itemmanager.html){% endcapture %}
+{% capture AjaxItemManager %}[ItemManagerAjax](plugin-itemmanager.ajax.html){% endcapture %}
+{% capture ItemValidor %}[ItemValidor](plugin-itemvalidator.html){% endcapture %}
+{% capture SuggestionsItemValidator %}[SuggestionsItemValidator](plugin-itemvalidator.suggestions.html){% endcapture %}
 
 {% capture suggestions %}'Basic Closure Cobol Delphi Erlang Fortran Go Groovy Haskell Java JavaScript OCaml PHP Perl Python Ruby Scala'.split(/ /g){% endcapture %}
+
+{% capture examples_list %}
+    <ul>
+    {% for item in site.pages %}
+        {% if item.example %}
+            <li><a href=".{{ item.url }}">{{ item.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endcapture %}
+
 

@@ -1,8 +1,0 @@
-source      : ./source
-destination : ./output
-plugins     : ./source/_plugins
-textext     : ../src
-baseurl     : /2.0.0/
-markdown    : maruku
-auto        : true
-

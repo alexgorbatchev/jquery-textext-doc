@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Tags with code
+title   : Example
+link    : Tags with code
 example : tags api
 id      : tags-adding-directly
 ---
@@ -21,28 +22,26 @@ This example shows how to add tags to the {{ Tags }} plugin using code.
 <input id="demo_input"/>
 
 <div id="add_controls">
-	<input type="text" id="tagname" placeholder="tag name" />
-	<button class="btn">Click to add tag</button>
+    <input type="text" id="tagname" placeholder="tag name" />
+    <button class="btn">Click to add tag</button>
 </div>
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins : 'tags'
-		});
+$('#demo_input')
+    .textext({
+        plugins : 'tags'
+    });
 
-	$('#add_controls button').bind('click', function(e)
-	{
-		var input   = $('#add_controls > :text'),
-			textext = $('#demo_input').textext()[0]
-			;
+$('#add_controls button').bind('click', function(e)
+{
+    var input   = $('#add_controls > :text'),
+        textext = $('#demo_input').textext()[0]
+        ;
 
-		textext.tags().addTags([ input.val() ]);
-		input.val('');
-	});
-</script>
+    textext.tags().addTags([ input.val() ]);
+    input.val('');
+});
 {% endcapture %}
 
 {% include live_demo.html %}

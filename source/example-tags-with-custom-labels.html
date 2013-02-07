@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Tags with Custom Labels
+title   : Example
+link    : Tags with Custom Labels
 example : tags itemmanager ext
 id      : tags-with-custom-labels
 ---
@@ -17,22 +18,20 @@ Note how the functions are overridden using the {{ ext }} option.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins : 'tags',
+$('#demo_input')
+    .textext({
+        plugins : 'tags',
 
-			ext : {
-				itemManager : {
-					itemToString : function(item)
-					{
-						return '[ ' + item + ' ]';
-					}
-				}
-			}
-		})
-		;
-</script>
+        ext : {
+            itemManager : {
+                itemToString : function(item)
+                {
+                    return '[ ' + item + ' ]';
+                }
+            }
+        }
+    })
+    ;
 {% endcapture %}
 
 {% include live_demo.html %}

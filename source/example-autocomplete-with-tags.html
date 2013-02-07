@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Autocomplete with Tags
+title   : Example
+link    : Autocomplete with Tags
 example : autocomplete tags
 id      : autocomplete-with-tags
 ---
@@ -15,13 +16,11 @@ This example shows how to use {{ Autocomplete }} and {{ Tags }} plugins together
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins     : 'autocomplete > tags*',
-			suggestions : {{ suggestions }}
-		});
-</script>
+$('#demo_input')
+    .textext({
+        plugins     : 'autocomplete > tags*',
+        suggestions : {{ suggestions }}
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Autocomplete with Custom Item Rendering
+title   : Example
+link    : Autocomplete with Custom Rendering
 example : autocomplete
 id      : autocomplete-with-custom-render
 ---
@@ -16,91 +17,89 @@ item differently.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	var suggestions = [
-		{ name : 'Basic', info : 'BASIC Programming attempted to teach simple computer programming on the Atari 2600. It was released for the Atari 2600 console in 1979 and it was one of only a few non-gaming cartridges released by the company.' },
-		{ name : 'Clojure', info : 'Clojure is a recent dialect of the Lisp programming language created by Rich Hickey. It is a functional general-purpose language.' },
-		{ name : 'Cobol', info : 'COBOL is one of the oldest programming languages. Its name is an acronym for COmmon Business-Oriented Language, defining its primary domain in business, finance, and administrative systems for companies and governments.' },
-		{ name : 'Delphi', info : 'Delphi\'s compilers use its own Object Pascal dialect of Pascal and generate native code for 32- and 64-bit Windows operating systems, as well as 32-bit Mac OS X and iOS.' },
-		{ name : 'Erlang', info : 'Erlang is a general-purpose concurrent, garbage-collected programming language and runtime system. The sequential subset of Erlang is a functional language, with strict evaluation, single assignment, and dynamic typing.' },
-		{ name : 'Fortran', info : 'Fortran is a general-purpose, imperative programming language that is especially suited to numeric computation and scientific computing. ' },
-		{ name : 'Go', info : 'Go is a compiled, garbage-collected, concurrent programming language developed by Google Inc.' },
-		{ name : 'Groovy', info : 'Groovy is an object-oriented programming language for the Java platform. It is a dynamic language with features similar to those of Python, Ruby, Perl, and Smalltalk. It can be used as a scripting language for the Java Platform.' },
-		{ name : 'Haskell', info : 'Haskell is a standardized, general-purpose purely functional programming language, with non-strict semantics and strong static typing.[17] It is named after logician Haskell Curry.' },
-		{ name : 'Java', info : 'Java is a programming language originally developed by James Gosling at Sun Microsystems (which has since merged into Oracle Corporation) and released in 1995 as a core component of Sun Microsystems\' Java platform.' },
-		{ name : 'JavaScript', info : 'JavaScript (sometimes abbreviated JS) is a prototype-based scripting language that is dynamic, weakly typed and has first-class functions. It is a multi-paradigm language, supporting object-oriented, imperative, and functional programming styles.' },
-		{ name : 'OCaml', info : 'OCaml, originally known as Objective Caml, is the main implementation of the Caml programming language, created by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy and others in 1996.' },
-		{ name : 'PHP', info : 'PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. It is one of the first developed server-side scripting languages to be embedded into an HTML source document rather than calling an external file to process data.' },
-		{ name : 'Perl', info : 'Perl is a high-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in usage, such as: Practical Extraction and Reporting Language.' },
-		{ name : 'Python', info : 'Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. Its syntax is said to be clear and expressive. Python has a large and comprehensive standard library.' },
-		{ name : 'Ruby', info : 'Ruby is a dynamic, reflective, general-purpose object-oriented programming language that combines syntax inspired by Perl with Smalltalk-like features. It was also influenced by Eiffel and Lisp.' },
-		{ name : 'Scala', info : 'Scala is a multi-paradigm programming language designed to integrate features of object-oriented programming and functional programming.[5] The name Scala is a blend of "scalable" and "language", signifying that it is designed to grow with the demands of its users.' }
-	];
+var suggestions = [
+    { name : 'Basic'      , info : 'BASIC Programming attempted to teach simple computer programming on the Atari 2600. It was released for the Atari 2600 console in 1979 and it was one of only a few non-gaming cartridges released by the company.' },
+    { name : 'Clojure'    , info : 'Clojure is a recent dialect of the Lisp programming language created by Rich Hickey. It is a functional general-purpose language.' },
+    { name : 'Cobol'      , info : 'COBOL is one of the oldest programming languages. Its name is an acronym for COmmon Business-Oriented Language, defining its primary domain in business, finance, and administrative systems for companies and governments.' },
+    { name : 'Delphi'     , info : 'Delphi\'s compilers use its own Object Pascal dialect of Pascal and generate native code for 32- and 64-bit Windows operating systems, as well as 32-bit Mac OS X and iOS.' },
+    { name : 'Erlang'     , info : 'Erlang is a general-purpose concurrent, garbage-collected programming language and runtime system. The sequential subset of Erlang is a functional language, with strict evaluation, single assignment, and dynamic typing.' },
+    { name : 'Fortran'    , info : 'Fortran is a general-purpose, imperative programming language that is especially suited to numeric computation and scientific computing. ' },
+    { name : 'Go'         , info : 'Go is a compiled, garbage-collected, concurrent programming language developed by Google Inc.' },
+    { name : 'Groovy'     , info : 'Groovy is an object-oriented programming language for the Java platform. It is a dynamic language with features similar to those of Python, Ruby, Perl, and Smalltalk. It can be used as a scripting language for the Java Platform.' },
+    { name : 'Haskell'    , info : 'Haskell is a standardized, general-purpose purely functional programming language, with non-strict semantics and strong static typing.[17] It is named after logician Haskell Curry.' },
+    { name : 'Java'       , info : 'Java is a programming language originally developed by James Gosling at Sun Microsystems (which has since merged into Oracle Corporation) and released in 1995 as a core component of Sun Microsystems\' Java platform.' },
+    { name : 'JavaScript' , info : 'JavaScript (sometimes abbreviated JS) is a prototype-based scripting language that is dynamic, weakly typed and has first-class functions. It is a multi-paradigm language, supporting object-oriented, imperative, and functional programming styles.' },
+    { name : 'OCaml'      , info : 'OCaml, originally known as Objective Caml, is the main implementation of the Caml programming language, created by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy and others in 1996.' },
+    { name : 'PHP'        , info : 'PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages. It is one of the first developed server-side scripting languages to be embedded into an HTML source document rather than calling an external file to process data.' },
+    { name : 'Perl'       , info : 'Perl is a high-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in usage, such as: Practical Extraction and Reporting Language.' },
+    { name : 'Python'     , info : 'Python is a general-purpose, high-level programming language whose design philosophy emphasizes code readability. Its syntax is said to be clear and expressive. Python has a large and comprehensive standard library.' },
+    { name : 'Ruby'       , info : 'Ruby is a dynamic, reflective, general-purpose object-oriented programming language that combines syntax inspired by Perl with Smalltalk-like features. It was also influenced by Eiffel and Lisp.' },
+    { name : 'Scala'      , info : 'Scala is a multi-paradigm programming language designed to integrate features of object-oriented programming and functional programming.[5] The name Scala is a blend of "scalable" and "language", signifying that it is designed to grow with the demands of its users.' }
+];
 
-	var icons = 'exclamation feed house information lock'.split(/ /g);
+var icons = 'exclamation feed house information lock'.split(/ /g);
 
-	$('#demo_input')
-		.textext({
-			plugins     : 'autocomplete',
-			suggestions : suggestions,
+$('#demo_input')
+    .textext({
+        plugins     : 'autocomplete',
+        suggestions : suggestions,
 
-			autocomplete : {
-				dropdownMaxHeight : '200px',
+        autocomplete : {
+            dropdownMaxHeight : '200px',
 
-				render : function(suggestion)
-				{
-					var icon = icons[hash(suggestion.name, icons.length)];
+            render : function(suggestion)
+            {
+                var icon = icons[hash(suggestion.name, icons.length)];
 
-					return '<div style="background-image:url(/images/render-demo/' + icon + '.png)">'
-						+ suggestion.name +
-						'<p>' + suggestion.info + '</p>'
-					+ '</div>';
-				}
-			},
+                return '<div style="background-image:url(images/render-demo/' + icon + '.png)">'
+                    + suggestion.name +
+                    '<p>' + suggestion.info + '</p>'
+                + '</div>';
+            }
+        },
 
-			ext : {
-				itemManager : {
-					stringToItem : function(str, callback)
-					{
-						this.getSuggestions(str, function(err, items)
-						{
-							callback(err, items && items[0].name === str ? items[0].name : '');
-						});
-					},
+        ext : {
+            itemManager : {
+                stringToItem : function(str, callback)
+                {
+                    this.getSuggestions(str, function(err, items)
+                    {
+                        callback(err, items && items[0].name === str ? items[0].name : '');
+                    });
+                },
 
-					itemToString : function(item) { return item.name; },
-					compareItems : function(item1, item2) { return item1.name == item2.name; }
-				}
-			}
-		});
+                itemToString : function(item) { return item.name; },
+                compareItems : function(item1, item2) { return item1.name == item2.name; }
+            }
+        }
+    });
 
-	// a trivial hash function so that we can get same icons for labels
-	function hash(str, hashSize)
-	{
-		var result = 0; 
-		
-		for(var i = 0; i < str.length; i++) 
-			result += str.charCodeAt(i) + 31 * result;
-		
-		return result % hashSize;
-	}
-</script>
+// a trivial hash function so that we can get same icons for labels
+function hash(str, hashSize)
+{
+    var result = 0; 
+    
+    for(var i = 0; i < str.length; i++) 
+        result += str.charCodeAt(i) + 31 * result;
+    
+    return result % hashSize;
+}
+{% endcapture %}
 
-<style>
-	.text-label div {
-		background-position : 0 0;
-		background-repeat   : no-repeat;
-		padding-left        : 21px;
-		line-height         : 16px;
-	}
+{% capture example_styles %}
+.text-label div {
+    background-position : 0 0;
+    background-repeat   : no-repeat;
+    padding-left        : 21px;
+    line-height         : 16px;
+}
 
-	.text-label div p {
-		margin      : 0;
-		font-size   : 10px;
-		color       : silver;
-		line-height : 10px;
-	}
-</style>
+.text-label div p {
+    margin      : 0;
+    font-size   : 10px;
+    color       : silver;
+    line-height : 10px;
+}
 {% endcapture %}
 
 {% include live_demo.html %}

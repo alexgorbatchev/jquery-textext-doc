@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Autocomplete
+title   : Example
+link    : Autocomplete
 example : autocomplete
 id      : autocomplete
 ---
@@ -15,14 +16,11 @@ This example shows the most basic use of {{ Autocomplete }} plugin.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins     : 'autocomplete',
-			suggestions : {{ suggestions }}
-		})
-		;
-</script>
+$('#demo_input')
+    .textext({
+        plugins     : 'autocomplete',
+        suggestions : {{ suggestions }}
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

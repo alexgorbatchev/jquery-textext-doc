@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Prompt from Placeholder Attribute and Tags
+title   : Example
+link    : Prompt from Placeholder Attribute and Tags
 example : prompt tags
 id      : prompt-from-placeholder-with-tags
 ---
@@ -18,12 +19,10 @@ plugin. The prompt value comes from the `placeholder` attribute in the
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins : 'prompt'
-		});
-</script>
+$('#demo_input')
+    .textext({
+        plugins : 'prompt'
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

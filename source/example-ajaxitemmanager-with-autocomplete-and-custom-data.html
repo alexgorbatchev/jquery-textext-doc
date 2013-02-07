@@ -1,14 +1,16 @@
 ---
 layout  : example
-title   : AJAX Item Manager with Autocomplete and Custom Data
+title   : Example
+link    : AJAX with Autocomplete and Custom Data
 example : autocomplete itemmanager ajaxitemmanager customdata
 id      : ajaxitemmanager-with-autocomplete-and-custom-data
 ---
 {% include common.html %}
 
 {% capture intro %}
-This example show how to use {{ Autocomplete }} and {{ AjaxItemManager }} togethere
-in order to load and use custom JSON format. Try typing name or id in the input box.
+This example show how to use {{ Autocomplete }} and {{ AjaxItemManager }} together
+with a custom {{ ItemManager }} to use manipulate items with custom data stucture.
+Try typing name or id in the input box.
 {% endcapture %}
 
 {% capture example_textarea %}
@@ -16,62 +18,55 @@ in order to load and use custom JSON format. Try typing name or id in the input 
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
 /* custom_data.json
 {% include custom_data.json %}
 */
 
-	var AjaxItemManager = $.fn.textext.AjaxItemManager;
+function CustomItemManager() {}
 
-	function CustomItemManager() {}
+CustomItemManager.prototype = $.extend({}, $.fn.textext.AjaxItemManager.prototype, {
+    itemContains : function(item, needle)
+    {
+        return item.name.toLowerCase().indexOf(needle.toLowerCase()) === 0 || item.id == needle;
+    },
 
-	CustomItemManager.prototype = $.extend({}, AjaxItemManager.prototype, {
-		itemContains : function(item, needle)
-		{
-			return item.name.toLowerCase().indexOf(needle.toLowerCase()) === 0 || item.id == needle;
-		},
+    stringToItem : function(str, callback)
+    {
+        var data = this.data, i;
 
-		stringToItem : function(str, callback)
-		{
-			var data = this.data,
-				i
-				;
+        for(i = 0; data && i < data.length; i++)
+            if(data[i].name === str)
+                return callback(null, data[i]);
 
-			if(data)
-				for(i = 0; i < data.length; i++)
-					if(data[i].name === str)
-						return callback(null, data[i]);
+        callback(null, '');
+    },
 
-			callback(null, '');
-		},
+    itemToString : function(item)
+    {
+        return item.name;
+    },
 
-		itemToString : function(item)
-		{
-			return item.name;
-		},
+    compareItems : function(item1, item2)
+    {
+        return item1.name === item2.name && item1.id === item2.id;
+    },
 
-		compareItems : function(item1, item2)
-		{
-			return item1.name === item2.name && item1.id === item2.id;
-		},
+    getItemsFromAjax : function(data)
+    {
+        return data.items;
+    }
+});
 
-		getItemsFromAjax : function(data)
-		{
-			return data.items;
-		}
-	});
-
-	$('#demo_input')
-		.textext({
-			plugins     : 'autocomplete',
-			itemManager : CustomItemManager,
-			ajax        : {
-				url          : '/manual/examples/custom_data.json',
-				dataType     : 'json',
-				cacheResults : true
-			}
-		});
-</script>
+$('#demo_input')
+    .textext({
+        plugins     : 'autocomplete',
+        itemManager : CustomItemManager,
+        ajax        : {
+            url          : 'custom_data.json',
+            dataType     : 'json',
+            cacheResults : true
+        }
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Tags with Prepopulated Items
+title   : Example
+link    : Tags with Prepopulated Items
 example : tags data
 id      : tags-with-prepopulated-items
 ---
@@ -15,16 +16,14 @@ This example shows how to prepopulate tags with the {{ Tags }} plugin.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins : 'tags',
+$('#demo_input')
+    .textext({
+        plugins : 'tags',
 
-			tags : {
-				items : [ 'hello', 'world' ]
-			}
-		});
-</script>
+        tags : {
+            items : [ 'hello', 'world' ]
+        }
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

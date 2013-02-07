@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Arrow with Autocomplete
+title   : Example
+link    : Arrow with Autocomplete
 example : autocomplete arrow
 id      : arrow-with-autocomplete
 ---
@@ -16,14 +17,11 @@ on the arrow to open the dropdown.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins     : 'arrow autocomplete',
-			suggestions : {{ suggestions }}
-		})
-		;
-</script>
+$('#demo_input')
+    .textext({
+        plugins     : 'arrow autocomplete',
+        suggestions : {{ suggestions }}
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

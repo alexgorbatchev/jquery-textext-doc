@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Item Validator with Tags and Autocomplete
+title   : Example
+link    : Item Validator with Tags and Autocomplete
 example : itemvalidator suggestionsitemvalidator autocomplete tags
 id      : itemvalidator-with-tags-autocomplete
 ---
@@ -17,14 +18,12 @@ from the {{ ItemManager }}.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins       : 'autocomplete > tags*',
-			itemValidator : 'suggestions',
-			suggestions   : {{ suggestions }}
-		});
-</script>
+$('#demo_input')
+    .textext({
+        plugins       : 'autocomplete > tags*',
+        itemValidator : 'suggestions',
+        suggestions   : {{ suggestions }}
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Tags with Events
+title   : Example
+link    : Tags with Events
 example : tags events
 id      : tags-with-evemts
 ---
@@ -15,26 +16,24 @@ This example shows how to react to events fired by the {{ Tags }} plugin.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins : 'tags'
-		})
-		.on('tagClick', function(e, node, item, tagClickCallback)
-		{
-			alert('You clicked on `' + item + '`. It will be changed to `new: ' + item + '`');
-			tagClickCallback('new: ' + item);
-		})
-		.on('tagAdd', function(e, nodes, items)
-		{
-			alert('You added `' + items.join(', ') + '`');
-		})
-		.on('tagRemove', function(e, item)
-		{
-			alert('You removed `' + item + '`');
-		})
-		;
-</script>
+$('#demo_input')
+    .textext({
+        plugins : 'tags'
+    })
+    .on('tagClick', function(e, node, item, tagClickCallback)
+    {
+        alert('You clicked on `' + item + '`. It will be changed to `new: ' + item + '`');
+        tagClickCallback('new: ' + item);
+    })
+    .on('tagAdd', function(e, nodes, items)
+    {
+        alert('You added `' + items.join(', ') + '`');
+    })
+    .on('tagRemove', function(e, item)
+    {
+        alert('You removed `' + item + '`');
+    })
+    ;
 {% endcapture %}
 
 {% include live_demo.html %}

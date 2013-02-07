@@ -1,13 +1,15 @@
 ---
 layout  : example
-title   : AJAX Item Manager with Autocomplete
+title   : Example
+link    : AJAX with Autocomplete
 example : autocomplete itemmanager ajaxitemmanager
 id      : ajaxitemmanager-with-autocomplete
 ---
 {% include common.html %}
 
 {% capture intro %}
-This example shows how to use {{ AjaxItemManager }} with {{ Autocomplete }}.
+This example shows how to use {{ AjaxItemManager }} with {{ Autocomplete }} to load autocomplete
+suggestions from an external source.
 {% endcapture %}
 
 {% capture example_textarea %}
@@ -15,23 +17,20 @@ This example shows how to use {{ AjaxItemManager }} with {{ Autocomplete }}.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
 /* data.json
 {% include data.json %}
 */
 
-	$('#demo_input')
-		.textext({
-			plugins     : 'autocomplete',
-			itemManager : 'ajax',
-			ajax        : {
-				url          : '/manual/examples/data.json',
-				dataType     : 'json',
-				cacheResults : true
-			}
-		})
-	;
-</script>
+$('#demo_input')
+    .textext({
+        plugins     : 'autocomplete',
+        itemManager : 'ajax',
+        ajax        : {
+            url          : 'data.json',
+            dataType     : 'json',
+            cacheResults : true
+        }
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

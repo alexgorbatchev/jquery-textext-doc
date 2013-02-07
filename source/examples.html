@@ -7,18 +7,10 @@ notoc   : true
 {% include common.html %}
 
 {% capture hero %}
-  Examples are awesome, everyone loves a good demo! Here all all
-  the examples from all pages in one convinient place!
+    Examples are awesome, everyone loves a good demo! Here all all
+    the examples from all pages in one convinient place!
 {% endcapture %}
 
-{% capture about %}
-  <ul>
-  {% for item in site.pages %}
-      {% if item.example %}
-      <li><a id="example-{{ item.id }}" href="/{{ version }}{{ item.url }}">{{ item.title }}</a></li>
-      {% endif %}
-  {% endfor %}
-  </ul>
-{% endcapture %}
+{{ examples_list }}
 
 {% include api_doc.html %}

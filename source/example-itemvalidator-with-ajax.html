@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Item Validator with AJAX Item Manager
+title   : Example
+link    : Item Validator with AJAX
 example : suggestionsitemvalidator itemvalidator itemmanagerajax itemmanager
 id      : itemvalidator-with-ajax
 ---
@@ -18,22 +19,20 @@ the list.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
 /* data.json
 {% include data.json %}
 */
 
-	$('#demo_input')
-		.textext({
-			itemValidator : 'suggestions',
-			itemManager   : 'ajax',
-			ajax          : {
-				url          : '/manual/examples/data.json',
-				dataType     : 'json',
-				cacheResults : true
-			}
-		});
-</script>
+$('#demo_input')
+    .textext({
+        itemValidator : 'suggestions',
+        itemManager   : 'ajax',
+        ajax          : {
+            url          : '/manual/examples/data.json',
+            dataType     : 'json',
+            cacheResults : true
+        }
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

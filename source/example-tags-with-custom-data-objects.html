@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Tags with Custom Data Objects
+title   : Example
+link    : Tags with Custom Data Objects
 example : tags itemmanager ajaxitemmanager ext
 id      : tags-with-custom-data-objects
 ---
@@ -16,61 +17,60 @@ Note how the functions are overridden using the {{ ext }} option.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
 /* custom_data.json
 {% include custom_data.json %}
 */
-	$('#demo_input')
-		.textext({
-			plugins     : 'tags',
-			itemManager : 'ajax',
 
-			ajax : {
-				url          : '/manual/examples/custom_data.json',
-				dataType     : 'json',
-				cacheResults : true
-			},
+$('#demo_input')
+    .textext({
+        plugins     : 'tags',
+        itemManager : 'ajax',
 
-			ext : {
-				itemManager : {
-					itemContains : function(item, needle)
-					{
-						return item.name.toLowerCase().indexOf(needle.toLowerCase()) === 0 || item.id == needle;
-					},
+        ajax : {
+            url          : 'custom_data.json',
+            dataType     : 'json',
+            cacheResults : true
+        },
 
-					stringToItem : function(str, callback)
-					{
-						this.getSuggestions(str, function(err, items)
-						{
-							callback(null, items[0] || '');
-						});
-					},
+        ext : {
+            itemManager : {
+                itemContains : function(item, needle)
+                {
+                    return item.name.toLowerCase().indexOf(needle.toLowerCase()) === 0 || item.id == needle;
+                },
 
-					itemToString : function(item)
-					{
-						return item.name;
-					},
+                stringToItem : function(str, callback)
+                {
+                    this.getSuggestions(str, function(err, items)
+                    {
+                        callback(null, items[0] || '');
+                    });
+                },
 
-					compareItems : function(item1, item2)
-					{
-						return item1.name === item2.name && item1.id === item2.id;
-					},
+                itemToString : function(item)
+                {
+                    return item.name;
+                },
 
-					getItemsFromAjax : function(data)
-					{
-						return data.items;
-					}
-				},
+                compareItems : function(item1, item2)
+                {
+                    return item1.name === item2.name && item1.id === item2.id;
+                },
 
-				itemValidator : {
-					isValid : function(item, callback)
-					{
-						callback(null, item && item.name.length > 0);
-					}
-				}
-			}
-		});
-</script>
+                getItemsFromAjax : function(data)
+                {
+                    return data.items;
+                }
+            },
+
+            itemValidator : {
+                isValid : function(item, callback)
+                {
+                    callback(null, item && item.name.length > 0);
+                }
+            }
+        }
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

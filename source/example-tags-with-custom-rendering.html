@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Tags with Custom Rendering
+title   : Example
+link    : Tags with Custom Rendering
 example : tags rendering
 id      : tags-with-custom-rendering
 ---
@@ -16,49 +17,47 @@ Each tag will be created with a random icon.
 {% endcapture %}
 
 {% capture example_script %}
-<style>
-	.text-core .text-tag .text-button {
-		padding-left : 18px !important;
-	}
+var icons = 'exclamation feed house information lock'.split(/ /g);
 
-	.text-core .text-tag .custom-edit {
-		display         : block;
-		width           : 12px;
-		height          : 12px;
-		background-size : cover;
-		position        : absolute;
-		left            : 2px;
-		top             : 1px;
-	}
+$('#demo_input')
+    .textext({
+        plugins : 'tags',
 
-	.text-core .text-tag .custom-edit:hover {
-		background-image : url(/images/render-demo/tag_blue_edit.png) !important;
-	}
-</style>
+        html : {
+            tag : '<div class="text-tag"><div class="text-button"><span class="text-label"/><a class="custom-edit"/><a class="text-remove"/></div></div>'
+        },
 
-<script type="text/javascript">
-	var icons = 'exclamation feed house information lock'.split(/ /g);
+        ext : {
+            tags : {
+                renderTag : function(item)
+                {
+                    var node = $.fn.textext.TagsPlugin.prototype.renderTag.apply(this, [ item ]);
+                    node.find('.custom-edit').css('background-image', 'url(/images/render-demo/' + icons[Math.round(Math.random() * (icons.length - 1))] + '.png)');
+                    return node;
+                }
+            }
+        }
+    });
+{% endcapture %}
 
-	$('#demo_input')
-		.textext({
-			plugins : 'tags',
+{% capture example_styles %}
+.text-core .text-tag .text-button {
+    padding-left : 18px !important;
+}
 
-			html : {
-				tag : '<div class="text-tag"><div class="text-button"><span class="text-label"/><a class="custom-edit"/><a class="text-remove"/></div></div>'
-			},
+.text-core .text-tag .custom-edit {
+    display         : block;
+    width           : 12px;
+    height          : 12px;
+    background-size : cover;
+    position        : absolute;
+    left            : 2px;
+    top             : 1px;
+}
 
-			ext : {
-				tags : {
-					renderTag : function(item)
-					{
-						var node = $.fn.textext.TagsPlugin.prototype.renderTag.apply(this, [ item ]);
-						node.find('.custom-edit').css('background-image', 'url(/images/render-demo/' + icons[Math.round(Math.random() * (icons.length - 1))] + '.png)');
-						return node;
-					}
-				}
-			}
-		});
-</script>
+.text-core .text-tag .custom-edit:hover {
+    background-image : url(/images/render-demo/tag_blue_edit.png) !important;
+}
 {% endcapture %}
 
 {% include live_demo.html %}

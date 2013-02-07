@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Tags without Duplicate Items
+title   : Example
+link    : Tags without duplicates
 example : tags
 id      : tags-without-duplicates
 ---
@@ -16,16 +17,13 @@ This example shows how to prevent double entries in the {{ Tags }} plugin using 
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins : 'tags',
-
-			tags : {
-				allowDuplicates : false
-			}
-		});
-</script>
+$('#demo_input')
+    .textext({
+        plugins : 'tags',
+        tags : {
+            allowDuplicates : false
+        }
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

@@ -19,7 +19,13 @@
     <ul>
     {% for item in site.pages %}
         {% if item.example %}
-            <li><a href=".{{ item.url }}">{{ item.title }}</a></li>
+            <li>
+                {% if item.url == page.url %}
+                    <strong>{{ item.link }}</strong>
+                {% else %}
+                    <a href=".{{ item.url }}">{{ item.link }}</a>
+                {% endif %}
+            </li>
         {% endif %}
     {% endfor %}
     </ul>

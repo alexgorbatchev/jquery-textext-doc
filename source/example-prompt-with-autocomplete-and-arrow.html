@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Prompt with Autocomplete and Arrow
+title   : Example
+link    : Prompt with Autocomplete and Arrow
 example : prompt autocomplete arrow
 id      : prompt-with-autocomplete-and-arrow
 ---
@@ -17,13 +18,11 @@ here is just for fun.
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins     : 'prompt autocomplete arrow',
-			suggestions : {{ suggestions }}
-		});
-</script>
+$('#demo_input')
+    .textext({
+        plugins     : 'prompt autocomplete arrow',
+        suggestions : {{ suggestions }}
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

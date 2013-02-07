@@ -1,6 +1,7 @@
 ---
 layout  : example
-title   : Focus
+title   : Example
+link    : Focus
 example : focus
 id      : focus
 ---
@@ -15,12 +16,10 @@ To see the effect of the {{ Focus }} plugin, click in and out of the text input 
 {% endcapture %}
 
 {% capture example_script %}
-<script type="text/javascript">
-	$('#demo_input')
-		.textext({
-			plugins : 'focus'
-		});
-</script>
+$('#demo_input')
+    .textext({
+        plugins : 'focus'
+    });
 {% endcapture %}
 
 {% include live_demo.html %}

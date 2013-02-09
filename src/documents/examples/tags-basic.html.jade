@@ -1,0 +1,19 @@
+---
+layout : default
+title  : Basic Tags
+sort   : tags 001
+tags   : [ example, tags ]
+---
+
+extends example
+
+block notes
+
+block title
+  != document.title
+
+block example_coffee
+  != getExample(document.basename).source
+
+block example_javascript
+  != getExample(document.basename).contentRenderedWithoutLayouts

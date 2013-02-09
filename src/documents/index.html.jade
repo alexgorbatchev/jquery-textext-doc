@@ -1,0 +1,10 @@
+---
+layout : default
+title  : Home
+---
+
+- var query = { tags: { $has : 'example' } }
+- var examples = docpad.getDatabase().findAll(query, [ { sort: 1 } ])
+
+for example in examples.toJSON()
+  != example.contentRenderedWithoutLayouts

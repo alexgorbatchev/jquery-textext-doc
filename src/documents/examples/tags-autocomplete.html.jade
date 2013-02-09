@@ -1,0 +1,19 @@
+---
+layout : default
+title  : Tags with Autocomplete
+sort   : tags 002
+tags   : [ example, tags, autocomplete ]
+---
+
+extends example
+
+block notes
+
+block title
+  != document.title
+
+block example_coffee
+  != getExample(document.basename).source
+
+block example_javascript
+  != getExample(document.basename).contentRenderedWithoutLayouts

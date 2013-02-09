@@ -1,9 +1,25 @@
 {
-	"name"    : "textext-doc",
-	"version" : "0.0.1",
-
-	"dependencies" : {
-		"less" : ">= 1.1.6"
-	}
+  "name": "textext-doc",
+  "version": "2.0.0",
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "dependencies": {
+    "docpad"                     : "6.x",
+    "docpad-plugin-cleanurls"    : "2.x",
+    "docpad-plugin-coffeescript" : "git://github.com/alexgorbatchev/docpad-plugin-coffeescript.git",
+    "docpad-plugin-eco"          : "2.x",
+    "docpad-plugin-less"         : "~2.1.2",
+    "docpad-plugin-marked"       : "2.x",
+    "docpad-plugin-partials"     : "2.x",
+    "docpad-plugin-text"         : "2.x",
+    "docpad-plugin-jade"         : "2.x",
+    "docpad-plugin-related"      : "2.x",
+    "marked"                     : "*"
+  },
+  "devDependencies": {
+    "docpad-plugin-livereload": "2.x"
+  },
+  "main": "node_modules/docpad/bin/docpad-server"
 }
-

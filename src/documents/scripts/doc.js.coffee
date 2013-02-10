@@ -8,7 +8,7 @@ $ ->
 
     section.find('script[type="text/example"]').each ->
       src = $(@).html()
-      src = src.replace '#example', "##{id} #example"
+      src = src.replace '#example', "##{id} .example"
 
       CoffeeScript.run src
 
@@ -24,10 +24,9 @@ $ ->
       if a.length
         a.attr 'href', '#' + a.attr 'name'
         a.attr 'name', null
-
-        $('nav').append navItem
-
         header.html header.find('a[name]').html()
+
+      $('#nav').append navItem
 
     section = document.location.hash.substr(1)
 

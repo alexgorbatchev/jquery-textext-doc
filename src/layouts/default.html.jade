@@ -28,6 +28,7 @@ html(lang="en")
       More info: h5bp.com/i/378
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
 
+
     //- Our site title and description
     title= getPreparedTitle()
     meta(name="description", content=getPreparedDescription())
@@ -38,7 +39,7 @@ html(lang="en")
     != getBlock('meta').toHTML()
 
     //- Mobile viewport optimized: h5bp.com/viewport
-    meta(name="viewport", content="width=device-width")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
     //- Styles
     != styles.toHTML()
@@ -57,13 +58,10 @@ html(lang="en")
 
     .container-fluid
       .row-fluid
-        nav.span3
-          h3 Examples
-          ul#examples
-            for example in getCollection('examples').toJSON()
-              li: a(data-slug=example.slug, href=example.url)= example.title
-
-        .span9.offset3
+        .span3
+          span &nbsp;
+          #nav
+        .span9
           #content!= content
           hr
           footer

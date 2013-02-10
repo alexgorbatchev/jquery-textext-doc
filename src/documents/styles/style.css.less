@@ -8,21 +8,72 @@
 @import "./vendor/bootstrap/less/hero-unit.less";
 @import "./vendor/bootstrap/less/navs.less";
 @import "./vendor/bootstrap/less/navbar.less";
-// @import "./vendor/bootstrap/less/wells.less";
-// @import "./vendor/bootstrap/less/buttons.less";
+
+@import "./vendor/bootstrap/less/responsive-utilities.less";
+@import "./vendor/bootstrap/less/responsive-1200px-min.less";
+@import "./vendor/bootstrap/less/responsive-768px-979px.less";
+@import "./vendor/bootstrap/less/responsive-767px-max.less";
+
+
+.nav-header(@size, @margin-top : 0) {
+  font-size   : @size;
+  margin      : @margin-top 0 0 0;
+  line-height : normal;
+}
 
 body {
   padding-top: 10px;
+  font-family: 'Helvetica Neue', Helvetica, Arial;
 }
 
-nav {
-  position: fixed;
+#nav {
+  display      : none;
+  position     : fixed;
+  top          : 0;
+  left         : 0;
+  bottom       : 0;
+  padding      : 20px;
+  overflow     : auto;
+  border-right : 1px solid rgba(0, 0, 0, 0.2);
+
+  a {
+    color           : black;
+    text-decoration : none;
+    padding         : 3px 5px;
+    border-radius   : 3px;
+
+    &:hover {
+      text-decoration  : none;
+      background-color : yellow;
+      color            : black;
+      background-color : black;
+      color            : yellow;
+    }
+  }
+
+  h1 {
+    .nav-header(25px)
+  }
+
+  h2 {
+    .nav-header(20px, 20px)
+  }
+
+  h3 {
+    .nav-header(15px, 5px)
+  }
+}
+
+@media (min-width: 768px) {
+  #nav {
+    display: block;
+  }
 }
 
 section.example {
   pre {
     margin-top  : 10px;
-    font-size   : 11px;
+    font-size   : 13px;
     line-height : normal;
 
     &.js {

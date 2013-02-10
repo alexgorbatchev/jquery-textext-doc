@@ -1,13 +1,17 @@
-block notes
+.row-fluid
+  .span6
+    pre.js
+      block example_javascript
 
-block example
-  #example
+    pre.coffee
+      block example_coffee
+
+  .span6
+    block notes
+
+    block example
+      .example
 
 script(type='text/example')
   block example_coffee
 
-pre.js
-  block example_javascript
-
-pre.coffee
-  block example_coffee

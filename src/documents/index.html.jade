@@ -3,8 +3,10 @@ layout : default
 title  : Home
 ---
 
-- var query = { tags: { $has : 'example' } }
-- var examples = docpad.getDatabase().findAll(query, [ { sort: 1 } ])
+.hero-unit
+  h1 Rock On!
 
-for example in examples.toJSON()
-  != example.contentRenderedWithoutLayouts
+for example in getCollection('examples').toJSON()
+  section.example(id=example.slug)
+    h3: a(name=example.slug)= example.title
+    != example.contentRenderedWithoutLayouts

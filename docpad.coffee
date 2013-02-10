@@ -74,7 +74,7 @@ docpadConfig =
       @site.keywords.concat(@document.keywords or []).join(', ')
 
     getExample: (name) ->
-      example = docpad.getCollection('examples').findOne({ filename: "#{name}.js.coffee" })
+      example = docpad.getCollection('exampleScripts').findOne({ filename: "#{name}.js.coffee" })
       example.toJSON()
 
 
@@ -88,6 +88,9 @@ docpadConfig =
       database.findAllLive({pageOrder: $exists: true}, [pageOrder:1,title:1])
 
     examples: (database) ->
+      database.findAllLive({ tags: { $has : 'example' } }, [ { sort: 1 } ])
+
+    exampleScripts: (database) ->
       database.findAllLive({relativeDirPath:'scripts/examples'})
 
     # This one, will fetch in all documents that will be outputted to the posts directory

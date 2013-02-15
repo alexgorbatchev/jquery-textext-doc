@@ -1,16 +1,19 @@
 .row-fluid
-  .span6
+  .span12.notes
+    block notes
+
+.row-fluid
+  .span4.input
+    div
+      block example
+        .example
+
+  .span8.code
     pre.js
       block example_javascript
 
     pre.coffee
       block example_coffee
-
-  .span6
-    block notes
-
-    block example
-      .example
 
 script(type='text/example')
   block example_coffee

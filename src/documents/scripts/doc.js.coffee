@@ -1,9 +1,6 @@
-$ ->
+do ->
   $('section.example').each ->
     section = $ @
-    # id = 'section' + Math.round Math.random() * 999999
-    # section.attr 'id': id
-
     id = section.attr 'id'
 
     section.find('script[type="text/example"]').each ->
@@ -15,18 +12,18 @@ $ ->
   do ->
     scroller = -> $('html, body').stop()
 
-    $('#content h1, #content h2, #content h3').each ->
-      header = $ @
-
+    $('article').find('h2, h3').each ->
+      header  = $ @
+      target  = $ 'nav .auto'
       navItem = header.clone()
-      a = navItem.find 'a[name]'
+      a       = navItem.find 'a[name]'
 
       if a.length
         a.attr 'href', '#' + a.attr 'name'
         a.attr 'name', null
         header.html header.find('a[name]').html()
 
-      $('#nav').append navItem
+      target.append navItem
 
     section = document.location.hash.substr(1)
 

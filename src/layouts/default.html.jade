@@ -1,19 +1,16 @@
 - var scripts = getBlock('scripts')
 - var styles = getBlock('styles')
-- var t
 
-- scripts.add([ '/textext/vendor/jquery.js', '/textext/vendor/coffee-script.js' ])
+- scripts.add([ url('/textext/vendor/jquery.js'), url('/textext/vendor/coffee-script.js') ])
 
-- t = '/textext/build'
 - var textextScripts = 'textext.jquery utils event_queue plugin items_manager items_plugin textext keys_plugin input_plugin tags_plugin autocomplete_plugin'
-- scripts.add(textextScripts.replace(/([\w\.]+)/g, t + '/$1.js').split(/\s+/g))
+- scripts.add(textextScripts.replace(/([\w\.]+)/g, url('/textext/build') + '/$1.js').split(/\s+/g))
 
-- t += '/css'
 - var textextCss = 'textext input_plugin tags_plugin autocomplete_plugin'
-- styles.add(textextCss.replace(/([\w\.]+)/g, t + '/$1.css').split(/\s+/g))
+- styles.add(textextCss.replace(/([\w\.]+)/g, url('/textext/build/css') + '/$1.css').split(/\s+/g))
 
-- scripts.add(['/scripts/sample-data.js', '/scripts/doc.js'])
-- styles.add(['/styles/style.css'])
+- scripts.add([url('/scripts/sample-data.js'), url('/scripts/doc.js')])
+- styles.add(url('/styles/style.css'))
 
 doctype 5
 html(lang="en")
@@ -59,10 +56,13 @@ html(lang="en")
     .container-fluid
       .row-fluid
         .span3
-          span &nbsp;
-          #nav
-        .span9
-          #content!= content
+          nav.span3
+            h1: a(href=url('/')) TextExt #{version}
+            h2: a(href=url('/textext/'), target="_blank") Run Spec
+
+            .auto
+        article.span9
+          != content
           hr
           footer
             div= site.copyright
@@ -70,3 +70,15 @@ html(lang="en")
 
     //- Scripts
     != scripts.toHTML()
+
+- if(!debug)
+  script
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-83229-17']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();

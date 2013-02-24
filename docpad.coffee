@@ -1,12 +1,23 @@
-# The DocPad Configuration File
-# It is simply a CoffeeScript Object which is parsed by CSON
-docpadConfig =
+VERSION = '2.0.0'
 
+docpadConfig =
   ignoreHiddenFiles: true
 
   plugins:
     coffeescript:
       bare: true
+
+  environments:
+    static:
+      templateData:
+        site:
+          url: '/' + VERSION
+
+    development:
+      templateData:
+        debug: true
+        site:
+          url: ''
 
   # Template Data
   # =============
@@ -14,11 +25,12 @@ docpadConfig =
   # To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
 
   templateData:
+    version: VERSION
 
     # Specify some site properties
     site:
       # The production url of our website
-      url: "http://website.com"
+      url: 'http://website.com'
 
       # Here are some old site urls that you would like to redirect from
       oldUrls: [
@@ -27,7 +39,7 @@ docpadConfig =
       ]
 
       # The default title of our website
-      title: "Your Website"
+      title: "TextExt #{VERSION}"
 
       # The website description (for SEO)
       description: """
@@ -36,18 +48,19 @@ docpadConfig =
 
       # The website keywords (for SEO) separated by commas
       keywords: """
-        place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
+        jquery, plugin, tags, multichoice, autocomplete, input, ajax
         """
 
       # The website author's name
-      author: "Your Name"
+      author: "Alex Gorbatchev"
 
       # The website author's email
-      email: "your@email.com"
+      email: "alex.gorbatchev@gmail.com"
 
       # Your company's name
-      copyright: "© Your Company 2012"
+      copyright: "© Alex Gorbatchev 2011-2013"
 
+    url: (path) -> @site.url + path
 
     # Helper Functions
     # ----------------

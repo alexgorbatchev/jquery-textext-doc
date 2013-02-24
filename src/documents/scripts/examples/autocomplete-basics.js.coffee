@@ -5,4 +5,4 @@ $('#example').textext
     plugins : 'autocomplete'
 
     autocomplete :
-      items : cities
+      items : dataCities

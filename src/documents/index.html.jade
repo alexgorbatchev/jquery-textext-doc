@@ -7,5 +7,8 @@ h2 Examples
 
 for example in getCollection('examples').toJSON()
   section.example(id=example.slug)
-    h3: a(name=example.slug)= example.title
+    h3: a(name=example.slug)
+      span= example.group
+      span!= '&nbsp;'
+      span= example.title
     != example.contentRenderedWithoutLayouts

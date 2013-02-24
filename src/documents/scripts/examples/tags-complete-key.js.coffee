@@ -3,4 +3,5 @@ $('#example').textext
 
   tags :
     input :
-      completeKey : /42|\+|comma|enter/  # keys: * + , [enter]
+      # keys: * + , [enter]
+      completeKey : /42|\+|comma|enter/

@@ -2,10 +2,10 @@ $('#example').textext
   plugins : 'tags'
 
   tags :
-    items : [ 'hello', 'world' ]
+    items : [ 'San Francisco', 'New York' ]
 
     input :
       plugins : 'autocomplete'
 
       autocomplete :
-        items : cities
+        items : dataCities

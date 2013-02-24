@@ -1,4 +1,4 @@
-data = [
+dataSource = [
   { id: 1, city: 'New York', state: 'New York', population: '8,175,133' }
   { id: 2, city: 'Los Angeles', state: 'California', population: '3,792,621' }
   { id: 3, city: 'Chicago', state: 'Illinois', population: '2,695,598' }
@@ -101,5 +101,11 @@ data = [
   { id: 100, city: 'Rochester', state: 'New York', population: '210,565' }
 ]
 
-cities = data.map (obj) -> obj.city
-cities.sort()
+dataById   = {}
+dataByCity = {}
+dataCities = []
+
+dataSource.forEach (obj) ->
+  dataById[obj.id]     = obj
+  dataByCity[obj.city] = obj
+  dataCities.push obj.city

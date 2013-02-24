@@ -6,6 +6,8 @@ do ->
     section.find('script[type="text/example"]').each ->
       src = $(@).html()
       src = src.replace '#example', "##{id} .example"
+      src = src.replace /^(.*)$/mg, '  $1'
+      src = 'do ->\n' + src
 
       CoffeeScript.run src
 

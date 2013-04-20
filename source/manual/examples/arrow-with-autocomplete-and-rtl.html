@@ -1,0 +1,26 @@
+---
+layout  : example
+title   : Arrow With Autocomplete And Rtl
+example : autocomplete arrow rtl
+id      : arrow-with-autocomplete-and-rtl
+---
+{% include common.html %}
+
+{% capture example_textarea %}
+<div style='direction:rtl;'>
+    <textarea id="textarea" class="example" rows="1"></textarea>
+</div>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+    $('#textarea')
+        .textext({
+            plugins : 'arrow autocomplete rtl'
+        })
+        {{ getSuggestionsRtl }}
+        ;
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}

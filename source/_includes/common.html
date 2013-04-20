@@ -39,3 +39,34 @@
 				{ result : textext.itemManager().filter(list, query) }
 			);
 		}){% endcapture %}
+
+{% capture getSuggestionsRtl %}.bind('getSuggestions', function(e, data)
+        {
+            var list = [
+                    'בייסיק - Basic',
+                    "קלוז'ור - Closure",
+                    'קובול - Cobol',
+                    'דלפי - Delphi',
+                    'ארלנג - Erlang',
+                    'פורטרן - Fortran',
+                    'גו - Go',
+                    'גרובי - Groovy',
+                    'הסקל - Haskel',
+                    "ג'אווה - Java",
+                    "ג'אווהסקריפט - JavaScript",
+                    'אוקמל - OCAML',
+                    'פהפ - PHP',
+                    'פרל - Perl',
+                    'פייטון - Python',
+                    'רובי - Ruby',
+                    'סקלה - Scala'
+                ],
+                textext = $(e.target).textext()[0],
+                query = (data ? data.query : '') || ''
+                ;
+
+            $(this).trigger(
+                'setSuggestions',
+                { result : textext.itemManager().filter(list, query) }
+            );
+        }){% endcapture %}

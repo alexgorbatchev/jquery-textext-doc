@@ -1,0 +1,29 @@
+---
+layout : plugin
+title  : Rtl
+plugin : true
+id     : rtl
+---
+{% doc_file textext.plugin.rtl.js %}
+{% include common.html %}
+
+{% capture about %}
+    {% doc_desc TextExtRtl %}
+{% endcapture %}
+
+{% capture examples %}
+<ul>
+    {% for item in site.pages %}
+        {% if item.example contains 'rtl' %}
+            <li><a id="example-{{ item.id }}" href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endcapture %}
+
+{% capture options %}
+    {% doc_desc TextExtRtl.options %}
+{% endcapture %}
+
+{% include api_doc.html %}
+

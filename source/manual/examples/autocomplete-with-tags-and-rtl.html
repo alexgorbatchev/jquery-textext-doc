@@ -1,0 +1,26 @@
+---
+layout  : example
+title   : Autocomplete With Tags And Rtl
+example : autocomplete tags rtl
+id      : autocomplete-with-tags-and-rtl
+---
+{% include common.html %}
+
+{% capture example_textarea %}
+<div style='direction:rtl;'>
+    <textarea id="textarea" class="example" rows="1"></textarea>
+</div>
+{% endcapture %}
+
+{% capture example_script %}
+<script type="text/javascript">
+    $('#textarea')
+        .textext({
+            plugins : 'tags autocomplete rtl'
+        })
+        {{ getSuggestionsRtl }}
+        ;
+</script>
+{% endcapture %}
+
+{% include live_demo.html %}

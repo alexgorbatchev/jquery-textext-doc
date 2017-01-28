@@ -4,7 +4,7 @@
 
 	"dependencies"  : {
 		"uglify-js" : ">= 1.0.x",
-		"express"   : ">= 2.3.x",
+		"express"   : ">=4.14.1",
 		"winston"   : ">= 0.2.x",
 		"stylus"    : ">= 0.15.x",
 		"less"      : ">= 1.1.6"

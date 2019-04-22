@@ -11,7 +11,7 @@
 	},
 
 	"devDependencies" : {
-		"node-dev" : "x.x.x"
+		"node-dev" : ">=4.0.0"
 	}
 }
 

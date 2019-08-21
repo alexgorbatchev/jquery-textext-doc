@@ -6,7 +6,7 @@
 		"uglify-js" : ">= 1.0.x",
 		"express"   : ">= 2.3.x",
 		"winston"   : ">= 0.2.x",
-		"stylus"    : ">= 0.15.x",
+		"stylus"    : ">=0.54.7",
 		"less"      : ">= 1.1.6"
 	},
 
